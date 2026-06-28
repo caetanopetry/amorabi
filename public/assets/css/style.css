@@ -264,7 +264,7 @@ button.btn {
 .page-hero h1 {
     max-width: 880px;
     margin-top: 18px;
-    font-size: clamp(2.55rem, 5.2vw, 4.55rem);
+    font-size: 4.2rem;
     line-height: 1.04;
     letter-spacing: 0;
 }
@@ -427,7 +427,7 @@ button.btn {
 .section-heading h2 {
     margin-top: 14px;
     max-width: 720px;
-    font-size: clamp(2rem, 4vw, 3.2rem);
+    font-size: 3rem;
     line-height: 1.1;
     color: var(--ink);
 }
@@ -537,7 +537,7 @@ button.btn {
     max-width: 720px;
     margin: 14px 0 18px;
     color: var(--ink);
-    font-size: clamp(1.9rem, 4vw, 3.15rem);
+    font-size: 3rem;
     line-height: 1.08;
 }
 
@@ -673,7 +673,7 @@ button.btn {
 
 .library-event-card h2 {
     margin: 14px 0 12px;
-    font-size: clamp(1.6rem, 3vw, 2.5rem);
+    font-size: 2.35rem;
     line-height: 1.12;
 }
 
@@ -881,7 +881,7 @@ button.btn {
 
 .impact-card strong {
     display: block;
-    font-size: clamp(2rem, 5vw, 3.2rem);
+    font-size: 3rem;
     line-height: 1;
 }
 
@@ -987,7 +987,7 @@ button.btn {
 .final-cta h2 {
     max-width: 760px;
     margin: 14px auto 0;
-    font-size: clamp(1.9rem, 4vw, 3.2rem);
+    font-size: 3rem;
     line-height: 1.1;
 }
 
@@ -1177,7 +1177,7 @@ a.info-box:hover::after {
 
 .cursinho-copy h2 {
     margin: 14px 0 14px;
-    font-size: clamp(1.9rem, 4vw, 3.25rem);
+    font-size: 3rem;
     line-height: 1.06;
 }
 
@@ -1249,7 +1249,7 @@ a.info-box:hover::after {
 }
 
 .course-heading h3 {
-    font-size: clamp(1.35rem, 2vw, 1.9rem);
+    font-size: 1.75rem;
     line-height: 1.15;
 }
 
@@ -1378,7 +1378,7 @@ a.info-box:hover::after {
 
 .theatre-copy h2 {
     margin: 14px 0 16px;
-    font-size: clamp(2rem, 4vw, 3.55rem);
+    font-size: 3.2rem;
     line-height: 1.03;
 }
 
@@ -2121,7 +2121,7 @@ textarea:focus {
 
     .hero h1,
     .page-hero h1 {
-        font-size: clamp(2.2rem, 12vw, 3.2rem);
+        font-size: 2.65rem;
     }
 
     .hero-photo,
@@ -2226,5 +2226,487 @@ textarea:focus {
 
     .compact-feature {
         min-height: 210px;
+    }
+}
+
+/* Responsividade final para produção */
+html,
+body {
+    width: 100%;
+    overflow-x: clip;
+}
+
+body {
+    text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
+}
+
+h1,
+h2,
+h3,
+h4,
+p,
+a,
+span,
+strong,
+em,
+li,
+button,
+input,
+select,
+textarea {
+    overflow-wrap: anywhere;
+}
+
+.hero h1,
+.page-hero h1 {
+    font-size: 4.2rem;
+}
+
+.section-heading h2,
+.about-narrative h2,
+.final-cta h2,
+.cursinho-copy h2 {
+    font-size: 3rem;
+}
+
+.theatre-copy h2 {
+    font-size: 3.2rem;
+}
+
+.impact-card strong {
+    font-size: 3rem;
+}
+
+.library-event-card h2 {
+    font-size: 2.35rem;
+}
+
+.course-heading h3 {
+    font-size: 1.75rem;
+}
+
+.btn,
+button.btn {
+    max-width: 100%;
+    white-space: normal;
+    text-align: center;
+}
+
+.nav-menu {
+    min-width: 0;
+}
+
+.nav-menu ul,
+.hero-points,
+.cursinho-points,
+.admin-actions,
+.admin-item-actions,
+.news-meta {
+    min-width: 0;
+}
+
+.news-placeholder,
+.project-visual {
+    min-height: 210px;
+}
+
+.login-page {
+    min-height: 100vh;
+    min-height: 100dvh;
+    display: grid;
+    place-items: center;
+    padding: 24px;
+}
+
+.login-card {
+    width: min(100%, 440px);
+}
+
+.login-card img {
+    max-width: min(260px, 100%);
+    height: auto;
+}
+
+@media (max-width: 1120px) {
+    .header-container {
+        gap: 18px;
+    }
+
+    .brand img {
+        width: 184px;
+    }
+
+    .nav-menu {
+        gap: 10px;
+    }
+
+    .nav-menu a {
+        padding-inline: 9px;
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 820px) {
+    .hero h1,
+    .page-hero h1 {
+        font-size: 3.15rem;
+    }
+
+    .section-heading h2,
+    .about-narrative h2,
+    .final-cta h2,
+    .cursinho-copy h2,
+    .theatre-copy h2 {
+        font-size: 2.35rem;
+    }
+
+    .impact-card strong {
+        font-size: 2.45rem;
+    }
+
+    .library-event-card h2 {
+        font-size: 2rem;
+    }
+
+    .page-hero,
+    .library-hero {
+        padding: 58px 0;
+    }
+
+    .section {
+        padding: 58px 0;
+    }
+
+    .hero-grid,
+    .library-hero-grid {
+        gap: 28px;
+        padding: 48px 0;
+    }
+
+    .nav-menu {
+        max-height: calc(100vh - 94px);
+        max-height: calc(100dvh - 94px);
+        overflow-y: auto;
+    }
+
+    .nav-menu.open {
+        align-content: start;
+    }
+
+    .nav-menu ul {
+        width: 100%;
+    }
+
+    .nav-menu a,
+    .nav-cta {
+        width: 100%;
+    }
+
+    .content-card,
+    .mission-card,
+    .about-highlight,
+    .form-card,
+    .feature-card,
+    .news-card,
+    .document-card,
+    .theatre-copy,
+    .admin-list,
+    .admin-stat-card,
+    .empty-state,
+    .document-row,
+    .info-box {
+        padding: 24px;
+    }
+
+    .project-card > div:last-child {
+        padding: 24px;
+    }
+
+    .hero-panel {
+        padding: 24px;
+    }
+
+    .footer-grid {
+        gap: 24px;
+    }
+
+    .social-links {
+        max-width: none;
+    }
+
+    .social-links a {
+        width: 100%;
+    }
+
+    .news-detail-content {
+        padding: 24px;
+    }
+
+    .rich-text {
+        font-size: 1.04rem;
+        line-height: 1.75;
+    }
+}
+
+@media (max-width: 520px) {
+    body {
+        font-size: 16px;
+        line-height: 1.58;
+    }
+
+    .container {
+        width: min(100% - 20px, 1120px);
+    }
+
+    .brand img {
+        width: 148px;
+    }
+
+    .header-container {
+        min-height: 66px;
+    }
+
+    .menu-toggle {
+        width: 42px;
+        height: 42px;
+        flex: 0 0 auto;
+    }
+
+    .nav-menu {
+        top: 70px;
+        left: 10px;
+        right: 10px;
+        padding: 14px;
+    }
+
+    .hero h1,
+    .page-hero h1 {
+        margin-top: 14px;
+        font-size: 2.45rem;
+        line-height: 1.08;
+    }
+
+    .section-heading h2,
+    .about-narrative h2,
+    .final-cta h2,
+    .cursinho-copy h2,
+    .theatre-copy h2 {
+        font-size: 2rem;
+        line-height: 1.12;
+    }
+
+    .course-heading h3 {
+        font-size: 1.45rem;
+    }
+
+    .hero p,
+    .page-hero p,
+    .section-heading p,
+    .lead-text,
+    .content-card,
+    .form-card,
+    .mission-card,
+    .about-narrative,
+    .about-highlight,
+    .contact-info,
+    .info-stack {
+        font-size: 1rem;
+    }
+
+    .hero-actions,
+    .admin-actions,
+    .admin-item-actions {
+        grid-template-columns: 1fr;
+        width: 100%;
+    }
+
+    .hero-actions .btn,
+    .admin-actions .btn,
+    .admin-item-actions .btn,
+    .admin-item-actions form,
+    .admin-item-actions button,
+    .contact-form .btn,
+    .final-cta .btn {
+        width: 100%;
+    }
+
+    .hero-points,
+    .cursinho-points {
+        display: grid;
+        grid-template-columns: 1fr;
+    }
+
+    .hero-photo,
+    .hero-photo img,
+    .library-hero-photo img,
+    .story-photo img,
+    .photo-band-grid > img,
+    .theatre-main-photo img,
+    .library-activity-photo img,
+    .project-card img,
+    .news-card img,
+    .news-detail-cover {
+        height: auto;
+        min-height: 220px;
+        max-height: none;
+        aspect-ratio: 4 / 3;
+    }
+
+    .photo-mosaic img,
+    .photo-mosaic .photo-large,
+    .cursinho-gallery img,
+    .cursinho-gallery .cursinho-main,
+    .theatre-gallery-large img,
+    .library-mosaic img,
+    .library-event-card img {
+        height: auto;
+        min-height: 210px;
+        aspect-ratio: 4 / 3;
+    }
+
+    .library-event-card,
+    .library-mosaic {
+        gap: 12px;
+    }
+
+    .library-event-card {
+        padding: 12px;
+    }
+
+    .library-event-card > div {
+        padding: 12px 4px 4px;
+    }
+
+    .card-grid,
+    .project-grid,
+    .download-grid,
+    .download-grid.emenda-grid,
+    .action-grid,
+    .course-grid,
+    .course-grid.compact,
+    .admin-dashboard-grid,
+    .admin-image-list,
+    .footer-grid {
+        gap: 16px;
+    }
+
+    .content-card,
+    .mission-card,
+    .about-highlight,
+    .form-card,
+    .feature-card,
+    .news-card,
+    .document-card,
+    .theatre-copy,
+    .admin-list,
+    .admin-stat-card,
+    .empty-state,
+    .document-row,
+    .info-box,
+    .news-detail-content,
+    .news-gallery {
+        padding: 18px;
+    }
+
+    .news-card img {
+        margin: -18px -18px 18px;
+        width: calc(100% + 36px);
+    }
+
+    .project-card > div:last-child {
+        padding: 20px;
+    }
+
+    .download-card {
+        min-height: auto;
+        padding: 20px;
+    }
+
+    .download-card strong {
+        max-width: none;
+        padding-right: 38px;
+    }
+
+    .timeline-item {
+        gap: 8px;
+        padding: 18px;
+    }
+
+    .admin-form-row {
+        display: grid;
+        grid-template-columns: 1fr;
+    }
+
+    .admin-check {
+        padding-top: 0;
+    }
+
+    .login-page {
+        align-items: start;
+        padding: 16px;
+    }
+}
+
+@media (max-width: 380px) {
+    .container {
+        width: min(100% - 16px, 1120px);
+    }
+
+    .brand img {
+        width: 132px;
+    }
+
+    .hero h1,
+    .page-hero h1 {
+        font-size: 2.12rem;
+    }
+
+    .section-heading h2,
+    .about-narrative h2,
+    .final-cta h2,
+    .cursinho-copy h2,
+    .theatre-copy h2 {
+        font-size: 1.78rem;
+    }
+
+    .btn,
+    button.btn {
+        min-height: 44px;
+        padding: 11px 14px;
+    }
+
+    .eyebrow,
+    .tag {
+        font-size: 0.76rem;
+    }
+
+    .content-card,
+    .mission-card,
+    .about-highlight,
+    .form-card,
+    .feature-card,
+    .news-card,
+    .document-card,
+    .theatre-copy,
+    .admin-list,
+    .admin-stat-card,
+    .empty-state,
+    .document-row,
+    .info-box,
+    .news-detail-content,
+    .news-gallery {
+        padding: 16px;
+    }
+
+    .news-card img {
+        margin: -16px -16px 16px;
+        width: calc(100% + 32px);
+    }
+
+    input,
+    select,
+    textarea {
+        padding: 12px;
     }
 }

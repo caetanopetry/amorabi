@@ -24,9 +24,9 @@ $noticias_fallback = [
 <section class="hero hero-home">
     <div class="container hero-grid">
         <div class="hero-copy reveal">
-            <span class="eyebrow">Desde 1982 no coração do Itinga</span>
+            <span class="eyebrow">Desde 1981 no coração do Itinga</span>
             <h1>Mais de 40 anos de cultura, educação e <span class="hero-title-mark">luta comunitária.</span></h1>
-            <p class="hero-lead">Uma casa feita por moradores, artistas, educadores e voluntários que mantêm o Itinga em movimento.</p>
+            <p class="hero-lead">Uma instituição feita por moradores, artistas, educadores e voluntários que mantêm o Itinga em movimento.</p>
             <div class="hero-points" aria-label="Frentes de atuação da AMORABI">
                 <span>Cultura viva</span>
                 <span>Educação popular</span>

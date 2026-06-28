@@ -4,7 +4,7 @@
     <div class="container reveal">
         <span class="eyebrow">Quem Somos</span>
         <h1>Nossa História</h1>
-        <p>Mais de quatro décadas de organização comunitária, cultura e educação popular no bairro Itinga.</p>
+        <p>Mais de quatro décadas de organização comunitária, cultura, esporte, lazer e educação popular no bairro Itinga.</p>
     </div>
 </section>
 
@@ -21,7 +21,7 @@
             <img src="assets/img/imagens/amorabi.jpg" alt="Fachada do Centro Comunitário da AMORABI" class="about-card-photo">
             <span>Missão</span>
             <h2>Fortalecer a identidade comunitária do Itinga.</h2>
-            <p>Por meio da educação, da cultura, da arte e da defesa constante dos direitos sociais.</p>
+            <p>Por meio da educação, da cultura, da arte, do esporte, do lazer e da defesa constante dos direitos sociais.</p>
         </aside>
     </div>
 </section>
@@ -35,7 +35,7 @@
             <span class="eyebrow">Ponto de Cultura</span>
             <h2>Da luta por infraestrutura à força cultural da comunidade.</h2>
             <p>Em 2009, a AMORABI foi reconhecida oficialmente como Ponto de Cultura. Em 2011, recebeu a Medalha Cruz e Sousa de Honra ao Mérito Cultural pela contribuição à cultura em Santa Catarina.</p>
-            <p>Hoje, a instituição segue independente, movida pelo trabalho coletivo e pelo amor ao território.</p>
+            <p>Hoje, a instituição segue independente, movida pelo trabalho coletivo e pelo amor ao território. Seus espaços também acolhem esporte e convivência, com quadra de futsal, futebol, parquinhos e atividades que aproximam crianças, jovens e famílias.</p>
         </div>
     </div>
 </section>
@@ -50,7 +50,7 @@
         <div class="timeline-item reveal"><strong>Anos 80 e 90</strong><span>Lutas por água tratada, iluminação pública, regularização fundiária, escola e posto de saúde.</span></div>
         <div class="timeline-item reveal"><strong>2009</strong><span>Reconhecimento oficial como Ponto de Cultura.</span></div>
         <div class="timeline-item reveal"><strong>2011</strong><span>Recebimento da Medalha Cruz e Sousa de Honra ao Mérito Cultural.</span></div>
-        <div class="timeline-item reveal"><strong>Hoje</strong><span>Cultura, educação popular, biblioteca comunitária, eventos e mobilização social.</span></div>
+        <div class="timeline-item reveal"><strong>Hoje</strong><span>Cultura, educação popular, biblioteca comunitária, esporte, lazer, eventos e mobilização social.</span></div>
     </div>
 </section>
 

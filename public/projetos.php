@@ -100,7 +100,7 @@ function course_icon($type) {
         <div class="theatre-copy reveal">
             <span class="eyebrow">Teatro na AMORABI</span>
             <h2>Palco comunitário, memória e formação de plateias.</h2>
-            <p>O teatro é uma das marcas da casa. A AMORABI abriga apresentações, processos formativos, jogos cênicos e montagens que movimentam a zona sul de Joinville.</p>
+            <p>O teatro é uma das marcas do espaço. A AMORABI abriga apresentações, processos formativos, jogos cênicos e montagens que movimentam a zona sul de Joinville.</p>
             <a class="btn btn-outline" href="contato.php">Consultar oficinas</a>
         </div>
     </div>
@@ -204,7 +204,7 @@ function course_icon($type) {
     <div class="container reveal">
         <span class="eyebrow">Apoio</span>
         <h2>Projetos comunitários ficam mais fortes com participação.</h2>
-        <p>Voluntários, parceiros e moradores ajudam a manter a casa viva e aberta para novas possibilidades.</p>
+        <p>Voluntários, parceiros e moradores ajudam a manter a instituição viva e aberta para novas possibilidades.</p>
         <a class="btn" href="contato.php#como-ajudar">Quero apoiar</a>
     </div>
 </section>
