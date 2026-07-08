@@ -2067,6 +2067,76 @@ button.btn {
     }
 }
 
+/* Breakpoint extra para telefones muito pequenos */
+@media (max-width: 360px) {
+    .brand img {
+        width: 128px;
+    }
+
+    .header-container {
+        min-height: 56px;
+        gap: 8px;
+    }
+
+    .hero h1,
+    .page-hero h1 {
+        font-size: 1.75rem;
+        line-height: 1.06;
+    }
+
+    .hero p,
+    .page-hero p {
+        font-size: 0.98rem;
+    }
+
+    .page-hero {
+        padding: 40px 0;
+    }
+
+    .hero-photo {
+        min-height: 160px;
+    }
+
+    .hero-actions {
+        gap: 8px;
+    }
+
+    .btn,
+    button.btn {
+        padding: 9px 12px;
+        min-height: 40px;
+        font-size: 0.95rem;
+    }
+
+    .eyebrow {
+        font-size: 0.72rem;
+        padding: 6px 10px;
+    }
+}
+
+/* Ajustes finos do hero para telas extra-pequenas */
+@media (max-width: 360px) {
+    .hero-photo figcaption {
+        display: none;
+    }
+
+    .hero-copy {
+        padding-right: 0;
+    }
+
+    .hero-photo {
+        border-radius: 10px;
+        padding: 0;
+        overflow: hidden;
+    }
+
+    .hero-photo img {
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+    }
+}
+
 .login-page {
     min-height: 100vh;
     min-height: 100dvh;

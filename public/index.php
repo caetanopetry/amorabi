@@ -38,7 +38,11 @@ $noticias_fallback = [
             </div>
         </div>
         <figure class="hero-photo reveal">
-            <img src="assets/img/imagens/amorabi-800x445.jpg" alt="Atividade cultural em frente ao Centro Comunitário da AMORABI">
+            <img src="assets/img/imagens/amorabi-800x445.jpg"
+                 srcset="assets/img/imagens/amorabi-800x445.jpg 800w, assets/img/imagens/amorabi.jpg 1400w"
+                 sizes="(max-width: 480px) 90vw, (max-width: 980px) 45vw, 800px"
+                 loading="lazy" decoding="async"
+                 alt="Atividade cultural em frente ao Centro Comunitário da AMORABI">
             <figcaption>Ponto de Cultura no Centro Comunitário do Itinga</figcaption>
         </figure>
     </div>
@@ -97,9 +101,9 @@ $noticias_fallback = [
             <p>Registros de apresentações, oficinas e momentos comunitários que contam a história da associação sem precisar de muita explicação.</p>
         </div>
         <div class="photo-mosaic reveal">
-            <img class="photo-large" src="assets/img/imagens/721466374_18377040283202339_1097163294585383178_n.jpg" alt="Apresentação musical na AMORABI">
-            <img src="assets/img/imagens/720191862_18377040358202339_2100409563114917839_n.jpg" alt="Público aplaudindo uma apresentação cultural">
-            <img src="assets/img/imagens/720675502_18376733017202339_3039683854683229116_n.jpg" alt="Turma de karatê em oficina comunitária">
+            <img class="photo-large" src="assets/img/imagens/721466374_18377040283202339_1097163294585383178_n.jpg" loading="lazy" decoding="async" alt="Apresentação musical na AMORABI">
+            <img src="assets/img/imagens/720191862_18377040358202339_2100409563114917839_n.jpg" loading="lazy" decoding="async" alt="Público aplaudindo uma apresentação cultural">
+            <img src="assets/img/imagens/720675502_18376733017202339_3039683854683229116_n.jpg" loading="lazy" decoding="async" alt="Turma de karatê em oficina comunitária">
         </div>
     </div>
 </section>
