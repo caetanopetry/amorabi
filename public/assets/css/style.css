@@ -2000,6 +2000,73 @@ button.btn {
     min-height: 210px;
 }
 
+/* Ajustes mobile adicionais */
+@media (max-width: 480px) {
+    .brand img {
+        width: 140px;
+        height: auto;
+    }
+
+    .header-container {
+        min-height: 64px;
+        gap: 12px;
+        padding: 6px 0;
+    }
+
+    .menu-toggle {
+        width: 48px;
+        height: 48px;
+    }
+
+    .menu-toggle span {
+        width: 22px;
+        margin: 6px auto;
+    }
+
+    .hero h1,
+    .page-hero h1 {
+        font-size: 2rem;
+        line-height: 1.08;
+    }
+
+    .hero p,
+    .page-hero p {
+        font-size: 1rem;
+    }
+
+    .btn,
+    button.btn {
+        min-height: 44px;
+        padding: 10px 14px;
+        font-size: 0.98rem;
+    }
+
+    .nav-menu a {
+        padding: 12px 10px;
+        font-size: 1rem;
+        touch-action: manipulation;
+    }
+
+    input,
+    select,
+    textarea {
+        font-size: 1rem;
+        padding: 12px 10px;
+    }
+
+    .footer-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .container {
+        width: calc(100% - 20px);
+    }
+
+    .hero-actions {
+        gap: 12px;
+    }
+}
+
 .login-page {
     min-height: 100vh;
     min-height: 100dvh;
