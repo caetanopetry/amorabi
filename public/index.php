@@ -198,12 +198,5 @@ $noticias_fallback = [
     </div>
 </section>
 
-<section class="section final-cta compact-cta">
-    <div class="container reveal">
-        <h2>Chegue junto da AMORABI.</h2>
-        <p>Doe livros em bom estado, participe das atividades ou converse com a equipe sobre voluntariado.</p>
-        <a class="btn" href="https://api.whatsapp.com/send/?phone=47991987821&text&type=phone_number&app_absent=0" target="_blank" rel="noopener">Chamar no WhatsApp</a>
-    </div>
-</section>
 
 <?php include 'includes/footer.php'; ?>
