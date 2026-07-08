@@ -49,47 +49,36 @@ $noticias_fallback = [
 </section>
 
 <section class="section section-soft">
-    <div class="container two-column">
-        <div class="section-heading reveal">
-            <span class="eyebrow">Quem somos</span>
-            <h2>Associação, Ponto de Cultura e espaço de luta comunitária.</h2>
-        </div>
-        <div class="lead-text compact-lead reveal">
-            <p>A AMORABI nasceu da organização dos moradores e segue como ponto de encontro para criar, aprender, reivindicar e fortalecer o bairro.</p>
-        </div>
-    </div>
+    <div class="container about-home">
 
-    <div class="container card-grid compact-feature-grid">
-        <article class="feature-card compact-feature reveal">
-            <span class="card-icon">
-                <svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true">
-                    <path d="M5 18.5V7.2A3.2 3.2 0 0 1 8.2 4h7.6A3.2 3.2 0 0 1 19 7.2v11.3"/>
-                    <path d="M7.5 18.5h9M9 10h6M9 13.5h4"/>
-                </svg>
-            </span>
-            <h3>Cultura e Arte</h3>
-            <p>Teatro, música, danças urbanas, maracatu e encontros que ocupam o bairro com expressão.</p>
-        </article>
-        <article class="feature-card compact-feature reveal">
-            <span class="card-icon">
-                <svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true">
-                    <path d="M4 6.5c2.8-.9 5.3-.5 8 1.3 2.7-1.8 5.2-2.2 8-1.3v11.8c-2.8-.9-5.3-.5-8 1.3-2.7-1.8-5.2-2.2-8-1.3V6.5Z"/>
-                    <path d="M12 7.8v11.8"/>
-                </svg>
-            </span>
-            <h3>Educação Popular</h3>
-            <p>Cursinho, biblioteca, inclusão digital e formações para jovens, adultos e famílias.</p>
-        </article>
-        <article class="feature-card compact-feature reveal">
-            <span class="card-icon">
-                <svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true">
-                    <path d="M8 11a3 3 0 1 0 0-6 3 3 0 0 0 0 6ZM16 11a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z"/>
-                    <path d="M3.5 19c.7-3.2 2.4-5 4.5-5s3.8 1.8 4.5 5M11.5 19c.7-3.2 2.4-5 4.5-5s3.8 1.8 4.5 5"/>
-                </svg>
-            </span>
-            <h3>Mobilização Social</h3>
-            <p>Uma história de união por infraestrutura, dignidade, pertencimento e direitos no Itinga.</p>
-        </article>
+        <div class="about-home-text reveal">
+            <span class="eyebrow">Conheça a AMORABI</span>
+
+            <h2>
+                Mais de quatro décadas construindo cultura,
+                educação e participação comunitária.
+            </h2>
+
+            <p>
+                Desde 1981, a AMORABI reúne moradores, artistas,
+                educadores e voluntários para fortalecer o bairro
+                Itinga através da cultura, da educação popular e da
+                organização comunitária.
+            </p>
+
+            <a class="btn" href="sobre.php">
+                Conheça nossa história
+            </a>
+        </div>
+
+        <div class="about-home-image reveal">
+            <img
+                src="assets/img/imagens/amorabi.jpg"
+                loading="lazy"
+                decoding="async"
+                alt="Comunidade reunida na AMORABI">
+        </div>
+
     </div>
 </section>
 

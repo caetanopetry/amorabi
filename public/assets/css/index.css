@@ -1,3 +1,7 @@
+/* ============================================================
+   1. HERO
+   ============================================================ */
+
 .hero-home {
     min-height: auto;
     display: flex;
@@ -14,9 +18,7 @@
     padding: clamp(54px, 7vw, 76px) 0;
 }
 
-.hero-copy,
-.photo-story,
-.action-card {
+.hero-copy {
     min-width: 0;
 }
 
@@ -59,7 +61,7 @@
     position: relative;
     min-height: 390px;
     overflow: hidden;
-    border-radius: 14px;
+    border-radius: 20px;
     border: 1px solid rgba(255, 255, 255, 0.24);
     box-shadow: 0 28px 80px rgba(0, 0, 0, 0.28);
 }
@@ -69,6 +71,7 @@
     height: 100%;
     min-height: 390px;
     object-fit: cover;
+    transition: transform 0.4s ease;
 }
 
 .hero-photo::after {
@@ -92,48 +95,49 @@
     transform: scale(1.03);
 }
 
-.compact-lead {
-    align-self: center;
+/* ============================================================
+   2. SOBRE (CONHEÇA A AMORABI)
+   ============================================================ */
+
+.about-home {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    align-items: center;
+    gap: 56px;
 }
 
-.compact-lead p {
-    max-width: 520px;
-    font-size: 1.36rem;
-    line-height: 1.45;
+.about-home-text {
+    min-width: 0;
+    max-width: 600px;
+}
+
+.about-home-text p {
+    line-height: 1.7;
     color: var(--ink);
 }
 
-.compact-feature-grid {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+.about-home-image {
+    position: relative;
+    overflow: hidden;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
 }
 
-.compact-feature {
-    min-height: 245px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    border-color: rgba(31, 122, 130, 0.14);
+.about-home-image img {
+    width: 100%;
+    height: 100%;
+    min-height: 360px;
+    object-fit: cover;
+    transition: transform 0.4s ease;
 }
 
-.compact-feature h3 {
-    margin-bottom: 10px;
+.about-home-image:hover img {
+    transform: scale(1.04);
 }
 
-.compact-feature p {
-    margin-top: auto;
-}
-
-.compact-feature:nth-child(1) {
-    background: linear-gradient(150deg, #fff, rgba(246, 178, 75, 0.13));
-}
-
-.compact-feature:nth-child(2) {
-    background: linear-gradient(150deg, #fff, rgba(31, 122, 130, 0.1));
-}
-
-.compact-feature:nth-child(3) {
-    background: linear-gradient(150deg, #fff, rgba(169, 54, 168, 0.1));
-}
+/* ============================================================
+   3. GALERIA
+   ============================================================ */
 
 .photo-section {
     background: var(--white);
@@ -142,15 +146,16 @@
 .photo-story {
     display: grid;
     grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
-    gap: 36px;
     align-items: center;
+    gap: 48px;
+    min-width: 0;
 }
 
 .photo-mosaic {
     display: grid;
     grid-template-columns: 1fr 0.82fr;
     grid-template-rows: repeat(2, minmax(170px, 1fr));
-    gap: 14px;
+    gap: 18px;
 }
 
 .photo-mosaic img {
@@ -158,14 +163,57 @@
     height: 100%;
     min-height: 170px;
     object-fit: cover;
-    border-radius: var(--radius);
+    border-radius: 16px;
     box-shadow: var(--shadow);
+    transition: transform 0.4s ease;
+}
+
+.photo-mosaic img:hover {
+    transform: scale(1.03);
 }
 
 .photo-mosaic .photo-large {
     grid-row: span 2;
     min-height: 430px;
 }
+
+/* ============================================================
+   4. INSTAGRAM
+   ============================================================ */
+
+.instagram-section {
+    background: var(--white);
+}
+
+.instagram-section .section-heading {
+    max-width: 720px;
+    margin: 0 auto;
+}
+
+.instagram-widget {
+    margin-top: 42px;
+    padding: 28px;
+    background: var(--white);
+    border: 1px solid rgba(31, 122, 130, 0.1);
+    border-radius: var(--radius);
+    box-shadow: 0 20px 48px rgba(36, 33, 42, 0.1);
+}
+
+.instagram-button {
+    display: flex;
+    justify-content: center;
+    margin-top: 36px;
+}
+
+/* ============================================================
+   5. NOTÍCIAS
+   ============================================================ */
+
+/* Nenhum CSS específico de notícias encontrado no arquivo original. */
+
+/* ============================================================
+   6. NÚMEROS / IMPACTO
+   ============================================================ */
 
 .impact-section {
     background:
@@ -196,6 +244,10 @@
     color: rgba(255, 255, 255, 0.78);
 }
 
+/* ============================================================
+   7. CARDS DE CONTATO
+   ============================================================ */
+
 .action-grid {
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -207,7 +259,8 @@
     position: relative;
     display: grid;
     gap: 10px;
-    min-height: 190px;
+    min-width: 0;
+    min-height: 210px;
     padding: 26px;
     overflow: hidden;
     border: 1px solid var(--line);
@@ -216,7 +269,13 @@
     color: var(--ink);
     text-decoration: none;
     box-shadow: var(--shadow);
-    transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+    transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.action-card .svg-icon {
+    width: 34px;
+    height: 34px;
+    color: var(--primary);
 }
 
 .action-card:nth-child(2) .svg-icon {
@@ -225,6 +284,16 @@
 
 .action-card:nth-child(3) .svg-icon {
     color: var(--teal);
+}
+
+.action-card strong {
+    font-size: 1.28rem;
+}
+
+.action-card span {
+    color: var(--muted);
+    font-size: 1.02rem;
+    line-height: 1.6;
 }
 
 .action-card::after {
@@ -245,9 +314,9 @@
 }
 
 .action-card:hover {
-    transform: translateY(-4px);
-    border-color: rgba(31, 122, 130, 0.24);
-    box-shadow: 0 24px 52px rgba(36, 33, 42, 0.12);
+    transform: translateY(-6px);
+    border-color: rgba(31, 122, 130, 0.28);
+    box-shadow: 0 30px 60px rgba(36, 33, 42, 0.16);
 }
 
 .action-card:hover::after {
@@ -256,21 +325,9 @@
     color: var(--white);
 }
 
-.action-card .svg-icon {
-    width: 34px;
-    height: 34px;
-    color: var(--primary);
-}
-
-.action-card strong {
-    font-size: 1.28rem;
-}
-
-.action-card span {
-    color: var(--muted);
-    font-size: 1.02rem;
-    line-height: 1.6;
-}
+/* ============================================================
+   8. CTA
+   ============================================================ */
 
 .compact-cta {
     padding: 74px 0;
@@ -280,34 +337,24 @@
     font-size: clamp(1.82rem, 5.4vw, 3rem);
 }
 
-.instagram-section{
-    background: var(--white);
-}
-
-.instagram-section .section-heading{
-    max-width: 720px;
-    margin: 0 auto;
-}
-
-.instagram-widget{
-    margin-top: 42px;
-    padding: 18px;
-    background: var(--white);
-    border: 1px solid var(--line);
-    border-radius: var(--radius);
-    box-shadow: var(--shadow);
-}
-
-.instagram-button{
-    display: flex;
-    justify-content: center;
-    margin-top: 36px;
-}
+/* ============================================================
+   9. MEDIA QUERIES
+   ============================================================ */
 
 @media (max-width: 980px) {
     .hero-grid,
-    .photo-story {
+    .photo-story,
+    .about-home {
         grid-template-columns: 1fr;
+    }
+
+    .about-home-image {
+        order: 2;
+    }
+
+    .about-home-text {
+        order: 1;
+        max-width: none;
     }
 
     .impact-grid,
@@ -360,6 +407,15 @@
         grid-template-columns: 1fr;
     }
 
+    .about-home {
+        gap: 32px;
+    }
+
+    .about-home-image img {
+        min-height: 0;
+        aspect-ratio: 4 / 3;
+    }
+
     .photo-mosaic {
         grid-template-columns: 1fr;
         grid-template-rows: none;
@@ -368,10 +424,6 @@
     .photo-mosaic .photo-large,
     .photo-mosaic img {
         min-height: 240px;
-    }
-
-    .compact-feature {
-        min-height: 210px;
     }
 }
 
@@ -411,6 +463,3 @@
         right: 16px;
     }
 }
-
-
-
