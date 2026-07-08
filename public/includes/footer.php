@@ -49,5 +49,6 @@
     </div>
 </footer>
 <script src="assets/js/main.js"></script>
+<script src="https://elfsightcdn.com/platform.js" async></script>
 </body>
 </html>

@@ -225,22 +225,6 @@ button.btn {
     transform: rotate(-8deg);
 }
 
-.hero-home {
-    min-height: auto;
-    display: flex;
-    align-items: center;
-}
-
-.hero-grid {
-    position: relative;
-    z-index: 1;
-    display: grid;
-    grid-template-columns: minmax(0, 1.05fr) minmax(360px, 0.95fr);
-    align-items: center;
-    gap: 48px;
-    padding: clamp(54px, 7vw, 76px) 0;
-}
-
 .eyebrow {
     display: inline-flex;
     color: var(--secondary);
@@ -269,46 +253,12 @@ button.btn {
     letter-spacing: 0;
 }
 
-.hero-copy h1 {
-    max-width: 760px;
-}
-
 .hero p,
 .page-hero p {
     max-width: 720px;
     margin-top: 18px;
     color: rgba(255, 255, 255, 0.9);
     font-size: 1.18rem;
-}
-
-.hero-title-mark {
-    color: var(--warm);
-    text-shadow: 0 8px 30px rgba(246, 178, 75, 0.18);
-}
-
-.hero-lead {
-    font-weight: 650;
-}
-
-.hero-points {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    margin-top: 22px;
-}
-
-.hero-points span {
-    display: inline-flex;
-    align-items: center;
-    min-height: 38px;
-    padding: 8px 12px;
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    border-radius: 999px;
-    background: rgba(255, 255, 255, 0.1);
-    color: rgba(255, 255, 255, 0.94);
-    font-size: 0.95rem;
-    font-weight: 800;
-    backdrop-filter: blur(12px);
 }
 
 .hero-actions {
@@ -324,43 +274,6 @@ button.btn {
     border-radius: var(--radius);
     background: rgba(255, 255, 255, 0.12);
     box-shadow: var(--shadow);
-}
-
-.hero-photo {
-    position: relative;
-    min-height: 390px;
-    overflow: hidden;
-    border-radius: 14px;
-    border: 1px solid rgba(255, 255, 255, 0.24);
-    box-shadow: 0 28px 80px rgba(0, 0, 0, 0.28);
-}
-
-.hero-photo img {
-    width: 100%;
-    height: 100%;
-    min-height: 390px;
-    object-fit: cover;
-}
-
-.hero-photo::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(180deg, transparent 45%, rgba(0, 0, 0, 0.58));
-}
-
-.hero-photo figcaption {
-    position: absolute;
-    left: 18px;
-    right: 18px;
-    bottom: 18px;
-    z-index: 1;
-    color: var(--white);
-    font-weight: 800;
-}
-
-.hero-photo:hover img {
-    transform: scale(1.03);
 }
 
 .hero-panel strong {
@@ -682,8 +595,6 @@ button.btn {
 }
 
 .card-grid,
-.impact-grid,
-.action-grid,
 .project-grid,
 .document-grid {
     display: grid;
@@ -734,13 +645,11 @@ button.btn {
     font-weight: 800;
 }
 
-.feature-card:nth-child(2) .card-icon,
-.action-card:nth-child(2) .svg-icon {
+.feature-card:nth-child(2) .card-icon {
     color: var(--secondary);
 }
 
-.feature-card:nth-child(3) .card-icon,
-.action-card:nth-child(3) .svg-icon {
+.feature-card:nth-child(3) .card-icon {
     color: var(--teal);
 }
 
@@ -765,49 +674,6 @@ button.btn {
     line-height: 1.65;
 }
 
-.compact-lead {
-    align-self: center;
-}
-
-.compact-lead p {
-    max-width: 520px;
-    font-size: 1.36rem;
-    line-height: 1.45;
-    color: var(--ink);
-}
-
-.compact-feature-grid {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-}
-
-.compact-feature {
-    min-height: 245px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    border-color: rgba(31, 122, 130, 0.14);
-}
-
-.compact-feature h3 {
-    margin-bottom: 10px;
-}
-
-.compact-feature p {
-    margin-top: auto;
-}
-
-.compact-feature:nth-child(1) {
-    background: linear-gradient(150deg, #fff, rgba(246, 178, 75, 0.13));
-}
-
-.compact-feature:nth-child(2) {
-    background: linear-gradient(150deg, #fff, rgba(31, 122, 130, 0.1));
-}
-
-.compact-feature:nth-child(3) {
-    background: linear-gradient(150deg, #fff, rgba(169, 54, 168, 0.1));
-}
-
 .news-section {
     background:
         linear-gradient(180deg, var(--white), #fbfaf8);
@@ -830,67 +696,6 @@ button.btn {
     height: 210px;
 }
 
-.photo-section {
-    background: var(--white);
-}
-
-.photo-story {
-    display: grid;
-    grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
-    gap: 36px;
-    align-items: center;
-}
-
-.photo-mosaic {
-    display: grid;
-    grid-template-columns: 1fr 0.82fr;
-    grid-template-rows: repeat(2, minmax(170px, 1fr));
-    gap: 14px;
-}
-
-.photo-mosaic img {
-    width: 100%;
-    height: 100%;
-    min-height: 170px;
-    object-fit: cover;
-    border-radius: var(--radius);
-    box-shadow: var(--shadow);
-}
-
-.photo-mosaic .photo-large {
-    grid-row: span 2;
-    min-height: 430px;
-}
-
-.impact-section {
-    background:
-        radial-gradient(circle at 16% 10%, rgba(246, 178, 75, 0.16), transparent 26%),
-        radial-gradient(circle at 92% 14%, rgba(31, 122, 130, 0.24), transparent 30%),
-        linear-gradient(135deg, #20151f, #2a2230 52%, #173f48);
-    color: var(--white);
-}
-
-.impact-grid {
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-}
-
-.impact-card {
-    padding: 22px;
-    border-left: 3px solid var(--warm);
-}
-
-.impact-card strong {
-    display: block;
-    font-size: 3rem;
-    line-height: 1;
-}
-
-.impact-card span {
-    display: block;
-    margin-top: 10px;
-    color: rgba(255, 255, 255, 0.78);
-}
-
 .tag {
     display: inline-flex;
     margin-bottom: 12px;
@@ -907,73 +712,6 @@ button.btn {
     object-fit: cover;
     border-radius: var(--radius);
     margin-bottom: 18px;
-}
-
-.action-grid {
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 22px;
-    margin-top: 34px;
-}
-
-.action-card {
-    position: relative;
-    display: grid;
-    gap: 10px;
-    min-height: 190px;
-    padding: 26px;
-    border: 1px solid var(--line);
-    border-radius: var(--radius);
-    background: var(--white);
-    color: var(--ink);
-    text-decoration: none;
-    box-shadow: var(--shadow);
-    transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
-}
-
-.action-card::after {
-    content: ">";
-    position: absolute;
-    top: 24px;
-    right: 24px;
-    width: 32px;
-    height: 32px;
-    display: grid;
-    place-items: center;
-    border-radius: 999px;
-    background: rgba(31, 122, 130, 0.1);
-    color: var(--teal);
-    font-size: 1.15rem;
-    font-weight: 900;
-    transition: transform 0.2s ease, background 0.2s ease, color 0.2s ease;
-}
-
-.action-card:hover {
-    transform: translateY(-4px);
-    border-color: rgba(31, 122, 130, 0.24);
-    box-shadow: 0 24px 52px rgba(36, 33, 42, 0.12);
-}
-
-.action-card:hover::after {
-    transform: translateX(3px);
-    background: var(--teal);
-    color: var(--white);
-}
-
-.action-card .svg-icon {
-    width: 34px;
-    height: 34px;
-    color: var(--primary);
-}
-
-.action-card strong {
-    font-size: 1.28rem;
-}
-
-.action-card span {
-    color: var(--muted);
-    font-size: 1.02rem;
-    line-height: 1.6;
 }
 
 .final-cta {
@@ -996,14 +734,6 @@ button.btn {
     margin: 16px auto 26px;
     color: rgba(255, 255, 255, 0.88);
     font-size: 1.12rem;
-}
-
-.compact-cta {
-    padding: 62px 0;
-}
-
-.compact-cta h2 {
-    margin-bottom: 24px;
 }
 
 .timeline {
@@ -2008,14 +1738,12 @@ textarea:focus {
         display: block;
     }
 
-    .hero-grid,
     .admin-layout,
     .news-detail-layout,
     .two-column,
     .story-layout,
     .about-intro,
     .story-split,
-    .photo-story,
     .photo-band-grid,
     .cursinho-feature,
     .course-group,
@@ -2035,7 +1763,6 @@ textarea:focus {
     }
 
     .card-grid,
-    .impact-grid,
     .project-grid,
     .document-grid,
     .footer-grid {
@@ -2052,10 +1779,6 @@ textarea:focus {
         grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 
-    .action-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-
     .course-grid,
     .course-grid.compact {
         grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -2065,11 +1788,8 @@ textarea:focus {
         grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 
-    .hero-photo,
-    .hero-photo img,
     .theatre-main-photo img,
     .library-hero-photo img,
-    .photo-mosaic .photo-large,
     .cursinho-gallery .cursinho-main {
         min-height: 330px;
     }
@@ -2111,22 +1831,9 @@ textarea:focus {
         right: 12px;
     }
 
-    .hero-home {
-        min-height: auto;
-    }
-
-    .hero-grid {
-        padding: 56px 0;
-    }
-
     .hero h1,
     .page-hero h1 {
         font-size: 2.65rem;
-    }
-
-    .hero-photo,
-    .hero-photo img {
-        min-height: 280px;
     }
 
     .library-hero-photo img {
@@ -2150,13 +1857,11 @@ textarea:focus {
     .card-grid,
     .admin-dashboard-grid,
     .admin-image-list,
-    .impact-grid,
     .project-grid,
     .document-grid,
     .download-grid,
     .download-grid.emenda-grid,
     .footer-grid,
-    .action-grid,
     .course-grid,
     .course-grid.compact,
     .theatre-gallery-large {
@@ -2167,13 +1872,6 @@ textarea:focus {
         grid-template-columns: 1fr;
     }
 
-    .photo-mosaic {
-        grid-template-columns: 1fr;
-        grid-template-rows: none;
-    }
-
-    .photo-mosaic .photo-large,
-    .photo-mosaic img,
     .story-photo img,
     .photo-band-grid > img,
     .theatre-main-photo img,
@@ -2223,10 +1921,6 @@ textarea:focus {
         margin: -22px -22px 20px;
         width: calc(100% + 44px);
     }
-
-    .compact-feature {
-        min-height: 210px;
-    }
 }
 
 /* Responsividade final para produção */
@@ -2274,10 +1968,6 @@ textarea {
     font-size: 3.2rem;
 }
 
-.impact-card strong {
-    font-size: 3rem;
-}
-
 .library-event-card h2 {
     font-size: 2.35rem;
 }
@@ -2298,7 +1988,6 @@ button.btn {
 }
 
 .nav-menu ul,
-.hero-points,
 .cursinho-points,
 .admin-actions,
 .admin-item-actions,
@@ -2361,10 +2050,6 @@ button.btn {
         font-size: 2.35rem;
     }
 
-    .impact-card strong {
-        font-size: 2.45rem;
-    }
-
     .library-event-card h2 {
         font-size: 2rem;
     }
@@ -2378,7 +2063,6 @@ button.btn {
         padding: 58px 0;
     }
 
-    .hero-grid,
     .library-hero-grid {
         gap: 28px;
         padding: 48px 0;
@@ -2531,14 +2215,11 @@ button.btn {
         width: 100%;
     }
 
-    .hero-points,
     .cursinho-points {
         display: grid;
         grid-template-columns: 1fr;
     }
 
-    .hero-photo,
-    .hero-photo img,
     .library-hero-photo img,
     .story-photo img,
     .photo-band-grid > img,
@@ -2708,5 +2389,286 @@ button.btn {
     select,
     textarea {
         padding: 12px;
+    }
+}
+
+/* Ajustes responsivos finais para publicação */
+main,
+section,
+.container,
+.hero-copy,
+.section-heading,
+.project-card,
+.news-card,
+.download-card,
+.course-card,
+.info-box {
+    min-width: 0;
+}
+
+.hero h1,
+.page-hero h1 {
+    font-size: clamp(2.15rem, 7.6vw, 4.2rem);
+    line-height: 1.06;
+}
+
+.section-heading h2,
+.about-narrative h2,
+.final-cta h2,
+.cursinho-copy h2 {
+    font-size: clamp(1.82rem, 5.4vw, 3rem);
+    line-height: 1.12;
+}
+
+.theatre-copy h2 {
+    font-size: clamp(1.82rem, 5.6vw, 3.2rem);
+    line-height: 1.08;
+}
+
+.library-event-card h2 {
+    font-size: clamp(1.65rem, 4.8vw, 2.35rem);
+}
+
+.hero p,
+.page-hero p,
+.section-heading p {
+    font-size: clamp(1rem, 2.4vw, 1.18rem);
+}
+
+.library-hero-photo,
+.story-photo,
+.library-activity-photo,
+.theatre-main-photo,
+.project-card,
+.news-card,
+.download-card,
+.course-card,
+.info-box {
+    overflow: hidden;
+}
+
+.library-hero-photo img,
+.story-photo img,
+.library-activity-photo img,
+.theatre-main-photo img,
+.project-card img,
+.news-card img,
+.news-detail-cover,
+.photo-band-grid > img,
+.library-mosaic img,
+.library-event-card img,
+.cursinho-gallery img,
+.theatre-gallery-large img {
+    object-fit: cover;
+}
+
+@media (max-width: 900px) {
+    .main-header {
+        position: sticky;
+    }
+
+    body.menu-open {
+        overflow: hidden;
+    }
+
+    .library-hero-grid,
+    .story-layout,
+    .contact-layout,
+    .news-detail-layout,
+    .course-group,
+    .cursinho-feature,
+    .theatre-feature,
+    .photo-band-grid {
+        gap: 28px;
+    }
+
+    .page-hero,
+    .library-hero {
+        padding: 54px 0;
+    }
+
+    .section {
+        padding: 56px 0;
+    }
+
+    .nav-menu {
+        z-index: 60;
+    }
+}
+
+@media (max-width: 700px) {
+    .hero-actions,
+    .admin-actions,
+    .admin-item-actions {
+        display: grid;
+        grid-template-columns: 1fr;
+    }
+
+    .hero-actions .btn,
+    .admin-actions .btn,
+    .admin-item-actions .btn,
+    .admin-item-actions form,
+    .admin-item-actions button,
+    .contact-form .btn,
+    .final-cta .btn {
+        width: 100%;
+    }
+
+    .cursinho-points span,
+    .news-meta span {
+        width: 100%;
+        justify-content: center;
+        text-align: center;
+    }
+
+    .content-card,
+    .mission-card,
+    .about-highlight,
+    .form-card,
+    .feature-card,
+    .news-card,
+    .document-card,
+    .theatre-copy,
+    .admin-list,
+    .admin-stat-card,
+    .empty-state,
+    .document-row,
+    .info-box,
+    .news-detail-content,
+    .news-gallery,
+    .download-card,
+    .course-card,
+    .download-card strong {
+        max-width: none;
+        padding-right: 40px;
+    }
+}
+
+@media (max-width: 560px) {
+    .container {
+        width: min(100% - 20px, 1120px);
+    }
+
+    .brand img {
+        width: clamp(128px, 40vw, 154px);
+    }
+
+    .header-container {
+        min-height: 64px;
+        gap: 12px;
+    }
+
+    .nav-menu {
+        top: 68px;
+        left: 10px;
+        right: 10px;
+        max-height: calc(100dvh - 82px);
+    }
+
+    .nav-menu a {
+        padding: 12px 14px;
+    }
+
+    .page-hero,
+    .library-hero {
+        padding: 44px 0;
+    }
+
+    .section {
+        padding: 46px 0;
+    }
+
+    .library-hero-photo,
+    .story-photo,
+    .library-activity-photo,
+    .theatre-main-photo {
+        min-height: 0;
+        aspect-ratio: 4 / 3;
+    }
+
+    .library-hero-photo img,
+    .story-photo img,
+    .library-activity-photo img,
+    .theatre-main-photo img,
+    .photo-band-grid > img,
+    .project-card img,
+    .news-card img,
+    .news-detail-cover,
+    .library-mosaic img,
+    .library-event-card img,
+    .cursinho-gallery img,
+    .cursinho-gallery .cursinho-main,
+    .theatre-gallery-large img {
+        width: 100%;
+        height: auto;
+        min-height: 0;
+        aspect-ratio: 4 / 3;
+    }
+
+    .news-card img {
+        height: auto;
+        margin: -20px -20px 18px;
+        width: calc(100% + 40px);
+    }
+
+    .library-event-card {
+        padding: 10px;
+    }
+
+    .library-event-card > div {
+        padding: 10px 4px 4px;
+    }
+
+    .footer-grid {
+        text-align: left;
+    }
+}
+
+@media (max-width: 420px) {
+    .container {
+        width: min(100% - 16px, 1120px);
+    }
+
+    .hero h1,
+    .page-hero h1 {
+        font-size: clamp(1.95rem, 9vw, 2.15rem);
+    }
+
+    .section-heading h2,
+    .about-narrative h2,
+    .final-cta h2,
+    .cursinho-copy h2,
+    .theatre-copy h2 {
+        font-size: clamp(1.62rem, 7.8vw, 1.82rem);
+    }
+
+    .content-card,
+    .mission-card,
+    .about-highlight,
+    .form-card,
+    .feature-card,
+    .news-card,
+    .document-card,
+    .theatre-copy,
+    .admin-list,
+    .admin-stat-card,
+    .empty-state,
+    .document-row,
+    .info-box,
+    .news-detail-content,
+    .news-gallery,
+    .download-card,
+    .course-card {
+        padding: 16px;
+    }
+
+    .news-card img {
+        margin: -16px -16px 16px;
+        width: calc(100% + 32px);
+    }
+
+    .download-card::after,
+    a.info-box::after {
+        right: 16px;
     }
 }

@@ -14,6 +14,18 @@ $emenda_docs = [
         'arquivo' => 'assets/docs/transparencia/dados-termo-fomento-mulheres-em-acao.pdf',
         'tipo' => 'PDF',
     ],
+    [
+        'titulo' => 'Termo de Fomento assinado',
+        'descricao' => 'Documento assinado do termo de fomento para consulta pública.',
+        'arquivo' => 'assets/docs/transparencia/Amorabi-TermoFomento.pdf',
+        'tipo' => 'PDF',
+    ],
+    [
+        'titulo' => 'Publicacao do PDF',
+        'descricao' => 'Publicação oficial em PDF para consulta pública.',
+        'arquivo' => 'assets/docs/transparencia/Publicacao.pdf',
+        'tipo' => 'PDF',
+    ],
 ];
 
 $amorabi_docs = [

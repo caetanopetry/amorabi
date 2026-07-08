@@ -19,6 +19,15 @@ function nav_active($page, $current_page) {
     <meta name="description" content="AMORABI - Associação de Moradores e Amigos do Bairro Itinga, em Joinville-SC. Cultura, educação popular, biblioteca comunitária e mobilização social.">
     <title><?php echo htmlspecialchars($nome_site); ?> - Associação de Moradores e Amigos do Bairro Itinga</title>
     <link rel="stylesheet" href="assets/css/style.css">
+
+    <?php
+    $css_page = pathinfo($current_page, PATHINFO_FILENAME);
+    $css_file = __DIR__ . "/../assets/css/{$css_page}.css";
+
+    if (file_exists($css_file)) {
+        echo '<link rel="stylesheet" href="assets/css/' . $css_page . '.css">';
+    }
+    ?>
 </head>
 <body>
 <header class="main-header" data-header>

@@ -103,7 +103,29 @@ $noticias_fallback = [
         </div>
     </div>
 </section>
+<section class="instagram-section">
 
+    <div class="container">
+
+        <div class="section-heading centered reveal">
+            <span class="eyebrow">Instagram</span>
+            <h2>A vida da AMORABI acontece todos os dias.</h2>
+
+            <p>
+                Eventos, oficinas, apresentações, encontros e projetos
+                publicados diretamente do nosso Instagram.
+            </p>
+        </div>
+
+        <div class="instagram-widget reveal">
+
+            <div class="elfsight-app-76379bfd-5bb9-4d7e-965c-cad3baaa8332" data-elfsight-app-lazy></div>
+
+        </div>
+
+    </div>
+
+</section>
 <section class="section news-section" id="noticias">
     <div class="container section-heading centered reveal">
         <span class="eyebrow">Notícias</span>
