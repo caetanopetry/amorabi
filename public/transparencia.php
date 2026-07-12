@@ -21,8 +21,8 @@ $emenda_docs = [
         'tipo' => 'PDF',
     ],
     [
-        'titulo' => 'Publicacao do PDF',
-        'descricao' => 'Publicação oficial em PDF para consulta pública.',
+        'titulo' => 'Publicacao no Diário Oficial',
+        'descricao' => 'Publicação no D.O para consulta pública.',
         'arquivo' => 'assets/docs/transparencia/Publicacao.pdf',
         'tipo' => 'PDF',
     ],
