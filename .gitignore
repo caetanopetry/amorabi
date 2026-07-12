@@ -1,0 +1,10 @@
+# Sessões PHP
+storage/sessions/*
+!storage/sessions/.gitkeep
+
+# Uploads (se não quiser versionar arquivos enviados pelo painel)
+# public/uploads/noticias/*
+
+# Arquivos do sistema
+.DS_Store
+Thumbs.db
