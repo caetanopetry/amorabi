@@ -236,7 +236,7 @@ $noticias = fetch_all_safe("SELECT n.*, c.nome AS categoria_nome, COUNT(ni.id) A
             <ul>
                 <li><a href="index.php">Dashboard</a></li>
                 <li><a class="active" href="noticias.php">Notícias</a></li>
-                <li><a href="../public/index.php" target="_blank" rel="noopener">Ver site</a></li>
+                <li><a href="<?php echo htmlspecialchars(url()); ?>" target="_blank" rel="noopener">Ver site</a></li>
                 <li><a href="logout.php">Sair</a></li>
             </ul>
         </nav>
@@ -348,7 +348,7 @@ $noticias = fetch_all_safe("SELECT n.*, c.nome AS categoria_nome, COUNT(ni.id) A
                             <div class="admin-item-actions">
                                 <a class="btn btn-small btn-outline" href="noticias.php?editar=<?php echo $noticia['id']; ?>">Editar</a>
                                 <?php if ($noticia['status'] === 'publicado'): ?>
-                                    <a class="btn btn-small btn-outline" href="../public/noticia.php?slug=<?php echo htmlspecialchars($noticia['slug']); ?>" target="_blank" rel="noopener">Ver</a>
+                                    <a class="btn btn-small btn-outline" href="<?php echo htmlspecialchars(url('noticia') . '?slug=' . urlencode($noticia['slug'])); ?>" target="_blank" rel="noopener">Ver</a>
                                 <?php endif; ?>
                                 <form method="POST" onsubmit="return confirm('Excluir esta notícia?');">
                                     <input type="hidden" name="acao" value="excluir">

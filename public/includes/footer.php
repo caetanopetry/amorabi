@@ -2,24 +2,24 @@
 <footer class="main-footer">
     <div class="container footer-grid">
         <div class="footer-about">
-            <img src="assets/img/amorabi-logo-transparent.png" alt="AMORABI" class="footer-logo">
-            <p>Associação de Moradores e Amigos do Bairro Itinga. Cultura, educação popular e mobilização comunitária em Joinville-SC.</p>
+            <img src="<?php echo htmlspecialchars(asset_url('img/amorabi-logo-transparent.png')); ?>" alt="AMORABI" class="footer-logo">
+            <p>Associacao de Moradores e Amigos do Bairro Itinga. Cultura, educacao popular e mobilizacao comunitaria em Joinville-SC.</p>
         </div>
 
         <div>
-            <h2>Endereço</h2>
+            <h2>Endereco</h2>
             <p>Rua dos Esportistas, 510<br>Bairro Itinga, Joinville - SC<br>CEP 89233-700</p>
         </div>
 
         <div>
-            <h2>Links rápidos</h2>
+            <h2>Links rapidos</h2>
             <ul class="footer-links">
-                <li><a href="sobre.php">Quem Somos</a></li>
-                <li><a href="noticias.php">Notícias</a></li>
-                <li><a href="projetos.php">Projetos</a></li>
-                <li><a href="biblioteca.php">Biblioteca</a></li>
-                <li><a href="transparencia.php">Transparência</a></li>
-                <li><a href="contato.php">Contato</a></li>
+                <li><a href="<?php echo htmlspecialchars(url('sobre')); ?>">Quem Somos</a></li>
+                <li><a href="<?php echo htmlspecialchars(url('noticias')); ?>">Noticias</a></li>
+                <li><a href="<?php echo htmlspecialchars(url('projetos')); ?>">Projetos</a></li>
+                <li><a href="<?php echo htmlspecialchars(url('biblioteca')); ?>">Biblioteca</a></li>
+                <li><a href="<?php echo htmlspecialchars(url('transparencia')); ?>">Transparencia</a></li>
+                <li><a href="<?php echo htmlspecialchars(url('contato')); ?>">Contato</a></li>
             </ul>
         </div>
 
@@ -41,6 +41,12 @@
                     </svg>
                     Instagram
                 </a>
+                <a href="https://www.facebook.com/AssociacaoItinga/?locale=pt_BR" target="_blank" rel="noopener">
+                    <svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M14 8.2V6.9c0-.8.5-1.1 1.2-1.1h1.6V3.2C16.5 3.1 15.5 3 14.4 3c-2.3 0-3.9 1.4-3.9 4v1.2H8v3h2.5V21H14v-9.8h2.6l.4-3H14Z"/>
+                    </svg>
+                    Facebook
+                </a>
             </div>
         </div>
     </div>
@@ -48,7 +54,7 @@
         <p>&copy; <?php echo date('Y'); ?> <?php echo htmlspecialchars(get_site_config('nome_site', 'AMORABI')); ?>. Todos os direitos reservados.</p>
     </div>
 </footer>
-<script src="assets/js/main.js"></script>
+<script src="<?php echo htmlspecialchars(asset_url('js/main.js')); ?>"></script>
 <script src="https://elfsightcdn.com/platform.js" async></script>
 </body>
 </html>

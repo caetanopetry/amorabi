@@ -22,7 +22,7 @@ $imagens = $noticia ? fetch_all_safe('SELECT * FROM noticia_imagens WHERE notici
             <h1>Notícia não encontrada</h1>
             <p>O conteúdo pode ter sido removido ou ainda não está publicado.</p>
             <div class="hero-actions">
-                <a class="btn" href="noticias.php">Ver notícias</a>
+                <a class="btn" href="<?php echo htmlspecialchars(url('noticias')); ?>">Ver notícias</a>
             </div>
         </div>
     </section>
@@ -41,7 +41,7 @@ $imagens = $noticia ? fetch_all_safe('SELECT * FROM noticia_imagens WHERE notici
         <div class="container news-detail-layout">
             <article class="content-card news-detail-content reveal">
                 <?php if (!empty($noticia['imagem_capa'])): ?>
-                    <img class="news-detail-cover" src="uploads/<?php echo htmlspecialchars($noticia['imagem_capa']); ?>" alt="<?php echo htmlspecialchars($noticia['texto_alt_imagem'] ?? $noticia['titulo']); ?>">
+                    <img class="news-detail-cover" src="<?php echo htmlspecialchars(upload_url($noticia['imagem_capa'])); ?>" alt="<?php echo htmlspecialchars($noticia['texto_alt_imagem'] ?? $noticia['titulo']); ?>">
                 <?php endif; ?>
 
                 <div class="news-meta">
@@ -59,8 +59,8 @@ $imagens = $noticia ? fetch_all_safe('SELECT * FROM noticia_imagens WHERE notici
                     <h2>Fotos da notícia</h2>
                     <div>
                         <?php foreach ($imagens as $img): ?>
-                            <a href="uploads/<?php echo htmlspecialchars($img['arquivo']); ?>" target="_blank" rel="noopener">
-                                <img src="uploads/<?php echo htmlspecialchars($img['arquivo']); ?>" alt="<?php echo htmlspecialchars($img['texto_alt'] ?? $noticia['titulo']); ?>">
+                            <a href="<?php echo htmlspecialchars(upload_url($img['arquivo'])); ?>" target="_blank" rel="noopener">
+                                <img src="<?php echo htmlspecialchars(upload_url($img['arquivo'])); ?>" alt="<?php echo htmlspecialchars($img['texto_alt'] ?? $noticia['titulo']); ?>">
                             </a>
                         <?php endforeach; ?>
                     </div>

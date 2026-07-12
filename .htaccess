@@ -1,8 +1,12 @@
 RewriteEngine On
 
-# Se o arquivo ou diretório existir, serve normalmente
+# Assets publicos sem expor /public na URL
+RewriteRule ^assets/(.*)$ public/assets/$1 [L]
+RewriteRule ^uploads/(.*)$ public/uploads/$1 [L]
+
+# Se o arquivo ou diretorio existir, serve normalmente
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 
-# Todas as outras requisições vão para o roteador
+# Todas as outras requisicoes vao para o roteador
 RewriteRule ^(.*)$ index.php?url=$1 [QSA,L]

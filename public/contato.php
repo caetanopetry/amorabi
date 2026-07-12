@@ -5,6 +5,7 @@ $sucesso = null;
 $erro = null;
 $whatsapp_url = 'https://api.whatsapp.com/send/?phone=47991987821&text&type=phone_number&app_absent=0';
 $instagram_url = 'https://www.instagram.com/amorabi_itinga/?utm_source=ig_embed';
+$facebook_url = 'https://www.facebook.com/AssociacaoItinga/?locale=pt_BR';
 $grupo_noticias_url = 'https://chat.whatsapp.com/LQCoYJQc4uk07AH4qv7BfE?s=cl&p=i&mlu=0&amv=0';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -90,13 +91,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <span>@amorabi_itinga</span>
                 <em>Abrir perfil</em>
             </a>
-            <div class="info-box accent" id="como-ajudar">
+            <a class="info-box" href="<?php echo $facebook_url; ?>" target="_blank" rel="noopener">
                 <svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true">
-                    <path d="M12 20.5 5.2 13.7a4.1 4.1 0 0 1 5.8-5.8l1 1 1-1a4.1 4.1 0 0 1 5.8 5.8L12 20.5Z"/>
+                    <path d="M14 8.2V6.9c0-.8.5-1.1 1.2-1.1h1.6V3.2C16.5 3.1 15.5 3 14.4 3c-2.3 0-3.9 1.4-3.9 4v1.2H8v3h2.5V21H14v-9.8h2.6l.4-3H14Z"/>
                 </svg>
-                <strong>Como ajudar</strong>
-                <span>Doe livros em bom estado, participe das ações ou converse com a equipe sobre voluntariado.</span>
-            </div>
+                <strong>Facebook</strong>
+                <span>Associação Itinga</span>
+                <em>Abrir página</em>
+            </a>
         </aside>
 
         <div class="form-card reveal">

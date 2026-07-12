@@ -1,14 +1,15 @@
 <?php
 require_once __DIR__ . '/../../app/helpers/functions.php';
-$nome_site = get_site_config('nome_site', 'AMORABI');
-$current_page = basename($_SERVER['PHP_SELF']);
 
-function nav_active($page, $current_page) {
-    if ($page === 'noticias.php' && $current_page === 'noticia.php') {
+$nome_site = get_site_config('nome_site', 'AMORABI');
+$current_route = current_route();
+
+function nav_active($route, $current_route) {
+    if ($route === 'noticias' && str_starts_with($current_route, 'noticia')) {
         return ' class="active"';
     }
 
-    return $page === $current_page ? ' class="active"' : '';
+    return $route === $current_route || ($route === '' && in_array($current_route, ['', 'index'], true)) ? ' class="active"' : '';
 }
 ?>
 <!DOCTYPE html>
@@ -16,24 +17,29 @@ function nav_active($page, $current_page) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="AMORABI - Associação de Moradores e Amigos do Bairro Itinga, em Joinville-SC. Cultura, educação popular, biblioteca comunitária e mobilização social.">
-    <title><?php echo htmlspecialchars($nome_site); ?> - Associação de Moradores e Amigos do Bairro Itinga</title>
-    <link rel="stylesheet" href="assets/css/style.css">
+    <meta name="description" content="AMORABI - Associacao de Moradores e Amigos do Bairro Itinga, em Joinville-SC. Cultura, educacao popular, biblioteca comunitaria e mobilizacao social.">
+    <title><?php echo htmlspecialchars($nome_site); ?> - Associacao de Moradores e Amigos do Bairro Itinga</title>
+    <link rel="stylesheet" href="<?php echo htmlspecialchars(asset_url('css/style.css')); ?>">
 
     <?php
-    $css_page = pathinfo($current_page, PATHINFO_FILENAME);
+    $css_page = $current_route === '' ? 'index' : basename($current_route);
+
+    if (str_starts_with($current_route, 'noticia')) {
+        $css_page = 'noticia';
+    }
+
     $css_file = __DIR__ . "/../assets/css/{$css_page}.css";
 
     if (file_exists($css_file)) {
-        echo '<link rel="stylesheet" href="assets/css/' . $css_page . '.css">';
+        echo '<link rel="stylesheet" href="' . htmlspecialchars(asset_url('css/' . $css_page . '.css')) . '">';
     }
     ?>
 </head>
 <body>
 <header class="main-header" data-header>
     <div class="header-container container">
-        <a href="index.php" class="brand" aria-label="Página inicial da AMORABI">
-            <img src="assets/img/amorabi-logo-transparent.png" alt="AMORABI - Associação de Moradores e Amigos do Bairro Itinga">
+        <a href="<?php echo htmlspecialchars(url()); ?>" class="brand" aria-label="Pagina inicial da AMORABI">
+            <img src="<?php echo htmlspecialchars(asset_url('img/amorabi-logo-transparent.png')); ?>" alt="AMORABI - Associacao de Moradores e Amigos do Bairro Itinga">
         </a>
 
         <button class="menu-toggle" type="button" aria-label="Abrir menu" aria-expanded="false" data-menu-toggle>
@@ -44,15 +50,28 @@ function nav_active($page, $current_page) {
 
         <nav class="nav-menu" data-nav>
             <ul>
-                <li><a href="index.php"<?php echo nav_active('index.php', $current_page); ?>>Início</a></li>
-                <li><a href="noticias.php"<?php echo nav_active('noticias.php', $current_page); ?>>Notícias</a></li>
-                <li><a href="sobre.php"<?php echo nav_active('sobre.php', $current_page); ?>>Quem Somos</a></li>
-                <li><a href="projetos.php"<?php echo nav_active('projetos.php', $current_page); ?>>Projetos</a></li>
-                <li><a href="biblioteca.php"<?php echo nav_active('biblioteca.php', $current_page); ?>>Biblioteca</a></li>
-                <li><a href="transparencia.php"<?php echo nav_active('transparencia.php', $current_page); ?>>Transparência</a></li>
-                <li><a href="contato.php"<?php echo nav_active('contato.php', $current_page); ?>>Contato</a></li>
+                <li><a href="<?php echo htmlspecialchars(url()); ?>"<?php echo nav_active('', $current_route); ?>>Inicio</a></li>
+                <li><a href="<?php echo htmlspecialchars(url('noticias')); ?>"<?php echo nav_active('noticias', $current_route); ?>>Noticias</a></li>
+                <li><a href="<?php echo htmlspecialchars(url('sobre')); ?>"<?php echo nav_active('sobre', $current_route); ?>>Quem Somos</a></li>
+                <li><a href="<?php echo htmlspecialchars(url('projetos')); ?>"<?php echo nav_active('projetos', $current_route); ?>>Projetos</a></li>
+                <li><a href="<?php echo htmlspecialchars(url('biblioteca')); ?>"<?php echo nav_active('biblioteca', $current_route); ?>>Biblioteca</a></li>
+                <li><a href="<?php echo htmlspecialchars(url('transparencia')); ?>"<?php echo nav_active('transparencia', $current_route); ?>>Transparencia</a></li>
+                <li><a href="<?php echo htmlspecialchars(url('contato')); ?>"<?php echo nav_active('contato', $current_route); ?>>Contato</a></li>
             </ul>
-            <a class="btn btn-small nav-cta" href="contato.php#como-ajudar">Como ajudar</a>
+            <a class="btn btn-small nav-cta" href="<?php echo htmlspecialchars(url('contato')); ?>#como-ajudar">Como ajudar</a>
+            <button class="theme-toggle" type="button" aria-label="Ativar modo escuro" aria-pressed="false" data-theme-toggle>
+                <span class="theme-toggle-track" aria-hidden="true">
+                    <span class="theme-toggle-thumb">
+                        <svg class="theme-icon theme-icon-sun" viewBox="0 0 24 24">
+                            <circle cx="12" cy="12" r="4"/>
+                            <path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/>
+                        </svg>
+                        <svg class="theme-icon theme-icon-moon" viewBox="0 0 24 24">
+                            <path d="M20 14.5A7.8 7.8 0 0 1 9.5 4 8.8 8.8 0 1 0 20 14.5Z"/>
+                        </svg>
+                    </span>
+                </span>
+            </button>
         </nav>
     </div>
 </header>

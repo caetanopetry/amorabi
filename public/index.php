@@ -2,23 +2,6 @@
 include 'includes/header.php';
 
 $noticias = fetch_all_safe("SELECT * FROM noticias WHERE status = 'publicado' ORDER BY publicado_em DESC LIMIT 3");
-$noticias_fallback = [
-    [
-        'titulo' => 'Cultura comunitária em movimento',
-        'resumo' => 'Oficinas, encontros e ações culturais valorizando a história do Itinga.',
-        'imagem_local' => 'assets/img/imagens/721466374_18377040283202339_1097163294585383178_n.jpg',
-    ],
-    [
-        'titulo' => 'Biblioteca como lugar de encontro',
-        'resumo' => 'Leitura, convivência e educação popular em um espaço aberto à comunidade.',
-        'imagem_local' => 'assets/img/imagens/amorabi.jpg',
-    ],
-    [
-        'titulo' => 'Bairro organizado desde 1982',
-        'resumo' => 'Luta por infraestrutura, direitos e dignidade para o Itinga.',
-        'imagem_local' => 'assets/img/imagens/474951850_638212055532616_874613838701138383_n.jpg',
-    ],
-];
 ?>
 
 <section class="hero hero-home">
@@ -33,7 +16,7 @@ $noticias_fallback = [
                 <span>Direitos sociais</span>
             </div>
             <div class="hero-actions">
-                <a class="btn" href="projetos.php">Conheça nossos projetos</a>
+                <a class="btn" href="<?php echo htmlspecialchars(url('projetos')); ?>">Conheça nossos projetos</a>
                 <a class="btn btn-outline" href="https://api.whatsapp.com/send/?phone=47991987821&text&type=phone_number&app_absent=0" target="_blank" rel="noopener">Chamar no WhatsApp</a>
             </div>
         </div>
@@ -48,7 +31,7 @@ $noticias_fallback = [
     </div>
 </section>
 
-<section class="section section-soft">
+<section class="section section-soft home-about-section">
     <div class="container about-home">
 
         <div class="about-home-text reveal">
@@ -66,7 +49,7 @@ $noticias_fallback = [
                 organização comunitária.
             </p>
 
-            <a class="btn" href="sobre.php">
+            <a class="btn" href="<?php echo htmlspecialchars(url('sobre')); ?>">
                 Conheça nossa história
             </a>
         </div>
@@ -82,7 +65,7 @@ $noticias_fallback = [
     </div>
 </section>
 
-<section class="section photo-section">
+<section class="section photo-section home-gallery-section">
     <div class="container photo-story">
         <div class="section-heading reveal">
             <span class="eyebrow">AMORABI em imagens</span>
@@ -119,6 +102,7 @@ $noticias_fallback = [
     </div>
 
 </section>
+<?php if (!empty($noticias)): ?>
 <section class="section news-section" id="noticias">
     <div class="container section-heading centered reveal">
         <span class="eyebrow">Notícias</span>
@@ -126,11 +110,11 @@ $noticias_fallback = [
         <p>Acompanhe a agenda, os registros das oficinas e os avisos importantes da AMORABI.</p>
     </div>
     <div class="container card-grid">
-        <?php foreach (!empty($noticias) ? $noticias : $noticias_fallback as $n): ?>
-            <?php $link_noticia = !empty($n['slug']) ? 'noticia.php?slug=' . urlencode($n['slug']) : 'noticias.php'; ?>
+        <?php foreach ($noticias as $n): ?>
+            <?php $link_noticia = !empty($n['slug']) ? url('noticia') . '?slug=' . urlencode($n['slug']) : url('noticias'); ?>
             <a class="news-card news-link reveal" href="<?php echo htmlspecialchars($link_noticia); ?>">
                 <?php if (!empty($n['imagem_capa'])): ?>
-                    <img src="uploads/<?php echo htmlspecialchars($n['imagem_capa']); ?>" alt="<?php echo htmlspecialchars($n['texto_alt_imagem'] ?? $n['titulo']); ?>">
+                    <img src="<?php echo htmlspecialchars(upload_url($n['imagem_capa'])); ?>" alt="<?php echo htmlspecialchars($n['texto_alt_imagem'] ?? $n['titulo']); ?>">
                 <?php elseif (!empty($n['imagem_local'])): ?>
                     <img src="<?php echo htmlspecialchars($n['imagem_local']); ?>" alt="<?php echo htmlspecialchars($n['titulo']); ?>">
                 <?php else: ?>
@@ -151,6 +135,7 @@ $noticias_fallback = [
         <?php endforeach; ?>
     </div>
 </section>
+<?php endif; ?>
 
 <section class="section section-soft">
     <div class="container section-heading centered reveal">
@@ -176,7 +161,7 @@ $noticias_fallback = [
             <strong>Instagram</strong>
             <span>Agenda, registros culturais e avisos da comunidade.</span>
         </a>
-        <a class="action-card reveal" href="projetos.php">
+        <a class="action-card reveal" href="<?php echo htmlspecialchars(url('projetos')); ?>">
             <svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true">
                 <path d="M4 17.5V6.8A2.8 2.8 0 0 1 6.8 4h10.4A2.8 2.8 0 0 1 20 6.8v10.4a2.8 2.8 0 0 1-2.8 2.8H6.8A2.8 2.8 0 0 1 4 17.5Z"/>
                 <path d="M8 12h8M8 8.5h5M8 15.5h6"/>

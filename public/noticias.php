@@ -22,13 +22,13 @@ $noticias = fetch_all_safe("SELECT n.*, c.nome AS categoria_nome
             <div class="empty-state reveal">
                 <h2>Nenhuma notícia publicada ainda</h2>
                 <p>Enquanto a área de notícias é atualizada, acompanhe avisos, agenda e registros pelos canais oficiais da AMORABI.</p>
-                <a class="btn btn-small" href="contato.php">Ver canais oficiais</a>
+                <a class="btn btn-small" href="<?php echo htmlspecialchars(url('contato')); ?>">Ver canais oficiais</a>
             </div>
         <?php else: ?>
             <?php foreach ($noticias as $n): ?>
-                <a class="news-card news-link reveal" href="noticia.php?slug=<?php echo urlencode($n['slug']); ?>">
+                <a class="news-card news-link reveal" href="<?php echo htmlspecialchars(url('noticia') . '?slug=' . urlencode($n['slug'])); ?>">
                     <?php if (!empty($n['imagem_capa'])): ?>
-                        <img src="uploads/<?php echo htmlspecialchars($n['imagem_capa']); ?>" alt="<?php echo htmlspecialchars($n['texto_alt_imagem'] ?? $n['titulo']); ?>">
+                        <img src="<?php echo htmlspecialchars(upload_url($n['imagem_capa'])); ?>" alt="<?php echo htmlspecialchars($n['texto_alt_imagem'] ?? $n['titulo']); ?>">
                     <?php else: ?>
                         <div class="news-placeholder" aria-hidden="true">
                             <svg class="svg-icon" viewBox="0 0 24 24">

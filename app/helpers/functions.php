@@ -96,4 +96,69 @@ function excerpt_text($text, $limit = 160) {
 
     return rtrim(mb_substr($text, 0, $limit - 3, 'UTF-8')) . '...';
 }
+
+
+
+function app_base_path(): string
+{
+    $app_url = env('APP_URL', '');
+    $path = $app_url ? (parse_url($app_url, PHP_URL_PATH) ?: '') : '';
+
+    if ($path === '') {
+        $script_dir = str_replace('\\', '/', dirname($_SERVER['SCRIPT_NAME'] ?? ''));
+        $script_dir = rtrim($script_dir, '/');
+
+        if (preg_match('#/(admin|public)$#', $script_dir)) {
+            $script_dir = dirname($script_dir);
+        }
+
+        $path = ($script_dir === '/' || $script_dir === '.') ? '' : $script_dir;
+    }
+
+    return rtrim($path, '/');
+}
+
+function url(string $path = ''): string
+{
+    $base = app_base_path();
+    $path = trim($path, '/');
+
+    if ($path === '') {
+        return $base !== '' ? $base . '/' : '/';
+    }
+
+    return $base . '/' . $path;
+}
+
+function asset_url(string $path): string
+{
+    return url('assets/' . ltrim($path, '/'));
+}
+
+function upload_url(string $path): string
+{
+    return url('uploads/' . ltrim($path, '/'));
+}
+
+function current_route(): string
+{
+    $request_path = parse_url($_SERVER['REQUEST_URI'] ?? '/', PHP_URL_PATH) ?: '/';
+    $base = app_base_path();
+
+    if ($base !== '' && str_starts_with($request_path, $base)) {
+        $request_path = substr($request_path, strlen($base));
+    }
+
+    $route = trim($request_path, '/');
+
+    if (str_starts_with($route, 'public/')) {
+        $route = substr($route, 7);
+    }
+
+    if (str_ends_with($route, '.php')) {
+        $route = substr($route, 0, -4);
+    }
+
+    return $route;
+}
 ?>

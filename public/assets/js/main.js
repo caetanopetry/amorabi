@@ -1,4 +1,51 @@
+(() => {
+    let storedTheme = null;
+    const prefersDark = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
+
+    try {
+        storedTheme = localStorage.getItem("amorabi-theme");
+    } catch (error) {
+        storedTheme = null;
+    }
+
+    const initialTheme = storedTheme || (prefersDark ? "dark" : "light");
+
+    document.documentElement.dataset.theme = initialTheme;
+})();
+
 document.addEventListener("DOMContentLoaded", () => {
+    const themeToggle = document.querySelector("[data-theme-toggle]");
+
+    const setTheme = (theme) => {
+        const isDark = theme === "dark";
+
+        document.documentElement.dataset.theme = theme;
+        document.body.classList.toggle("theme-dark", isDark);
+        document.body.classList.toggle("theme-light", !isDark);
+
+        try {
+            localStorage.setItem("amorabi-theme", theme);
+        } catch (error) {
+            // Preferencia visual aplicada mesmo quando o armazenamento local estiver bloqueado.
+        }
+
+        if (themeToggle) {
+            themeToggle.setAttribute("aria-pressed", String(isDark));
+            themeToggle.setAttribute("aria-label", isDark ? "Ativar modo claro" : "Ativar modo escuro");
+            themeToggle.title = isDark ? "Ativar modo claro" : "Ativar modo escuro";
+        }
+
+    };
+
+    setTheme(document.documentElement.dataset.theme || "light");
+
+    if (themeToggle) {
+        themeToggle.addEventListener("click", () => {
+            const currentTheme = document.documentElement.dataset.theme === "dark" ? "dark" : "light";
+            setTheme(currentTheme === "dark" ? "light" : "dark");
+        });
+    }
+
     const header = document.querySelector("[data-header]");
     const toggle = document.querySelector("[data-menu-toggle]");
     const nav = document.querySelector("[data-nav]");

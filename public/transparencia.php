@@ -107,7 +107,7 @@ function render_document_card($documento) {
         <span class="eyebrow">Dúvidas sobre documentos?</span>
         <h2>Fale com a AMORABI pelos canais oficiais.</h2>
         <p>A equipe pode orientar sobre documentos, atividades, parcerias e formas de acompanhar a associação.</p>
-        <a class="btn" href="contato.php" rel="noopener">Ver Página de Contato</a>
+        <a class="btn" href="<?php echo htmlspecialchars(url('contato')); ?>" rel="noopener">Ver Página de Contato</a>
     </div>
 </section>
 

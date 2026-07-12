@@ -11,7 +11,8 @@ storage/cache/*
 !storage/cache/.gitkeep
 
 # Uploads (descomente se preferir não versionar uploads)
-# public/uploads/noticias/*
+public/uploads/noticias/*
+!public/uploads/noticias/.gitkeep
 
 # Arquivos do sistema
 Thumbs.db

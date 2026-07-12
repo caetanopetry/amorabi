@@ -28,8 +28,6 @@ $cursos_cultura = [
     ['Curso de Teatro', 'Expressão corporal, desinibição, jogos teatrais e montagens cênicas apresentadas em festivais locais.', 'theatre'],
     ['Violão e Canto', 'Introdução musical, acordes no violão e técnicas de canto conjugadas.', 'music'],
     ['Canto Coral', 'Canto coletivo, percepção musical, afinação e apresentações comunitárias em grupo.', 'choral'],
-    ['Danças Urbanas', 'Ritmo, presença e expressão corporal através de vertentes das danças de rua.', 'dance'],
-    ['Maracatu Baque Mulher', 'Corpo, ritmo e resistência coletiva através dos tambores do maracatu, com foco no público feminino.', 'drum'],
 ];
 
 $cursos_corpo = [
@@ -40,7 +38,6 @@ $cursos_corpo = [
 
 $cursos_educacao = [
     ['Cursinho Popular Pré-ENEM', 'Aulas gratuitas aos sábados, das 14h às 18h, com professores voluntários.', 'book'],
-    ['Ciranda e apoio aos estudantes', 'Acolhimento para filhos pequenos, café comunitário e apoio com passe de ônibus quando necessário.', 'care'],
     ['Educação Financeira Digital', 'Oficinas sobre tecnologias e aplicativos para controle financeiro pessoal e familiar.', 'digital'],
 ];
 
@@ -101,7 +98,7 @@ function course_icon($type) {
             <span class="eyebrow">Teatro na AMORABI</span>
             <h2>Palco comunitário, memória e formação de plateias.</h2>
             <p>O teatro é uma das marcas do espaço. A AMORABI abriga apresentações, processos formativos, jogos cênicos e montagens que movimentam a zona sul de Joinville.</p>
-            <a class="btn btn-outline" href="contato.php">Consultar oficinas</a>
+            <a class="btn btn-outline" href="<?php echo htmlspecialchars(url('contato')); ?>">Consultar oficinas</a>
         </div>
     </div>
     <div class="container theatre-gallery-large reveal">
@@ -177,7 +174,6 @@ function course_icon($type) {
             <div class="cursinho-points">
                 <span>Aulas aos sábados</span>
                 <span>Professores voluntários</span>
-                <span>Ciranda de cuidado</span>
                 <span>Café comunitário</span>
             </div>
         </div>
@@ -189,23 +185,12 @@ function course_icon($type) {
     </div>
 </section>
 
-<section class="section project-photo-band">
-    <div class="container photo-band-grid">
-        <img src="assets/img/imagens/720675502_18376733017202339_3039683854683229116_n.jpg" alt="Turma de karatê comunitário na AMORABI">
-        <div class="section-heading reveal">
-            <span class="eyebrow">Cultura viva</span>
-            <h2>Quando a comunidade ocupa a casa, o projeto vira encontro.</h2>
-            <p>As ações da AMORABI aproximam artistas, estudantes, famílias e moradores em torno de formação, convivência e participação.</p>
-        </div>
-    </div>
-</section>
-
 <section class="section final-cta">
     <div class="container reveal">
         <span class="eyebrow">Apoio</span>
         <h2>Projetos comunitários ficam mais fortes com participação.</h2>
         <p>Voluntários, parceiros e moradores ajudam a manter a instituição viva e aberta para novas possibilidades.</p>
-        <a class="btn" href="contato.php#como-ajudar">Quero apoiar</a>
+        <a class="btn" href="<?php echo htmlspecialchars(url('contato')); ?>#como-ajudar">Quero apoiar</a>
     </div>
 </section>
 

@@ -87,8 +87,9 @@
     right: 18px;
     bottom: 18px;
     z-index: 1;
-    color: var(--white);
+    color: #ffffff;
     font-weight: 800;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.65);
 }
 
 .hero-photo:hover img {
@@ -104,6 +105,17 @@
     grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
     align-items: center;
     gap: 56px;
+}
+
+.home-about-section {
+    padding-bottom: 48px;
+    background:
+        linear-gradient(180deg, #fbfaf8 0%, #ffffff 82%);
+}
+
+:root[data-theme="dark"] .home-about-section {
+    background:
+        linear-gradient(180deg, #17131a 0%, #121017 82%);
 }
 
 .about-home-text {
@@ -141,6 +153,27 @@
 
 .photo-section {
     background: var(--white);
+}
+
+.home-gallery-section {
+    position: relative;
+    padding-top: 48px;
+    background:
+        linear-gradient(180deg, #ffffff 0%, #fbfaf8 46%, #ffffff 100%);
+    overflow: hidden;
+}
+
+:root[data-theme="dark"] .home-gallery-section {
+    background:
+        linear-gradient(180deg, #121017 0%, #17131a 46%, #121017 100%);
+}
+
+.home-gallery-section::before {
+    content: "";
+    position: absolute;
+    inset: 0 0 auto;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(161, 0, 20, 0.16), transparent);
 }
 
 .photo-story {
@@ -199,12 +232,6 @@
     box-shadow: 0 20px 48px rgba(36, 33, 42, 0.1);
 }
 
-.instagram-button {
-    display: flex;
-    justify-content: center;
-    margin-top: 36px;
-}
-
 /* ============================================================
    5. NOTÍCIAS
    ============================================================ */
@@ -214,35 +241,6 @@
 /* ============================================================
    6. NÚMEROS / IMPACTO
    ============================================================ */
-
-.impact-section {
-    background:
-        radial-gradient(circle at 16% 10%, rgba(246, 178, 75, 0.16), transparent 26%),
-        radial-gradient(circle at 92% 14%, rgba(31, 122, 130, 0.24), transparent 30%),
-        linear-gradient(135deg, #20151f, #2a2230 52%, #173f48);
-    color: var(--white);
-}
-
-.impact-grid {
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-}
-
-.impact-card {
-    padding: 22px;
-    border-left: 3px solid var(--warm);
-}
-
-.impact-card strong {
-    display: block;
-    font-size: clamp(2.1rem, 6vw, 3rem);
-    line-height: 1;
-}
-
-.impact-card span {
-    display: block;
-    margin-top: 10px;
-    color: rgba(255, 255, 255, 0.78);
-}
 
 /* ============================================================
    7. CARDS DE CONTATO
@@ -322,20 +320,12 @@
 .action-card:hover::after {
     transform: translateX(3px);
     background: var(--teal);
-    color: var(--white);
+    color: #ffffff;
 }
 
 /* ============================================================
    8. CTA
    ============================================================ */
-
-.compact-cta {
-    padding: 74px 0;
-}
-
-.compact-cta h2 {
-    font-size: clamp(1.82rem, 5.4vw, 3rem);
-}
 
 /* ============================================================
    9. MEDIA QUERIES
@@ -357,7 +347,6 @@
         max-width: none;
     }
 
-    .impact-grid,
     .action-grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
     }
@@ -402,7 +391,6 @@
         min-height: 280px;
     }
 
-    .impact-grid,
     .action-grid {
         grid-template-columns: 1fr;
     }
