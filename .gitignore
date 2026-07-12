@@ -1,10 +1,26 @@
-# Sessões PHP
+# Sessões
 storage/sessions/*
 !storage/sessions/.gitkeep
 
-# Uploads (se não quiser versionar arquivos enviados pelo painel)
+# Logs
+storage/logs/*
+!storage/logs/.gitkeep
+
+# Cache
+storage/cache/*
+!storage/cache/.gitkeep
+
+# Uploads (descomente se preferir não versionar uploads)
 # public/uploads/noticias/*
 
 # Arquivos do sistema
-.DS_Store
 Thumbs.db
+.DS_Store
+
+# IDEs
+.vscode/
+.idea/
+
+# Configurações locais
+.env
+.env.local
