@@ -304,6 +304,10 @@ document.addEventListener("DOMContentLoaded", () => {
                         result.hidden = false;
                     }
 
+                    if (payloadField && payloadField.value) {
+                        payloadField.scrollIntoView({ behavior: "smooth", block: "center" });
+                    }
+
                     setFeedback("Pix gerado. Depois do pagamento, envie o comprovante pelo WhatsApp.", false);
                 } catch (error) {
                     if (result) {
@@ -319,7 +323,13 @@ document.addEventListener("DOMContentLoaded", () => {
         if (copyButton && payloadField) {
             copyButton.addEventListener("click", async () => {
                 try {
-                    await navigator.clipboard.writeText(payloadField.value);
+                    if (navigator.clipboard && navigator.clipboard.writeText) {
+                        await navigator.clipboard.writeText(payloadField.value);
+                    } else {
+                        payloadField.focus();
+                        payloadField.select();
+                        document.execCommand("copy");
+                    }
                     setFeedback("Codigo Pix copiado.", false);
                 } catch (error) {
                     payloadField.focus();

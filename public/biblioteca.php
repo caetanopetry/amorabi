@@ -11,7 +11,7 @@ $info = fetch_one_safe("SELECT * FROM biblioteca_info ORDER BY id DESC LIMIT 1")
             <p>Um espaço vivo de estudos, encontro e incentivo à leitura para todas as idades.</p>
         </div>
         <figure class="library-hero-photo reveal">
-            <img src="assets/img/imagens-biblioteca/473889431_17957964371856225_6472203934615054950_n.webp" alt="Criança escolhendo livros nas estantes da Biblioteca Comunitária AMORABI">
+            <img src="<?php echo htmlspecialchars(asset_url('img/imagens-biblioteca/473889431_17957964371856225_6472203934615054950_n.webp')); ?>" alt="Criança escolhendo livros nas estantes da Biblioteca Comunitária AMORABI">
         </figure>
     </div>
 </section>
@@ -41,8 +41,8 @@ $info = fetch_one_safe("SELECT * FROM biblioteca_info ORDER BY id DESC LIMIT 1")
         </article>
 
         <aside class="library-mosaic reveal">
-            <img src="assets/img/imagens-biblioteca/487409297_17965791533856225_6022575734621084998_n.webp" alt="Crianças na Biblioteca Comunitária diante do mural de educação popular">
-            <img src="assets/img/imagens-biblioteca/502703064_17972417975856225_3876418955463655174_n.jpg" alt="Cartaz da Biblioteca Dito">
+            <img src="<?php echo htmlspecialchars(asset_url('img/imagens-biblioteca/487409297_17965791533856225_6022575734621084998_n.webp')); ?>" alt="Crianças na Biblioteca Comunitária diante do mural de educação popular">
+            <img src="<?php echo htmlspecialchars(asset_url('img/imagens-biblioteca/502703064_17972417975856225_3876418955463655174_n.jpg')); ?>" alt="Cartaz da Biblioteca Dito">
         </aside>
     </div>
 </section>
@@ -50,7 +50,7 @@ $info = fetch_one_safe("SELECT * FROM biblioteca_info ORDER BY id DESC LIMIT 1")
 <section class="section section-soft">
     <div class="container library-activity">
         <figure class="library-activity-photo reveal">
-            <img src="assets/img/imagens-biblioteca/540776640_18337210918202339_8936651412990877340_n.jpg" alt="Atividade de leitura com crianças na Biblioteca Comunitária AMORABI">
+            <img src="<?php echo htmlspecialchars(asset_url('img/imagens-biblioteca/540776640_18337210918202339_8936651412990877340_n.jpg')); ?>" alt="Atividade de leitura com crianças na Biblioteca Comunitária AMORABI">
         </figure>
         <div class="section-heading reveal">
             <span class="eyebrow">Educação popular</span>
@@ -96,8 +96,8 @@ $info = fetch_one_safe("SELECT * FROM biblioteca_info ORDER BY id DESC LIMIT 1")
 
 <section class="section library-event-section">
     <div class="container library-event-card reveal">
-        <img src="assets/img/imagens-biblioteca/550755790_18339038044202339_2560157884506401018_n.jpg" alt="Crianças participando de atividade com fantoches na biblioteca">
-        <img src="assets/img/imagens-biblioteca/559518665_18341264374202339_6885267170326569923_n.jpg" alt="Apresentação de histórias com público na Biblioteca Comunitária">
+        <img src="<?php echo htmlspecialchars(asset_url('img/imagens-biblioteca/550755790_18339038044202339_2560157884506401018_n.jpg')); ?>" alt="Crianças participando de atividade com fantoches na biblioteca">
+        <img src="<?php echo htmlspecialchars(asset_url('img/imagens-biblioteca/559518665_18341264374202339_6885267170326569923_n.jpg')); ?>" alt="Apresentação de histórias com público na Biblioteca Comunitária">
         <div>
             <span class="eyebrow">Espaço vivo</span>
             <h2>Histórias que circulam, livros que aproximam.</h2>

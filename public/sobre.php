@@ -18,7 +18,7 @@
         </article>
 
         <aside class="about-highlight reveal">
-            <img src="assets/img/imagens/amorabi.jpg" alt="Fachada do Centro Comunitário da AMORABI" class="about-card-photo">
+            <img src="<?php echo htmlspecialchars(asset_url('img/imagens/amorabi.jpg')); ?>" alt="Fachada do Centro Comunitário da AMORABI" class="about-card-photo">
             <span>Missão</span>
             <h2>Fortalecer a identidade do Itinga.</h2>
             <p>Promover educação, cultura, arte, esporte e lazer, além de defender os direitos da comunidade.</p>
@@ -29,7 +29,7 @@
 <section class="section section-soft">
     <div class="container story-split">
         <figure class="story-photo reveal">
-            <img src="assets/img/imagens/amorabi-800x445.jpg" alt="Atividade cultural no Centro Comunitário da AMORABI">
+            <img src="<?php echo htmlspecialchars(asset_url('img/imagens/amorabi-800x445.jpg')); ?>" alt="Atividade cultural no Centro Comunitário da AMORABI">
         </figure>
 
         <div class="section-heading reveal">

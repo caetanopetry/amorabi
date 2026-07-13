@@ -7,19 +7,19 @@ $projetos_base = [
         'titulo' => 'Teatro Comunitário e Mostras Culturais',
         'resumo' => 'Curso de teatro, jogos cênicos, expressão corporal, montagens e apresentações que fortalecem a presença cultural da AMORABI no Itinga.',
         'tag' => 'Cultura',
-        'imagem_local' => 'assets/img/imagens/722910613_18377040331202339_5437870242268030223_n.jpg',
+        'imagem_local' => asset_url('img/imagens/722910613_18377040331202339_5437870242268030223_n.jpg'),
     ],
     [
         'titulo' => 'Oficinas de Música, Canto e Ritmo',
         'resumo' => 'Violão e canto, canto coral, conectam corpo, voz, ritmo e convivência comunitária.',
         'tag' => 'Arte e música',
-        'imagem_local' => 'assets/img/imagens/721466374_18377040283202339_1097163294585383178_n.jpg',
+        'imagem_local' => asset_url('img/imagens/721466374_18377040283202339_1097163294585383178_n.jpg'),
     ],
     [
         'titulo' => 'Educação Popular e Inclusão Digital',
         'resumo' => 'Cursinho Popular gratuito para ENEM e vestibulares, café comunitário, apoio com transporte e oficinas de educação financeira digital.',
         'tag' => 'Educação',
-        'imagem_local' => 'assets/img/imagens-cursinho/653876447_18000690554906873_2216402177710935293_n.jpg',
+        'imagem_local' => asset_url('img/imagens-cursinho/653876447_18000690554906873_2216402177710935293_n.jpg'),
     ],
 ];
 $lista_projetos = !empty($projetos) ? $projetos : $projetos_base;
@@ -73,7 +73,7 @@ function course_icon($type) {
         <?php foreach ($lista_projetos as $index => $p): ?>
             <article class="project-card reveal">
                 <?php if (!empty($p['imagem_capa'])): ?>
-                    <img src="uploads/<?php echo htmlspecialchars($p['imagem_capa']); ?>" loading="lazy" decoding="async" alt="<?php echo htmlspecialchars($p['titulo']); ?>">
+                    <img src="<?php echo htmlspecialchars(upload_url($p['imagem_capa'])); ?>" loading="lazy" decoding="async" alt="<?php echo htmlspecialchars($p['titulo']); ?>">
                 <?php elseif (!empty($p['imagem_local'])): ?>
                     <img src="<?php echo htmlspecialchars($p['imagem_local']); ?>" loading="lazy" decoding="async" alt="<?php echo htmlspecialchars($p['titulo']); ?>">
                 <?php else: ?>
@@ -92,7 +92,7 @@ function course_icon($type) {
 <section class="section theatre-feature-section">
     <div class="container theatre-feature">
         <figure class="theatre-main-photo reveal">
-            <img src="assets/img/imagens/722910613_18377040331202339_5437870242268030223_n.jpg" loading="lazy" decoding="async" alt="Apresentação teatral no palco da AMORABI">
+            <img src="<?php echo htmlspecialchars(asset_url('img/imagens/722910613_18377040331202339_5437870242268030223_n.jpg')); ?>" loading="lazy" decoding="async" alt="Apresentação teatral no palco da AMORABI">
         </figure>
         <div class="theatre-copy reveal">
             <span class="eyebrow">Teatro na AMORABI</span>
@@ -102,10 +102,10 @@ function course_icon($type) {
         </div>
     </div>
     <div class="container theatre-gallery-large reveal">
-        <img src="assets/img/imagens-teatro/unnamed.jpg" loading="lazy" decoding="async" alt="Apresentação de dança no palco da AMORABI">
-        <img src="assets/img/imagens-teatro/unnamed%20(1).jpg" loading="lazy" decoding="async" alt="Apresentação musical no palco da AMORABI">
-        <img src="assets/img/imagens-teatro/unnamed%20(3).jpg" loading="lazy" decoding="async" alt="Grupo teatral em apresentação na AMORABI">
-        <img src="assets/img/imagens-teatro/unnamed%20(4).jpg" loading="lazy" decoding="async" alt="Cena teatral apresentada na AMORABI">
+        <img src="<?php echo htmlspecialchars(asset_url('img/imagens-teatro/unnamed.jpg')); ?>" loading="lazy" decoding="async" alt="Apresentação de dança no palco da AMORABI">
+        <img src="<?php echo htmlspecialchars(asset_url('img/imagens-teatro/unnamed%20(1).jpg')); ?>" loading="lazy" decoding="async" alt="Apresentação musical no palco da AMORABI">
+        <img src="<?php echo htmlspecialchars(asset_url('img/imagens-teatro/unnamed%20(3).jpg')); ?>" loading="lazy" decoding="async" alt="Grupo teatral em apresentação na AMORABI">
+        <img src="<?php echo htmlspecialchars(asset_url('img/imagens-teatro/unnamed%20(4).jpg')); ?>" loading="lazy" decoding="async" alt="Cena teatral apresentada na AMORABI">
     </div>
 </section>
 
@@ -188,9 +188,9 @@ function course_icon($type) {
             </div>
         </div>
         <div class="cursinho-gallery reveal">
-            <img class="cursinho-main" src="assets/img/imagens-cursinho/641226097_18566496004061957_896989782536006659_n.webp" alt="Turma do Cursinho Popular na Biblioteca Comunitária">
-            <img src="assets/img/imagens-cursinho/655326194_18069142292288373_846146777405786535_n.webp" alt="Turma e voluntários do Cursinho Popular da AMORABI">
-            <img src="assets/img/imagens-cursinho/686484062_18050028932767182_2184298000463721734_n.webp" alt="Aula do Cursinho Popular com estudantes na AMORABI">
+            <img class="cursinho-main" src="<?php echo htmlspecialchars(asset_url('img/imagens-cursinho/641226097_18566496004061957_896989782536006659_n.webp')); ?>" alt="Turma do Cursinho Popular na Biblioteca Comunitária">
+            <img src="<?php echo htmlspecialchars(asset_url('img/imagens-cursinho/655326194_18069142292288373_846146777405786535_n.webp')); ?>" alt="Turma e voluntários do Cursinho Popular da AMORABI">
+            <img src="<?php echo htmlspecialchars(asset_url('img/imagens-cursinho/686484062_18050028932767182_2184298000463721734_n.webp')); ?>" alt="Aula do Cursinho Popular com estudantes na AMORABI">
         </div>
     </div>
 </section>
