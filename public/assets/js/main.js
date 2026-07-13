@@ -198,4 +198,136 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         });
     }
+
+    const pixDonation = document.querySelector("[data-pix-donation]");
+    if (pixDonation) {
+        const endpoint = pixDonation.dataset.endpoint;
+        const valueButtons = pixDonation.querySelectorAll("[data-amount]");
+        const customAmount = pixDonation.querySelector("[data-pix-amount]");
+        const generateButton = pixDonation.querySelector("[data-pix-generate]");
+        const feedback = pixDonation.querySelector("[data-pix-feedback]");
+        const result = pixDonation.querySelector("[data-pix-result]");
+        const qrImage = pixDonation.querySelector("[data-pix-qr]");
+        const payloadField = pixDonation.querySelector("[data-pix-payload]");
+        const amountLabel = pixDonation.querySelector("[data-pix-amount-label]");
+        const copyButton = pixDonation.querySelector("[data-pix-copy]");
+        const whatsappLink = pixDonation.querySelector("[data-pix-whatsapp]");
+
+        let selectedAmount = "10";
+
+        const setFeedback = (message, isError = false) => {
+            if (!feedback) return;
+            feedback.textContent = message;
+            feedback.classList.toggle("error", isError);
+            feedback.classList.toggle("success", !isError && message.length > 0);
+        };
+
+        const setLoading = (isLoading) => {
+            if (!generateButton) return;
+            generateButton.disabled = isLoading;
+            generateButton.textContent = isLoading ? "Gerando..." : "Gerar QR Code Pix";
+        };
+
+        const normalizeAmount = (value) => {
+            const normalized = String(value || "").replace("R$", "").replace(/\s/g, "").replace(",", ".");
+            const amount = Number(normalized);
+            return Number.isFinite(amount) ? amount.toFixed(2) : "";
+        };
+
+        valueButtons.forEach((button) => {
+            button.addEventListener("click", () => {
+                selectedAmount = button.dataset.amount || "";
+                valueButtons.forEach((item) => item.classList.remove("active"));
+                button.classList.add("active");
+
+                if (customAmount) {
+                    customAmount.value = "";
+                }
+
+                setFeedback("");
+            });
+        });
+
+        if (customAmount) {
+            customAmount.addEventListener("input", () => {
+                selectedAmount = customAmount.value;
+                valueButtons.forEach((button) => button.classList.remove("active"));
+                setFeedback("");
+            });
+        }
+
+        if (generateButton && endpoint) {
+            generateButton.addEventListener("click", async () => {
+                const amount = normalizeAmount(customAmount && customAmount.value ? customAmount.value : selectedAmount);
+
+                if (!amount) {
+                    setFeedback("Informe um valor para gerar o Pix.", true);
+                    return;
+                }
+
+                setLoading(true);
+                setFeedback("Gerando Pix...");
+
+                try {
+                    const response = await fetch(endpoint, {
+                        method: "POST",
+                        headers: {
+                            "Content-Type": "application/x-www-form-urlencoded; charset=UTF-8",
+                            "Accept": "application/json",
+                        },
+                        body: new URLSearchParams({ amount }),
+                    });
+
+                    const data = await response.json();
+
+                    if (!response.ok || !data.ok) {
+                        throw new Error(data.message || "Nao foi possivel gerar o Pix.");
+                    }
+
+                    if (qrImage) {
+                        qrImage.src = data.qr_image_url;
+                    }
+
+                    if (payloadField) {
+                        payloadField.value = data.payload;
+                    }
+
+                    if (amountLabel) {
+                        amountLabel.textContent = `Pix copia e cola - ${data.amount_label}`;
+                    }
+
+                    if (whatsappLink && data.whatsapp_url) {
+                        whatsappLink.href = data.whatsapp_url;
+                    }
+
+                    if (result) {
+                        result.hidden = false;
+                    }
+
+                    setFeedback("Pix gerado. Depois do pagamento, envie o comprovante pelo WhatsApp.", false);
+                } catch (error) {
+                    if (result) {
+                        result.hidden = true;
+                    }
+                    setFeedback(error.message || "Nao foi possivel gerar o Pix agora.", true);
+                } finally {
+                    setLoading(false);
+                }
+            });
+        }
+
+        if (copyButton && payloadField) {
+            copyButton.addEventListener("click", async () => {
+                try {
+                    await navigator.clipboard.writeText(payloadField.value);
+                    setFeedback("Codigo Pix copiado.", false);
+                } catch (error) {
+                    payloadField.focus();
+                    payloadField.select();
+                    document.execCommand("copy");
+                    setFeedback("Codigo Pix copiado.", false);
+                }
+            });
+        }
+    }
 });

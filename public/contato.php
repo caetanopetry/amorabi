@@ -1,36 +1,10 @@
 <?php
 include 'includes/header.php';
 
-$sucesso = null;
-$erro = null;
 $whatsapp_url = 'https://api.whatsapp.com/send/?phone=47991987821&text&type=phone_number&app_absent=0';
 $instagram_url = 'https://www.instagram.com/amorabi_itinga/?utm_source=ig_embed';
 $facebook_url = 'https://www.facebook.com/AssociacaoItinga/?locale=pt_BR';
 $grupo_noticias_url = 'https://chat.whatsapp.com/LQCoYJQc4uk07AH4qv7BfE?s=cl&p=i&mlu=0&amv=0';
-
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $nome = sanitize($_POST['nome'] ?? '');
-    $email = sanitize($_POST['email'] ?? '');
-    $telefone = sanitize($_POST['telefone'] ?? '');
-    $assunto = sanitize($_POST['assunto'] ?? '');
-    $mensagem = sanitize($_POST['mensagem'] ?? '');
-
-    if (empty($nome) || empty($email) || empty($mensagem)) {
-        $erro = "Por favor, preencha os campos obrigatórios: nome, e-mail e mensagem.";
-    } elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-        $erro = "Informe um e-mail válido para que possamos retornar.";
-    } elseif (!$pdo) {
-        $erro = "No momento não foi possível registrar sua mensagem pelo site. Use o WhatsApp para falar direto com a equipe.";
-    } else {
-        try {
-            $stmt = $pdo->prepare("INSERT INTO mensagens_contato (nome, email, telefone, assunto, mensagem) VALUES (?, ?, ?, ?, ?)");
-            $stmt->execute([$nome, $email, $telefone, $assunto, $mensagem]);
-            $sucesso = "Mensagem recebida com sucesso! Retornaremos o contato em breve.";
-        } catch (Exception $e) {
-            $erro = "Não foi possível enviar sua mensagem agora. Use o WhatsApp para falar direto com a equipe.";
-        }
-    }
-}
 ?>
 
 <section class="page-hero">
@@ -63,7 +37,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <em>Abrir conversa</em>
             </a>
 
-                        <a class="info-box contact-news" href="<?php echo $grupo_noticias_url; ?>" target="_blank" rel="noopener">
+            <a class="info-box contact-news" href="<?php echo $grupo_noticias_url; ?>" target="_blank" rel="noopener">
                 <svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true">
                     <path d="M4 18.5V6.8A2.8 2.8 0 0 1 6.8 4h10.4A2.8 2.8 0 0 1 20 6.8v11.4a1.8 1.8 0 0 1-2.6 1.6L14.8 18H6.8A2.8 2.8 0 0 1 4 15.2v3.3Z"/>
                     <path d="M8 8.5h8M8 12h6M8 15.5h4"/>
@@ -100,39 +74,42 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <em>Abrir página</em>
             </a>
         </aside>
+        <div class="form-card donation-slot reveal" id="como-ajudar" aria-label="Doacao via Pix">
+            <div class="donation-widget" data-pix-donation data-endpoint="<?php echo htmlspecialchars(url('pix-doacao')); ?>">
+                <span class="eyebrow">Doacao via Pix</span>
+                <h2>Ajude a fortalecer a AMORABI</h2>
+                <p>Escolha um valor, gere o QR Code Pix e envie o comprovante pelo WhatsApp da associacao.</p>
 
-        <div class="form-card reveal">
-            <?php if ($sucesso): ?>
-                <p class="alert success"><?php echo $sucesso; ?></p>
-            <?php endif; ?>
-            <?php if ($erro): ?>
-                <p class="alert error"><?php echo $erro; ?></p>
-            <?php endif; ?>
+                <div class="donation-values" aria-label="Valores sugeridos">
+                    <button type="button" class="donation-value active" data-amount="10">R$ 10</button>
+                    <button type="button" class="donation-value" data-amount="25">R$ 25</button>
+                    <button type="button" class="donation-value" data-amount="50">R$ 50</button>
+                    <button type="button" class="donation-value" data-amount="100">R$ 100</button>
+                </div>
 
-            <form method="POST" class="contact-form" data-contact-form novalidate>
-                <label>
-                    <span>Nome completo *</span>
-                    <input type="text" name="nome" required value="<?php echo htmlspecialchars($_POST['nome'] ?? ''); ?>">
+                <label class="donation-custom">
+                    <span>Outro valor</span>
+                    <input type="number" min="5" step="0.01" inputmode="decimal" placeholder="Ex.: 35,00" data-pix-amount>
                 </label>
-                <label>
-                    <span>E-mail *</span>
-                    <input type="email" name="email" required value="<?php echo htmlspecialchars($_POST['email'] ?? ''); ?>">
-                </label>
-                <label>
-                    <span>Telefone / WhatsApp</span>
-                    <input type="tel" name="telefone" value="<?php echo htmlspecialchars($_POST['telefone'] ?? ''); ?>">
-                </label>
-                <label>
-                    <span>Assunto</span>
-                    <input type="text" name="assunto" value="<?php echo htmlspecialchars($_POST['assunto'] ?? ''); ?>">
-                </label>
-                <label>
-                    <span>Mensagem *</span>
-                    <textarea name="mensagem" rows="6" required><?php echo htmlspecialchars($_POST['mensagem'] ?? ''); ?></textarea>
-                </label>
-                <p class="form-feedback" data-form-feedback></p>
-                <button type="submit" class="btn">Enviar mensagem</button>
-            </form>
+
+                <button type="button" class="btn donation-submit" data-pix-generate>Gerar QR Code Pix</button>
+                <p class="pix-feedback" data-pix-feedback role="status" aria-live="polite"></p>
+
+                <div class="pix-result" data-pix-result hidden>
+                    <div class="pix-qr-card">
+                        <img src="" alt="QR Code Pix para doacao" data-pix-qr>
+                    </div>
+
+                    <div class="pix-copy-area">
+                        <strong data-pix-amount-label>Pix copia e cola</strong>
+                        <textarea readonly rows="5" data-pix-payload aria-label="Codigo Pix copia e cola"></textarea>
+                        <div class="pix-actions">
+                            <button type="button" class="btn btn-outline" data-pix-copy>Copiar codigo</button>
+                            <a class="btn" href="<?php echo $whatsapp_url; ?>" target="_blank" rel="noopener" data-pix-whatsapp>Enviar comprovante</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </section>

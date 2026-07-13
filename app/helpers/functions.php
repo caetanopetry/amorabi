@@ -4,6 +4,19 @@ function start_app_session() {
         return;
     }
 
+    $secure_cookie = (env('APP_ENV', 'local') === 'production')
+        || (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off');
+    $cookie_path = app_base_path();
+
+    session_name('AMORABI_SESS');
+    session_set_cookie_params([
+        'lifetime' => 0,
+        'path' => $cookie_path !== '' ? $cookie_path . '/' : '/',
+        'secure' => $secure_cookie,
+        'httponly' => true,
+        'samesite' => 'Lax',
+    ]);
+
     $session_path = __DIR__ . '/../../storage/sessions';
     if (!is_dir($session_path)) {
         mkdir($session_path, 0775, true);
@@ -86,6 +99,31 @@ function make_slug($text) {
     $text = preg_replace('/[^a-z0-9]+/', '-', $text);
     $text = trim($text, '-');
     return $text !== '' ? $text : 'item';
+}
+
+function csrf_token(): string
+{
+    start_app_session();
+
+    if (empty($_SESSION['_csrf_token'])) {
+        $_SESSION['_csrf_token'] = bin2hex(random_bytes(32));
+    }
+
+    return $_SESSION['_csrf_token'];
+}
+
+function csrf_field(): string
+{
+    return '<input type="hidden" name="_csrf" value="' . htmlspecialchars(csrf_token(), ENT_QUOTES, 'UTF-8') . '">';
+}
+
+function verify_csrf_token(?string $token): bool
+{
+    start_app_session();
+
+    return is_string($token)
+        && isset($_SESSION['_csrf_token'])
+        && hash_equals($_SESSION['_csrf_token'], $token);
 }
 
 function excerpt_text($text, $limit = 160) {

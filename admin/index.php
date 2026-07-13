@@ -33,7 +33,12 @@ $projs = (int) $pdo->query("SELECT COUNT(*) FROM projetos WHERE status = 'ativo'
                 <li><a class="active" href="index.php">Dashboard</a></li>
                 <li><a href="noticias.php">Notícias</a></li>
                 <li><a href="<?php echo htmlspecialchars(url()); ?>" target="_blank" rel="noopener">Ver site</a></li>
-                <li><a href="logout.php">Sair</a></li>
+                <li>
+                    <form class="nav-logout-form" method="POST" action="logout.php">
+                        <?php echo csrf_field(); ?>
+                        <button type="submit">Sair</button>
+                    </form>
+                </li>
             </ul>
         </nav>
     </div>

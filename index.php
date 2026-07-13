@@ -16,6 +16,7 @@ $routes = [
     'biblioteca' => 'public/biblioteca.php',
     'noticias' => 'public/noticias.php',
     'noticia' => 'public/noticia.php',
+    'pix-doacao' => 'app/controllers/pix_donation.php',
     'transparencia' => 'public/transparencia.php',
     'contato' => 'public/contato.php',
 ];

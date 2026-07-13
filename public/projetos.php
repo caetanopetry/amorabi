@@ -11,13 +11,13 @@ $projetos_base = [
     ],
     [
         'titulo' => 'Oficinas de Música, Canto e Ritmo',
-        'resumo' => 'Violão e canto, canto coral, danças urbanas e Maracatu Baque Mulher conectam corpo, voz, ritmo e convivência comunitária.',
+        'resumo' => 'Violão e canto, canto coral, conectam corpo, voz, ritmo e convivência comunitária.',
         'tag' => 'Arte e música',
         'imagem_local' => 'assets/img/imagens/721466374_18377040283202339_1097163294585383178_n.jpg',
     ],
     [
         'titulo' => 'Educação Popular e Inclusão Digital',
-        'resumo' => 'Cursinho Popular gratuito para ENEM e vestibulares, ciranda para filhos dos estudantes, café comunitário, apoio com transporte e oficinas de educação financeira digital.',
+        'resumo' => 'Cursinho Popular gratuito para ENEM e vestibulares, café comunitário, apoio com transporte e oficinas de educação financeira digital.',
         'tag' => 'Educação',
         'imagem_local' => 'assets/img/imagens-cursinho/653876447_18000690554906873_2216402177710935293_n.jpg',
     ],
@@ -175,6 +175,16 @@ function course_icon($type) {
                 <span>Aulas aos sábados</span>
                 <span>Professores voluntários</span>
                 <span>Café comunitário</span>
+            </div>
+            <div class="hero-actions">
+                <a class="btn btn-outline" href="https://www.instagram.com/cursinhoamorabi/" target="_blank" rel="noopener">
+                    <svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true">
+                        <rect x="4" y="4" width="16" height="16" rx="5"/>
+                        <circle cx="12" cy="12" r="3.5"/>
+                        <circle cx="16.8" cy="7.2" r="1"/>
+                    </svg>
+                    Instagram do Cursinho
+                </a>
             </div>
         </div>
         <div class="cursinho-gallery reveal">

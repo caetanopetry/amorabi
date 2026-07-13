@@ -27,6 +27,17 @@ $info = fetch_one_safe("SELECT * FROM biblioteca_info ORDER BY id DESC LIMIT 1")
 
                 <p>Além do empréstimo gratuito de livros, realizamos saraus, contações de histórias e campanhas de arrecadação e redistribuição de acervos literários para fortalecer a educação no Itinga.</p>
             <?php endif; ?>
+            <p>Acompanhe também a rotina, atividades e novidades da Biblioteca Dito pelo Instagram oficial.</p>
+            <div class="hero-actions">
+                <a class="btn btn-outline" href="https://www.instagram.com/biblioteca_dito/" target="_blank" rel="noopener">
+                    <svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true">
+                        <rect x="4" y="4" width="16" height="16" rx="5"/>
+                        <circle cx="12" cy="12" r="3.5"/>
+                        <circle cx="16.8" cy="7.2" r="1"/>
+                    </svg>
+                    Instagram da Biblioteca Dito
+                </a>
+            </div>
         </article>
 
         <aside class="library-mosaic reveal">

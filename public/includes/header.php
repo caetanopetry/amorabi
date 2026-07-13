@@ -3,6 +3,7 @@ require_once __DIR__ . '/../../app/helpers/functions.php';
 
 $nome_site = get_site_config('nome_site', 'AMORABI');
 $current_route = current_route();
+$body_page = $current_route === '' ? 'index' : preg_replace('/[^a-z0-9-]+/', '-', strtolower($current_route));
 
 function nav_active($route, $current_route) {
     if ($route === 'noticias' && str_starts_with($current_route, 'noticia')) {
@@ -35,7 +36,7 @@ function nav_active($route, $current_route) {
     }
     ?>
 </head>
-<body>
+<body class="page-<?php echo htmlspecialchars($body_page); ?>">
 <header class="main-header" data-header>
     <div class="header-container container">
         <a href="<?php echo htmlspecialchars(url()); ?>" class="brand" aria-label="Pagina inicial da AMORABI">

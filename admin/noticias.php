@@ -127,6 +127,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $acao = $_POST['acao'] ?? 'salvar';
 
     try {
+        if (!verify_csrf_token($_POST['_csrf'] ?? null)) {
+            throw new RuntimeException('Sessao expirada. Recarregue a pagina e tente novamente.');
+        }
+
         if ($acao === 'excluir') {
             $id = (int) ($_POST['id'] ?? 0);
             $imagens = news_images($pdo, $id);
@@ -237,7 +241,12 @@ $noticias = fetch_all_safe("SELECT n.*, c.nome AS categoria_nome, COUNT(ni.id) A
                 <li><a href="index.php">Dashboard</a></li>
                 <li><a class="active" href="noticias.php">Notícias</a></li>
                 <li><a href="<?php echo htmlspecialchars(url()); ?>" target="_blank" rel="noopener">Ver site</a></li>
-                <li><a href="logout.php">Sair</a></li>
+                <li>
+                    <form class="nav-logout-form" method="POST" action="logout.php">
+                        <?php echo csrf_field(); ?>
+                        <button type="submit">Sair</button>
+                    </form>
+                </li>
             </ul>
         </nav>
     </div>
@@ -260,6 +269,7 @@ $noticias = fetch_all_safe("SELECT n.*, c.nome AS categoria_nome, COUNT(ni.id) A
 
         <div class="admin-layout">
             <form class="form-card admin-form" method="POST" enctype="multipart/form-data">
+                <?php echo csrf_field(); ?>
                 <input type="hidden" name="acao" value="salvar">
                 <input type="hidden" name="id" value="<?php echo htmlspecialchars($edit['id'] ?? ''); ?>">
 
@@ -351,6 +361,7 @@ $noticias = fetch_all_safe("SELECT n.*, c.nome AS categoria_nome, COUNT(ni.id) A
                                     <a class="btn btn-small btn-outline" href="<?php echo htmlspecialchars(url('noticia') . '?slug=' . urlencode($noticia['slug'])); ?>" target="_blank" rel="noopener">Ver</a>
                                 <?php endif; ?>
                                 <form method="POST" onsubmit="return confirm('Excluir esta notícia?');">
+                                    <?php echo csrf_field(); ?>
                                     <input type="hidden" name="acao" value="excluir">
                                     <input type="hidden" name="id" value="<?php echo $noticia['id']; ?>">
                                     <button class="btn btn-small" type="submit">Excluir</button>

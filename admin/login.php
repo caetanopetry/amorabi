@@ -7,8 +7,13 @@ $erro = null;
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $email = sanitize($_POST['email']);
     $senha = $_POST['senha'];
+    $locked_until = $_SESSION['login_locked_until'] ?? 0;
 
-    if (!$pdo) {
+    if (!verify_csrf_token($_POST['_csrf'] ?? null)) {
+        $erro = 'Sessao expirada. Recarregue a pagina e tente novamente.';
+    } elseif ($locked_until > time()) {
+        $erro = 'Muitas tentativas de login. Aguarde alguns minutos e tente novamente.';
+    } elseif (!$pdo) {
         $erro = 'Não foi possível conectar ao banco de dados agora.';
     } else {
         $stmt = $pdo->prepare("SELECT * FROM admin_users WHERE email = ? AND ativo = 1");
@@ -17,12 +22,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         if ($user && password_verify($senha, $user['senha_hash'])) {
             session_regenerate_id(true);
+            unset($_SESSION['login_attempts'], $_SESSION['login_locked_until']);
             $_SESSION['admin_logged'] = true;
             $_SESSION['admin_uid'] = $user['id'];
             $_SESSION['admin_nome'] = $user['nome'];
             $_SESSION['admin_nivel'] = $user['nivel'];
             header("Location: index.php");
             exit;
+        }
+
+        $_SESSION['login_attempts'] = (int) ($_SESSION['login_attempts'] ?? 0) + 1;
+        if ($_SESSION['login_attempts'] >= 5) {
+            $_SESSION['login_locked_until'] = time() + 600;
         }
 
         $erro = "E-mail ou senha incorretos.";
@@ -49,6 +60,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <?php endif; ?>
 
     <form method="POST" class="login-form">
+        <?php echo csrf_field(); ?>
         <label>
             <span>E-mail</span>
             <input type="email" name="email" placeholder="admin@amorabi.org.br" autocomplete="username" required>

@@ -25,3 +25,5 @@ Thumbs.db
 # Configurações locais
 .env
 .env.local
+.env.*
+!.env.example

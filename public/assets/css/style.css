@@ -150,20 +150,29 @@ a {
     list-style: none;
 }
 
-.nav-menu a {
+.nav-menu a,
+.nav-logout-form button {
     text-decoration: none;
     font-size: 0.95rem;
     font-weight: 700;
     color: var(--ink);
     padding: 9px 11px;
     border-radius: 999px;
+    border: 0;
+    background: transparent;
     white-space: nowrap;
+    cursor: pointer;
     transition: color 0.2s ease, background 0.2s ease, transform 0.2s ease;
 }
 
-.nav-menu a:hover {
+.nav-menu a:hover,
+.nav-logout-form button:hover {
     color: var(--primary);
     background: linear-gradient(135deg, rgba(161, 0, 20, 0.08), rgba(169, 54, 168, 0.08));
+}
+
+.nav-logout-form {
+    margin: 0;
 }
 
 .nav-menu a.active {
@@ -459,6 +468,40 @@ button.btn {
     padding: 82px 0;
 }
 
+.page-index main > section + section,
+.page-sobre main > section + section,
+.page-projetos .project-photo-band,
+.page-projetos .final-cta {
+    position: relative;
+    border-top: 1px solid rgba(161, 0, 20, 0.08);
+}
+
+.page-index main > section + section::before,
+.page-sobre main > section + section::before,
+.page-projetos .project-photo-band::before,
+.page-projetos .final-cta::before {
+    content: "";
+    position: absolute;
+    inset: 0 12% auto;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(161, 0, 20, 0.18), rgba(31, 122, 130, 0.16), transparent);
+    pointer-events: none;
+}
+
+:root[data-theme="dark"] .page-index main > section + section,
+:root[data-theme="dark"] .page-sobre main > section + section,
+:root[data-theme="dark"] .page-projetos .project-photo-band,
+:root[data-theme="dark"] .page-projetos .final-cta {
+    border-top-color: rgba(255, 255, 255, 0.055);
+}
+
+:root[data-theme="dark"] .page-index main > section + section::before,
+:root[data-theme="dark"] .page-sobre main > section + section::before,
+:root[data-theme="dark"] .page-projetos .project-photo-band::before,
+:root[data-theme="dark"] .page-projetos .final-cta::before {
+    background: linear-gradient(90deg, transparent, rgba(255, 111, 134, 0.18), rgba(100, 199, 207, 0.14), transparent);
+}
+
 .section-soft {
     background:
         linear-gradient(180deg, #fbfaf8, var(--white));
@@ -531,6 +574,172 @@ button.btn {
 .about-highlight,
 .form-card {
     padding: 34px;
+}
+
+.donation-slot {
+    min-height: clamp(280px, 44vw, 440px);
+    display: block;
+}
+
+:root[data-theme="dark"] .donation-slot {
+    background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.035), rgba(255, 255, 255, 0.018)),
+        #121017;
+}
+
+.donation-widget {
+    display: grid;
+    gap: 20px;
+}
+
+.donation-widget h2 {
+    color: var(--ink);
+    font-size: clamp(1.75rem, 4vw, 2.45rem);
+    line-height: 1.1;
+}
+
+.donation-widget p {
+    color: var(--muted);
+}
+
+.donation-values {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 10px;
+}
+
+.donation-value {
+    min-height: 46px;
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    background: var(--soft);
+    color: var(--ink);
+    font: inherit;
+    font-weight: 800;
+    cursor: pointer;
+    transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease, color 0.2s ease;
+}
+
+.donation-value:hover,
+.donation-value.active {
+    transform: translateY(-1px);
+    border-color: rgba(161, 0, 20, 0.26);
+    background: linear-gradient(135deg, var(--primary), var(--accent));
+    color: #ffffff;
+}
+
+.donation-custom {
+    display: grid;
+    gap: 8px;
+    color: var(--ink);
+    font-weight: 800;
+}
+
+.donation-custom input,
+.pix-copy-area textarea {
+    width: 100%;
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    background: var(--white);
+    color: var(--ink);
+    font: inherit;
+    outline: none;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+
+.donation-custom input {
+    min-height: 50px;
+    padding: 12px 14px;
+}
+
+.donation-custom input:focus,
+.pix-copy-area textarea:focus {
+    border-color: rgba(31, 122, 130, 0.45);
+    box-shadow: 0 0 0 4px rgba(31, 122, 130, 0.12);
+}
+
+.donation-submit {
+    width: 100%;
+}
+
+.pix-feedback {
+    min-height: 26px;
+    font-weight: 800;
+    color: var(--teal);
+}
+
+.pix-feedback.error {
+    color: var(--primary);
+}
+
+.pix-feedback.success {
+    color: var(--teal);
+}
+
+.pix-result {
+    display: grid;
+    grid-template-columns: 210px minmax(0, 1fr);
+    gap: 18px;
+    align-items: start;
+    padding-top: 18px;
+    border-top: 1px solid var(--line);
+}
+
+.pix-result[hidden] {
+    display: none;
+}
+
+.pix-qr-card {
+    padding: 12px;
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    background: #ffffff;
+}
+
+.pix-qr-card img {
+    width: 100%;
+    aspect-ratio: 1;
+    object-fit: contain;
+}
+
+.pix-copy-area {
+    display: grid;
+    gap: 12px;
+    min-width: 0;
+}
+
+.pix-copy-area strong {
+    color: var(--ink);
+}
+
+.pix-copy-area textarea {
+    min-height: 126px;
+    padding: 12px;
+    resize: vertical;
+    font-family: "Consolas", "Courier New", monospace;
+    font-size: 0.9rem;
+    line-height: 1.45;
+}
+
+.pix-actions {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+}
+
+:root[data-theme="dark"] .donation-value {
+    background: rgba(255, 255, 255, 0.045);
+    border-color: rgba(255, 255, 255, 0.11);
+}
+
+:root[data-theme="dark"] .donation-custom input,
+:root[data-theme="dark"] .pix-copy-area textarea {
+    background: rgba(255, 255, 255, 0.045);
+    border-color: rgba(255, 255, 255, 0.14);
+}
+
+:root[data-theme="dark"] .pix-result {
+    border-top-color: rgba(255, 255, 255, 0.11);
 }
 
 .content-card p + p {
@@ -1905,7 +2114,8 @@ textarea:focus {
         gap: 6px;
     }
 
-    .nav-menu a {
+    .nav-menu a,
+    .nav-logout-form button {
         display: block;
     }
 
@@ -1954,7 +2164,8 @@ textarea:focus {
         gap: 6px;
     }
 
-    .nav-menu a {
+    .nav-menu a,
+    .nav-logout-form button {
         display: block;
     }
 
@@ -2258,7 +2469,8 @@ button.btn {
         font-size: 0.98rem;
     }
 
-    .nav-menu a {
+    .nav-menu a,
+    .nav-logout-form button {
         padding: 12px 10px;
         font-size: 1rem;
         touch-action: manipulation;
@@ -2384,7 +2596,8 @@ button.btn {
         gap: 10px;
     }
 
-    .nav-menu a {
+    .nav-menu a,
+    .nav-logout-form button {
         padding-inline: 9px;
         font-size: 0.9rem;
     }
@@ -2437,6 +2650,7 @@ button.btn {
     }
 
     .nav-menu a,
+    .nav-logout-form button,
     .nav-cta {
         width: 100%;
     }
@@ -2554,9 +2768,27 @@ button.btn {
     .admin-item-actions .btn,
     .admin-item-actions form,
     .admin-item-actions button,
+    .pix-actions,
     .contact-form .btn,
     .final-cta .btn {
         width: 100%;
+    }
+
+    .donation-values {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .pix-result {
+        grid-template-columns: 1fr;
+    }
+
+    .pix-qr-card {
+        width: min(240px, 100%);
+        margin: 0 auto;
+    }
+
+    .pix-actions {
+        grid-template-columns: 1fr;
     }
 
     .cursinho-points {
@@ -2844,6 +3076,7 @@ section,
     .admin-item-actions .btn,
     .admin-item-actions form,
     .admin-item-actions button,
+    .pix-actions,
     .contact-form .btn,
     .final-cta .btn {
         width: 100%;
@@ -2897,7 +3130,8 @@ section,
         max-height: calc(100dvh - 82px);
     }
 
-    .nav-menu a {
+    .nav-menu a,
+    .nav-logout-form button {
         padding: 12px 14px;
     }
 

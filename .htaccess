@@ -1,5 +1,13 @@
 RewriteEngine On
 
+Options -Indexes
+
+# Bloqueia arquivos e diretorios sensiveis mesmo quando existem fisicamente
+RewriteRule (^|/)\. - [F,L]
+RewriteRule ^(app|database|storage)(/|$) - [F,L]
+RewriteRule ^composer\.(json|lock)$ - [F,L]
+RewriteRule ^.*\.(sql|env|log|ini|bak|config)$ - [F,L]
+
 # Assets publicos sem expor /public na URL
 RewriteRule ^assets/(.*)$ public/assets/$1 [L]
 RewriteRule ^uploads/(.*)$ public/uploads/$1 [L]

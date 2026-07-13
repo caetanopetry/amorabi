@@ -11,7 +11,7 @@
 <section class="section about-intro-section">
     <div class="container about-intro">
         <article class="about-narrative reveal">
-            <span class="eyebrow">Fundada em 8 de setembro de 1982</span>
+            <span class="eyebrow">Fundada em 8 de setembro de 1981</span>
             <h2>A AMORABI nasceu quando moradores decidiram construir soluções juntos.</h2>
             <p>A história da AMORABI se confunde com a própria história do bairro Itinga. A associação surgiu da necessidade de organizar a comunidade para cobrar infraestrutura básica, dignidade e direitos sociais.</p>
             <p>Ao longo dos anos, essa união ajudou a impulsionar conquistas como rede de água tratada, iluminação pública, regularização fundiária, escola, posto de saúde e espaços de educação infantil.</p>
@@ -46,7 +46,7 @@
         <h2>Conquistas que contam o Itinga</h2>
     </div>
     <div class="container timeline">
-        <div class="timeline-item reveal"><strong>1982</strong><span>Fundação da AMORABI em 8 de setembro.</span></div>
+        <div class="timeline-item reveal"><strong>1981</strong><span>Fundação da AMORABI em 8 de setembro.</span></div>
         <div class="timeline-item reveal"><strong>Anos 80 e 90</strong><span>Lutas por água tratada, iluminação pública, regularização fundiária, escola e posto de saúde.</span></div>
         <div class="timeline-item reveal"><strong>2009</strong><span>Reconhecimento oficial como Ponto de Cultura.</span></div>
         <div class="timeline-item reveal"><strong>2011</strong><span>Recebimento da Medalha Cruz e Sousa de Honra ao Mérito Cultural.</span></div>

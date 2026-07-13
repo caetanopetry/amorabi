@@ -72,8 +72,7 @@ function render_document_card($documento) {
     <div class="container reveal">
         <span class="eyebrow">Transparência</span>
         <h1>Transparência e compromisso com cada recurso recebido.</h1>
-        <p>Na AMORABI, tratamos cada apoio com seriedade e respeito, garantindo que os recursos cheguem diretamente às ações que fortalecem a comunidade do Bairro Itinga.</p>
-    </div>
+      </div>
 </section>
 
 <section class="section section-soft transparency-doc-section">
