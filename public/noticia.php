@@ -41,7 +41,7 @@ $imagens = $noticia ? fetch_all_safe('SELECT * FROM noticia_imagens WHERE notici
         <div class="container news-detail-layout">
             <article class="content-card news-detail-content reveal">
                 <?php if (!empty($noticia['imagem_capa'])): ?>
-                    <img class="news-detail-cover" src="<?php echo htmlspecialchars(upload_url($noticia['imagem_capa'])); ?>" alt="<?php echo htmlspecialchars($noticia['texto_alt_imagem'] ?? $noticia['titulo']); ?>">
+                    <img class="news-detail-cover" src="<?php echo htmlspecialchars(upload_url($noticia['imagem_capa'])); ?>" loading="lazy" decoding="async" alt="<?php echo htmlspecialchars($noticia['texto_alt_imagem'] ?? $noticia['titulo']); ?>">
                 <?php endif; ?>
 
                 <div class="news-meta">
@@ -60,7 +60,7 @@ $imagens = $noticia ? fetch_all_safe('SELECT * FROM noticia_imagens WHERE notici
                     <div>
                         <?php foreach ($imagens as $img): ?>
                             <a href="<?php echo htmlspecialchars(upload_url($img['arquivo'])); ?>" target="_blank" rel="noopener">
-                                <img src="<?php echo htmlspecialchars(upload_url($img['arquivo'])); ?>" alt="<?php echo htmlspecialchars($img['texto_alt'] ?? $noticia['titulo']); ?>">
+                                <img src="<?php echo htmlspecialchars(upload_url($img['arquivo'])); ?>" loading="lazy" decoding="async" alt="<?php echo htmlspecialchars($img['texto_alt'] ?? $noticia['titulo']); ?>">
                             </a>
                         <?php endforeach; ?>
                     </div>

@@ -28,7 +28,7 @@ $noticias = fetch_all_safe("SELECT n.*, c.nome AS categoria_nome
             <?php foreach ($noticias as $n): ?>
                 <a class="news-card news-link reveal" href="<?php echo htmlspecialchars(url('noticia') . '?slug=' . urlencode($n['slug'])); ?>">
                     <?php if (!empty($n['imagem_capa'])): ?>
-                        <img src="<?php echo htmlspecialchars(upload_url($n['imagem_capa'])); ?>" alt="<?php echo htmlspecialchars($n['texto_alt_imagem'] ?? $n['titulo']); ?>">
+                        <img src="<?php echo htmlspecialchars(upload_url($n['imagem_capa'])); ?>" loading="lazy" decoding="async" alt="<?php echo htmlspecialchars($n['texto_alt_imagem'] ?? $n['titulo']); ?>">
                     <?php else: ?>
                         <div class="news-placeholder" aria-hidden="true">
                             <svg class="svg-icon" viewBox="0 0 24 24">

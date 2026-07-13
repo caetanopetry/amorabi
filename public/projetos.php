@@ -73,9 +73,9 @@ function course_icon($type) {
         <?php foreach ($lista_projetos as $index => $p): ?>
             <article class="project-card reveal">
                 <?php if (!empty($p['imagem_capa'])): ?>
-                    <img src="uploads/<?php echo htmlspecialchars($p['imagem_capa']); ?>" alt="<?php echo htmlspecialchars($p['titulo']); ?>">
+                    <img src="uploads/<?php echo htmlspecialchars($p['imagem_capa']); ?>" loading="lazy" decoding="async" alt="<?php echo htmlspecialchars($p['titulo']); ?>">
                 <?php elseif (!empty($p['imagem_local'])): ?>
-                    <img src="<?php echo htmlspecialchars($p['imagem_local']); ?>" alt="<?php echo htmlspecialchars($p['titulo']); ?>">
+                    <img src="<?php echo htmlspecialchars($p['imagem_local']); ?>" loading="lazy" decoding="async" alt="<?php echo htmlspecialchars($p['titulo']); ?>">
                 <?php else: ?>
                     <div class="project-visual"><?php echo str_pad($index + 1, 2, '0', STR_PAD_LEFT); ?></div>
                 <?php endif; ?>
@@ -92,7 +92,7 @@ function course_icon($type) {
 <section class="section theatre-feature-section">
     <div class="container theatre-feature">
         <figure class="theatre-main-photo reveal">
-            <img src="assets/img/imagens/722910613_18377040331202339_5437870242268030223_n.jpg" alt="Apresentação teatral no palco da AMORABI">
+            <img src="assets/img/imagens/722910613_18377040331202339_5437870242268030223_n.jpg" loading="lazy" decoding="async" alt="Apresentação teatral no palco da AMORABI">
         </figure>
         <div class="theatre-copy reveal">
             <span class="eyebrow">Teatro na AMORABI</span>
@@ -102,10 +102,10 @@ function course_icon($type) {
         </div>
     </div>
     <div class="container theatre-gallery-large reveal">
-        <img src="assets/img/imagens-teatro/unnamed.jpg" alt="Apresentação de dança no palco da AMORABI">
-        <img src="assets/img/imagens-teatro/unnamed%20(1).jpg" alt="Apresentação musical no palco da AMORABI">
-        <img src="assets/img/imagens-teatro/unnamed%20(3).jpg" alt="Grupo teatral em apresentação na AMORABI">
-        <img src="assets/img/imagens-teatro/unnamed%20(4).jpg" alt="Cena teatral apresentada na AMORABI">
+        <img src="assets/img/imagens-teatro/unnamed.jpg" loading="lazy" decoding="async" alt="Apresentação de dança no palco da AMORABI">
+        <img src="assets/img/imagens-teatro/unnamed%20(1).jpg" loading="lazy" decoding="async" alt="Apresentação musical no palco da AMORABI">
+        <img src="assets/img/imagens-teatro/unnamed%20(3).jpg" loading="lazy" decoding="async" alt="Grupo teatral em apresentação na AMORABI">
+        <img src="assets/img/imagens-teatro/unnamed%20(4).jpg" loading="lazy" decoding="async" alt="Cena teatral apresentada na AMORABI">
     </div>
 </section>
 

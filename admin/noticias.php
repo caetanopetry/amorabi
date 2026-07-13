@@ -314,7 +314,7 @@ $noticias = fetch_all_safe("SELECT n.*, c.nome AS categoria_nome, COUNT(ni.id) A
                     <div class="admin-image-list">
                         <?php foreach ($edit_images as $img): ?>
                             <label>
-                                <img src="../public/uploads/<?php echo htmlspecialchars($img['arquivo']); ?>" alt="">
+                                <img src="../public/uploads/<?php echo htmlspecialchars($img['arquivo']); ?>" loading="lazy" decoding="async" alt="">
                                 <span><input type="checkbox" name="remover_imagens[]" value="<?php echo $img['id']; ?>"> Remover</span>
                             </label>
                         <?php endforeach; ?>

@@ -41,7 +41,7 @@ try {
     $txidPrefix = (string) env('PIX_TXID_PREFIX', 'AMORABI');
 
     $payload = (new PixPayloadService())->build($amount, $pixKey, $receiverName, $receiverCity, $txidPrefix);
-    $whatsappMessage = 'Ola, fiz uma doacao para a AMORABI no valor de R$ ' . format_brl($amount) . ' e gostaria de enviar o comprovante.';
+    $whatsappMessage = 'Ola, fiz uma doação para a AMORABI no valor de R$ ' . format_brl($amount) . ' e gostaria de enviar o comprovante.';
     $whatsappUrl = 'https://api.whatsapp.com/send/?phone=47991987821&text=' . rawurlencode($whatsappMessage) . '&type=phone_number&app_absent=0';
 
     echo json_encode([

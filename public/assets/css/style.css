@@ -579,6 +579,7 @@ button.btn {
 .donation-slot {
     min-height: clamp(280px, 44vw, 440px);
     display: block;
+    scroll-margin-top: 110px;
 }
 
 :root[data-theme="dark"] .donation-slot {
@@ -730,6 +731,14 @@ button.btn {
 :root[data-theme="dark"] .donation-value {
     background: rgba(255, 255, 255, 0.045);
     border-color: rgba(255, 255, 255, 0.11);
+}
+
+:root[data-theme="dark"] .donation-value:hover,
+:root[data-theme="dark"] .donation-value.active {
+    border-color: rgba(255, 111, 134, 0.42);
+    background: linear-gradient(135deg, var(--primary-dark), var(--accent));
+    color: #ffffff;
+    box-shadow: 0 12px 28px rgba(255, 111, 134, 0.18);
 }
 
 :root[data-theme="dark"] .donation-custom input,
@@ -3187,6 +3196,25 @@ section,
     .footer-grid {
         text-align: left;
     }
+}
+
+/* Melhorias para conteúdo embutido e toque em dispositivos móveis */
+iframe {
+    max-width: 100%;
+}
+
+video,
+embed,
+object {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Reduz destaque de toque e melhora resposta em dispositivos touch */
+a,
+button {
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
 }
 
 @media (max-width: 420px) {
