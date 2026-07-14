@@ -27,3 +27,5 @@ Thumbs.db
 .env.local
 .env.*
 !.env.example
+
+.gitignore
