@@ -9,10 +9,15 @@ $noticias = fetch_all_safe("SELECT n.*, c.nome AS categoria_nome
 ?>
 
 <section class="page-hero">
-    <div class="container reveal">
+    <div class="container page-hero-split reveal">
+        <div class="page-hero-copy">
         <span class="eyebrow">Notícias</span>
         <h1>Notícias da AMORABI</h1>
         <p>Acompanhe avisos, registros de atividades, oficinas, projetos e mobilizações da comunidade.</p>
+        </div>
+        <figure class="page-hero-media page-hero-illustration">
+            <img src="<?php echo htmlspecialchars(asset_url('img/imagens/noticias-hero.png')); ?>" loading="eager" decoding="async" alt="Ilustracao de noticias da AMORABI com elementos de cultura, esporte e comunicacao comunitaria">
+        </figure>
     </div>
 </section>
 

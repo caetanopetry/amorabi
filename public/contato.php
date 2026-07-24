@@ -2,6 +2,8 @@
 include 'includes/header.php';
 
 $whatsapp_url = 'https://api.whatsapp.com/send/?phone=47991987821&text&type=phone_number&app_absent=0';
+$whatsapp_comprovante_mensagem = 'Olá, realizei uma contribuição para a AMORABI e gostaria de enviar o comprovante.';
+$whatsapp_comprovante_url = 'https://api.whatsapp.com/send/?phone=47991987821&text=' . rawurlencode($whatsapp_comprovante_mensagem) . '&type=phone_number&app_absent=0';
 $instagram_url = 'https://www.instagram.com/amorabi_itinga/?utm_source=ig_embed';
 $facebook_url = 'https://www.facebook.com/AssociacaoItinga/?locale=pt_BR';
 $grupo_noticias_url = 'https://chat.whatsapp.com/LQCoYJQc4uk07AH4qv7BfE?s=cl&p=i&mlu=0&amv=0';
@@ -9,31 +11,36 @@ $maps_url = 'https://www.google.com/maps/search/?api=1&query=Rua%20dos%20Esporti
 ?>
 
 <section class="page-hero">
-    <div class="container reveal">
-        <span class="eyebrow">Contato</span>
+    <div class="container page-hero-split reveal">
+        <div class="page-hero-copy">
+            <span class="eyebrow">Contato</span>
 
-        <h1>Fale Conosco</h1>
+            <h1>Fale Conosco</h1>
 
-        <p>
-            Para dúvidas, visitas, oficinas ou apoio comunitário,
-            o WhatsApp é o caminho mais direto.
-        </p>
+            <p>
+                Para dúvidas, visitas, oficinas ou apoio comunitário,
+                o WhatsApp é o caminho mais direto.
+            </p>
 
-        <div class="hero-actions">
-            <a
-                class="btn"
-                href="<?php echo htmlspecialchars($whatsapp_url); ?>"
-                target="_blank"
-                rel="noopener noreferrer"
-            >
-                <svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true">
-                    <path d="M20.5 11.8a8.4 8.4 0 0 1-12.4 7.4L3 20.6l1.4-4.9a8.4 8.4 0 1 1 16.1-3.9Z"/>
-                    <path d="M8.9 7.9c.2-.4.4-.5.7-.5h.5c.2 0 .4.1.5.4l.7 1.7c.1.3.1.5-.1.7l-.4.5c-.1.2-.2.3-.1.5.4.8 1.5 2.2 2.9 2.8.2.1.4.1.5-.1l.7-.8c.2-.2.4-.3.7-.2l1.6.8c.3.1.4.3.4.6 0 .6-.4 1.5-1.1 1.8-.7.3-2 .3-4.1-.8-2.6-1.3-4.2-3.8-4.5-4.5-.3-.7-.7-1.9 0-2.9Z"/>
-                </svg>
+            <div class="hero-actions">
+                <a
+                    class="btn"
+                    href="<?php echo htmlspecialchars($whatsapp_url); ?>"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    <svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M20.5 11.8a8.4 8.4 0 0 1-12.4 7.4L3 20.6l1.4-4.9a8.4 8.4 0 1 1 16.1-3.9Z"/>
+                        <path d="M8.9 7.9c.2-.4.4-.5.7-.5h.5c.2 0 .4.1.5.4l.7 1.7c.1.3.1.5-.1.7l-.4.5c-.1.2-.2.3-.1.5.4.8 1.5 2.2 2.9 2.8.2.1.4.1.5-.1l.7-.8c.2-.2.4-.3.7-.2l1.6.8c.3.1.4.3.4.6 0 .6-.4 1.5-1.1 1.8-.7.3-2 .3-4.1-.8-2.6-1.3-4.2-3.8-4.5-4.5-.3-.7-.7-1.9 0-2.9Z"/>
+                    </svg>
 
-                Chamar no WhatsApp
-            </a>
+                    Chamar no WhatsApp
+                </a>
+            </div>
         </div>
+        <figure class="page-hero-media">
+            <img src="<?php echo htmlspecialchars(asset_url('img/imagens/474951850_638212055532616_874613838701138383_n.jpg')); ?>" loading="eager" decoding="async" alt="Centro Comunitário da AMORABI no Itinga">
+        </figure>
     </div>
 </section>
 
@@ -95,68 +102,52 @@ $maps_url = 'https://www.google.com/maps/search/?api=1&query=Rua%20dos%20Esporti
         <div
             class="form-card donation-slot reveal"
             id="como-ajudar"
-            aria-label="Doação via Pix"
+            aria-labelledby="como-ajudar-titulo"
         >
             <div
                 class="donation-widget"
                 data-pix-donation
                 data-endpoint="<?php echo htmlspecialchars(url('pix-doacao')); ?>"
             >
-                <span class="eyebrow">Doação via Pix</span>
+                <span class="eyebrow">Como ajudar</span>
 
-                <h2>Ajude a fortalecer a AMORABI</h2>
+                <h2 id="como-ajudar-titulo">Ajude a fortalecer a AMORABI</h2>
 
                 <p>
-                    Escolha um valor, gere o QR Code Pix e envie
-                    o comprovante pelo WhatsApp da associação.
+                    Apoie como associado, faça uma doação livre ou fale pelo WhatsApp. Informe o valor, gere o QR Code Pix e envie o comprovante para a associação.
                 </p>
 
-                <div class="donation-values" aria-label="Valores sugeridos">
-                    <button
-                        type="button"
-                        class="donation-value active"
-                        data-amount="10"
-                    >
-                        R$ 10
-                    </button>
-
-                    <button
-                        type="button"
-                        class="donation-value"
-                        data-amount="25"
-                    >
-                        R$ 25
-                    </button>
-
-                    <button
-                        type="button"
-                        class="donation-value"
-                        data-amount="50"
-                    >
-                        R$ 50
-                    </button>
-
-                    <button
-                        type="button"
-                        class="donation-value"
-                        data-amount="100"
-                    >
-                        R$ 100
-                    </button>
+                <div class="donation-support-ways" aria-label="Formas de apoio">
+                    <div>
+                        <strong>Associado</strong>
+                        <span>Contribuição mensal combinada diretamente com a associação.</span>
+                    </div>
+                    <div>
+                        <strong>Doação livre</strong>
+                        <span>Informe o valor que deseja contribuir e gere o Pix nesta página.</span>
+                    </div>
+                    <div>
+                        <strong>WhatsApp</strong>
+                        <span>Envie o comprovante ou fale com a AMORABI para tirar dúvidas.</span>
+                    </div>
                 </div>
 
                 <label class="donation-custom">
-                    <span>Outro valor</span>
+                    <span>Valor da contribuição</span>
 
                     <input
                         type="number"
-                        min="5"
                         step="0.01"
                         inputmode="decimal"
                         placeholder="Ex.: 35,00"
                         data-pix-amount
+                        aria-describedby="pix-ajuda-texto"
                     >
                 </label>
+
+                <p class="donation-note" id="pix-ajuda-texto">
+                    O QR Code é gerado a partir do valor informado.
+                </p>
 
                 <button
                     type="button"
@@ -172,6 +163,15 @@ $maps_url = 'https://www.google.com/maps/search/?api=1&query=Rua%20dos%20Esporti
                     role="status"
                     aria-live="polite"
                 ></p>
+
+                <a
+                    class="btn btn-outline donation-whatsapp-direct"
+                    href="<?php echo htmlspecialchars($whatsapp_comprovante_url); ?>"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    Enviar comprovante pelo WhatsApp
+                </a>
 
                 <div class="pix-result" data-pix-result hidden>
 
@@ -206,12 +206,12 @@ $maps_url = 'https://www.google.com/maps/search/?api=1&query=Rua%20dos%20Esporti
 
                             <a
                                 class="btn"
-                                href="<?php echo htmlspecialchars($whatsapp_url); ?>"
+                                href="<?php echo htmlspecialchars($whatsapp_comprovante_url); ?>"
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 data-pix-whatsapp
                             >
-                                Enviar comprovante
+                                Enviar comprovante pelo WhatsApp
                             </a>
                         </div>
                     </div>

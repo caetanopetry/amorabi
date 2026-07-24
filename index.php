@@ -38,11 +38,11 @@ http_response_code(404);
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pagina nao encontrada - AMORABI</title>
+    <title>Página não encontrada - AMORABI</title>
 </head>
 <body>
     <h1>404</h1>
-    <p>Pagina nao encontrada.</p>
-    <p><a href="<?php echo htmlspecialchars(url()); ?>">Voltar para a pagina inicial</a></p>
+    <p>Página não encontrada.</p>
+    <p><a href="<?php echo htmlspecialchars(url()); ?>">Voltar para a página inicial</a></p>
 </body>
 </html>

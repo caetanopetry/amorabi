@@ -69,10 +69,15 @@ function render_document_card($documento) {
 ?>
 
 <section class="page-hero transparency-hero">
-    <div class="container reveal">
-        <span class="eyebrow">Transparência</span>
-        <h1>Transparência e compromisso com cada recurso recebido.</h1>
-      </div>
+    <div class="container page-hero-split reveal">
+        <div class="page-hero-copy">
+            <span class="eyebrow">Transparência</span>
+            <h1>Transparência e compromisso com cada recurso recebido.</h1>
+        </div>
+        <figure class="page-hero-media">
+            <img src="<?php echo htmlspecialchars(asset_url('img/imagens/image2.jpg')); ?>" loading="eager" decoding="async" alt="Mulheres participando de oficina de costura na AMORABI">
+        </figure>
+    </div>
 </section>
 
 <section class="section section-soft transparency-doc-section">

@@ -21,6 +21,12 @@ $projetos_base = [
         'tag' => 'Educação',
         'imagem_local' => asset_url('img/imagens-cursinho/653876447_18000690554906873_2216402177710935293_n.jpg'),
     ],
+    [
+        'titulo' => 'Projeto Mulheres em Ação',
+        'resumo' => 'Projeto social que promove autonomia, saúde e geração de renda, principalmente para mulheres em situação de vulnerabilidade. A iniciativa prevê capacitação por meio de cursos de corte e costura, artesanato, condicionamento físico, yoga, manicure e pedicure, além de palestras sobre autocuidado, nutrição, alimentação e rodas de conversa sobre direitos das mulheres. Em breve estarão abertas as inscrições para os cursos.',
+        'tag' => 'Inclusão social',
+        'imagem_local' => asset_url('img/imagens-mulheres/image1.jpg'),
+    ],
 ];
 $lista_projetos = !empty($projetos) ? $projetos : $projetos_base;
 
@@ -31,9 +37,30 @@ $cursos_cultura = [
 ];
 
 $cursos_corpo = [
-    ['Karatê Comunitário', 'Disciplina, condicionamento físico e técnicas de defesa pessoal.', 'karate'],
     ['Capoeira', 'Cultura afro-brasileira, esporte, musicalidade e movimentos da capoeira regional e angola.', 'capoeira'],
-    ['Yoga', 'Meditação, respiração e alongamento para bem-estar e saúde mental dos moradores.', 'yoga'],
+    ['Yoga', 'Exercícios respiratórios, posturas físicas, flexibilidade, força, equilíbrio, consciência corporal, relaxamento e meditação.', 'yoga'],
+    ['Karatê', 'Prática esportiva em parceria com a Escola Suzuki Kyokai, com aulas conduzidas pelo Sensei Alexandre Libardi.', 'karate'],
+];
+
+$parcerias_esportivas = [
+    [
+        'titulo' => 'Karatê',
+        'parceiro' => 'Escola Suzuki Kyokai',
+        'responsavel' => 'Sensei Alexandre Libardi',
+        'dias' => 'Terças-feiras',
+        'horario' => '19h30',
+        'condicao' => 'Mensalidade social',
+        'descricao' => 'Aulas realizadas em parceria com a Escola Suzuki Kyokai, utilizando a estrutura da AMORABI para a prática esportiva comunitária.',
+    ],
+    [
+        'titulo' => 'Yoga',
+        'parceiro' => 'Parceria esportiva e de lazer',
+        'responsavel' => 'Professora Ana Luísa Silveira',
+        'dias' => 'Segundas e quartas-feiras',
+        'horario' => '19h às 20h',
+        'condicao' => 'Mensalidade social',
+        'descricao' => 'As aulas incluem exercícios respiratórios, posturas físicas, práticas de flexibilidade, força, equilíbrio, consciência corporal, relaxamento e meditação.',
+    ],
 ];
 
 $cursos_educacao = [
@@ -61,10 +88,15 @@ function course_icon($type) {
 ?>
 
 <section class="page-hero">
-    <div class="container reveal">
-        <span class="eyebrow">Projetos</span>
-        <h1>Transformação na Prática</h1>
-        <p>Conheça as frentes de ação que movimentam a AMORABI diariamente.</p>
+    <div class="container page-hero-split reveal">
+        <div class="page-hero-copy">
+            <span class="eyebrow">Projetos</span>
+            <h1>Transformação na Prática</h1>
+            <p>Conheça as frentes de ação que movimentam a AMORABI diariamente.</p>
+        </div>
+        <figure class="page-hero-media">
+            <img src="<?php echo htmlspecialchars(asset_url('img/imagens/criancasbrincando.jpg')); ?>" loading="eager" decoding="async" alt="Crianças participando de atividade cultural na AMORABI">
+        </figure>
     </div>
 </section>
 
@@ -109,6 +141,26 @@ function course_icon($type) {
     </div>
 </section>
 
+<section class="section women-feature-section">
+    <div class="container theatre-feature women-feature">
+        <figure class="theatre-main-photo reveal">
+            <img src="<?php echo htmlspecialchars(asset_url('img/imagens-mulheres/image1.jpg')); ?>" loading="lazy" decoding="async" alt="Participantes do Projeto Mulheres em Ação na AMORABI">
+        </figure>
+        <div class="theatre-copy reveal">
+            <span class="eyebrow">Mulheres em Ação</span>
+            <h2>Autonomia, cuidado e geração de renda para mulheres.</h2>
+            <p>O Projeto Mulheres em Ação fortalece mulheres em situação de vulnerabilidade por meio de formação, autocuidado, práticas corporais, qualificação profissional e rodas de conversa sobre direitos.</p>
+            <a class="btn btn-outline" href="<?php echo htmlspecialchars(url('contato')); ?>">Consultar inscrições</a>
+        </div>
+    </div>
+    <div class="container theatre-gallery-large women-gallery-large reveal">
+        <img src="<?php echo htmlspecialchars(asset_url('img/imagens-mulheres/image4.jpg')); ?>" loading="lazy" decoding="async" alt="Atividade do Projeto Mulheres em Ação na AMORABI">
+        <img src="<?php echo htmlspecialchars(asset_url('img/imagens-mulheres/image5.jpg')); ?>" loading="lazy" decoding="async" alt="Oficina do Projeto Mulheres em Ação">
+        <img src="<?php echo htmlspecialchars(asset_url('img/imagens-mulheres/image6.jpg')); ?>" loading="lazy" decoding="async" alt="Encontro de mulheres na AMORABI">
+        <img src="<?php echo htmlspecialchars(asset_url('img/imagens-mulheres/image1.jpg')); ?>" loading="lazy" decoding="async" alt="Registro do Projeto Mulheres em Ação">
+    </div>
+</section>
+
 <section class="section section-soft courses-section">
     <div class="container section-heading centered reveal">
         <span class="eyebrow">Cursos e oficinas</span>
@@ -134,8 +186,8 @@ function course_icon($type) {
 
     <div class="container course-group">
         <div class="course-heading reveal">
-            <span>Esporte, saúde e corpo</span>
-            <h3>Disciplina, movimento e bem-estar</h3>
+            <span>Movimento cultural e esportes</span>
+            <h3>Corpo, cultura popular e práticas esportivas</h3>
         </div>
         <div class="course-grid compact">
             <?php foreach ($cursos_corpo as $curso): ?>
@@ -159,6 +211,44 @@ function course_icon($type) {
                     <span class="course-icon"><?php echo course_icon($curso[2]); ?></span>
                     <strong><?php echo $curso[0]; ?></strong>
                     <p><?php echo $curso[1]; ?></p>
+                </article>
+            <?php endforeach; ?>
+        </div>
+    </div>
+
+    <div class="container sports-partnerships reveal">
+        <div class="sports-partnerships-intro">
+            <span class="eyebrow">Parcerias esportivas</span>
+            <h3>Uso comunitário da estrutura da AMORABI</h3>
+            <p>A modalidade de parceria ocorre quando a AMORABI disponibiliza sua estrutura física para atividades esportivas, culturais ou de lazer. As parcerias são avaliadas e aprovadas pela direção eleita da entidade. Quando aplicável, os valores arrecadados ajudam na manutenção do espaço, incluindo limpeza, energia e divulgação.</p>
+        </div>
+
+        <div class="sports-partnerships-list">
+            <?php foreach ($parcerias_esportivas as $parceria): ?>
+                <article class="sports-partnership-card">
+                    <div>
+                        <span class="tag"><?php echo htmlspecialchars($parceria['condicao']); ?></span>
+                        <h4><?php echo htmlspecialchars($parceria['titulo']); ?></h4>
+                        <p><?php echo htmlspecialchars($parceria['descricao']); ?></p>
+                    </div>
+                    <dl>
+                        <div>
+                            <dt>Parceria</dt>
+                            <dd><?php echo htmlspecialchars($parceria['parceiro']); ?></dd>
+                        </div>
+                        <div>
+                            <dt>Responsável</dt>
+                            <dd><?php echo htmlspecialchars($parceria['responsavel']); ?></dd>
+                        </div>
+                        <div>
+                            <dt>Dias</dt>
+                            <dd><?php echo htmlspecialchars($parceria['dias']); ?></dd>
+                        </div>
+                        <div>
+                            <dt>Horário</dt>
+                            <dd><?php echo htmlspecialchars($parceria['horario']); ?></dd>
+                        </div>
+                    </dl>
                 </article>
             <?php endforeach; ?>
         </div>

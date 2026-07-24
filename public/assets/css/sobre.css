@@ -1,0 +1,454 @@
+.page-sobre main,
+.page-sobre section,
+.page-sobre .container,
+.about-opening-copy,
+.about-opening-photo,
+.statutory-card {
+    min-width: 0;
+}
+
+.page-sobre {
+    --page-header-height: 76px;
+    scroll-snap-type: y mandatory;
+}
+
+.page-sobre main {
+    scroll-snap-type: y mandatory;
+}
+
+.page-sobre main > section {
+    min-height: calc(100svh - var(--page-header-height));
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 28px;
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+    padding-top: clamp(34px, 5vw, 64px);
+    padding-bottom: clamp(34px, 5vw, 64px);
+}
+
+.page-sobre .reveal {
+    opacity: 1;
+    transform: none;
+}
+
+.about-hero {
+    overflow: hidden;
+    background: var(--hero-surface);
+    color: var(--ink);
+}
+
+:root[data-theme="dark"] .about-hero {
+    background: var(--hero-surface-dark);
+    color: #ffffff;
+}
+
+.about-hero .eyebrow {
+    color: var(--primary);
+}
+
+:root[data-theme="dark"] .about-hero .eyebrow {
+    color: #ffffff;
+}
+
+.about-hero h1 {
+    max-width: 780px;
+    font-size: clamp(2.25rem, 5.6vw, 4.2rem);
+    line-height: 1.05;
+    color: var(--ink);
+}
+
+.about-hero p {
+    max-width: 760px;
+    color: var(--muted);
+}
+
+:root[data-theme="dark"] .about-hero h1 {
+    color: #ffffff;
+}
+
+:root[data-theme="dark"] .about-hero p {
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.about-opening {
+    display: grid;
+    gap: 42px;
+    align-items: center;
+}
+
+.about-opening {
+    grid-template-columns: minmax(0, 0.95fr) minmax(340px, 1.05fr);
+}
+
+.about-opening-copy h2,
+.statutory-card h2 {
+    margin-top: 14px;
+    color: var(--ink);
+    font-size: clamp(1.9rem, 4.8vw, 3rem);
+    line-height: 1.12;
+}
+
+.about-opening-copy p,
+.statutory-card p,
+.achievements-list p,
+.recognition-item p,
+.about-timeline-item p {
+    color: var(--muted);
+    line-height: 1.72;
+}
+
+.about-opening-copy p,
+.statutory-card p {
+    margin-top: 16px;
+    font-size: 1.08rem;
+}
+
+.about-opening-points {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 24px;
+}
+
+.about-opening-points span {
+    display: inline-flex;
+    align-items: center;
+    min-height: 38px;
+    padding: 8px 12px;
+    border: 1px solid rgba(161, 0, 20, 0.14);
+    border-radius: var(--radius);
+    color: var(--primary);
+    font-size: 0.92rem;
+    font-weight: 800;
+    background: var(--white);
+}
+
+.about-opening-photo {
+    overflow: hidden;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    background: var(--white);
+}
+
+.about-opening-photo img {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+}
+
+.about-opening-photo figcaption {
+    padding: 12px 14px;
+    color: var(--muted);
+    font-size: 0.92rem;
+    font-weight: 700;
+}
+
+.about-achievements-section {
+    background: #f8f3f4;
+}
+
+:root[data-theme="dark"] .about-achievements-section {
+    background: #17131a;
+}
+
+.achievements-list {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 16px;
+    margin-top: 34px;
+}
+
+.achievements-list article {
+    min-height: 230px;
+    padding: 24px;
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    background: var(--white);
+    box-shadow: 0 12px 28px rgba(55, 24, 44, 0.08);
+}
+
+.achievements-list span {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 18px;
+    color: var(--primary);
+    font-size: 0.9rem;
+    font-weight: 900;
+}
+
+.achievements-list strong {
+    display: block;
+    color: var(--ink);
+    font-size: 1.16rem;
+    line-height: 1.22;
+}
+
+.achievements-list p {
+    margin-top: 10px;
+}
+
+.statutory-card,
+.recognition-item {
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    background: var(--white);
+    box-shadow: var(--shadow);
+}
+
+.statutory-card {
+    padding: clamp(24px, 4vw, 42px);
+}
+
+.recognition-list {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 18px;
+    margin-top: 32px;
+}
+
+.page-sobre main > section > .recognition-list,
+.page-sobre main > section > .about-timeline {
+    margin-top: 0;
+}
+
+.recognition-item {
+    padding: 24px;
+}
+
+.about-icon {
+    width: 1.05em;
+    height: 1.05em;
+    flex: 0 0 auto;
+    stroke: currentColor;
+    fill: none;
+    stroke-width: 1.8;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+.page-sobre .eyebrow {
+    align-items: center;
+    gap: 8px;
+}
+
+.recognition-item strong {
+    display: inline-flex;
+    margin-bottom: 12px;
+    color: var(--primary);
+    font-size: 1.45rem;
+}
+
+.about-timeline {
+    position: relative;
+    display: grid;
+    gap: 18px;
+    margin-top: 32px;
+}
+
+.about-timeline::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 112px;
+    width: 2px;
+    background: var(--line);
+}
+
+.about-timeline-item {
+    position: relative;
+    display: grid;
+    grid-template-columns: 120px minmax(0, 1fr);
+    gap: 24px;
+    align-items: start;
+}
+
+.about-timeline-item::before {
+    content: "";
+    position: absolute;
+    top: 8px;
+    left: 106px;
+    width: 14px;
+    height: 14px;
+    border: 3px solid var(--warm);
+    border-radius: 999px;
+    background: var(--white);
+}
+
+.about-timeline-item strong {
+    color: var(--primary);
+    font-size: 1.02rem;
+}
+
+.about-timeline-item p {
+    padding: 0 0 20px;
+    border-bottom: 1px solid var(--line);
+}
+
+:root[data-theme="dark"] .statutory-card,
+:root[data-theme="dark"] .recognition-item,
+:root[data-theme="dark"] .about-opening-photo,
+:root[data-theme="dark"] .achievements-list article {
+    background: var(--white);
+    border-color: rgba(255, 255, 255, 0.12);
+}
+
+:root[data-theme="dark"] .about-timeline-item::before {
+    background: var(--white);
+}
+
+.page-sobre a:focus-visible,
+.page-sobre button:focus-visible {
+    outline: 3px solid rgba(246, 178, 75, 0.75);
+    outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .page-sobre * {
+        transition-duration: 0.01ms !important;
+        animation-duration: 0.01ms !important;
+    }
+}
+
+@media (max-width: 980px) {
+    .page-sobre {
+        scroll-snap-type: y mandatory;
+    }
+
+    .page-sobre main {
+        scroll-snap-type: y mandatory;
+    }
+
+    .page-sobre main > section {
+        min-height: calc(100svh - var(--page-header-height));
+        scroll-snap-align: start;
+        padding-top: 28px;
+        padding-bottom: 28px;
+    }
+
+    .about-opening {
+        grid-template-columns: 1fr;
+        gap: 24px;
+    }
+
+    .achievements-list {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .recognition-list {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 640px) {
+    .page-sobre {
+        --page-header-height: 64px;
+        scroll-snap-type: y proximity;
+    }
+
+    .page-sobre main {
+        scroll-snap-type: y proximity;
+    }
+
+    .page-sobre main > section {
+        gap: 18px;
+        padding-top: 22px;
+        padding-bottom: 22px;
+    }
+
+    .page-sobre .container {
+        width: min(100% - 20px, 1120px);
+    }
+
+    .about-hero h1 {
+        max-width: min(100%, 24ch);
+        font-size: 1.72rem;
+        line-height: 1.08;
+    }
+
+    .about-hero p {
+        max-width: min(100%, 42ch);
+        font-size: 1rem;
+        line-height: 1.6;
+    }
+
+    .about-opening-copy,
+    .statutory-card,
+    .section-heading,
+    .recognition-item,
+    .achievements-list article,
+    .about-timeline-item {
+        max-width: none;
+    }
+
+    .about-opening-copy h2,
+    .statutory-card h2,
+    .section-heading h2 {
+        max-width: min(100%, 28ch);
+        font-size: 1.42rem;
+        line-height: 1.14;
+    }
+
+    .statutory-card,
+    .recognition-item,
+    .achievements-list article {
+        padding: 16px;
+    }
+
+    .achievements-list {
+        grid-template-columns: 1fr;
+        gap: 12px;
+        margin-top: 18px;
+    }
+
+    .achievements-list article {
+        min-height: auto;
+    }
+
+    .about-opening-photo img {
+        aspect-ratio: 16 / 9;
+        width: 100%;
+        height: auto;
+        max-height: 220px;
+        object-fit: cover;
+    }
+
+    .about-opening-points {
+        gap: 8px;
+        margin-top: 16px;
+    }
+
+    .about-opening-points span {
+        min-height: 34px;
+        padding: 7px 10px;
+        font-size: 0.84rem;
+    }
+
+    .recognition-list {
+        gap: 12px;
+    }
+
+    .about-timeline::before {
+        left: 7px;
+    }
+
+    .about-timeline-item {
+        grid-template-columns: 1fr;
+        gap: 6px;
+        padding-left: 30px;
+    }
+
+    .about-timeline-item p {
+        padding-bottom: 18px;
+    }
+}
+
+@media (max-width: 420px) {
+    .about-hero h1 {
+        font-size: 1.52rem;
+    }
+
+}

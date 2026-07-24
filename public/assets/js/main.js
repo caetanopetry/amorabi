@@ -213,7 +213,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const copyButton = pixDonation.querySelector("[data-pix-copy]");
         const whatsappLink = pixDonation.querySelector("[data-pix-whatsapp]");
 
-        let selectedAmount = "10";
+        let selectedAmount = "";
 
         const setFeedback = (message, isError = false) => {
             if (!feedback) return;
@@ -330,12 +330,12 @@ document.addEventListener("DOMContentLoaded", () => {
                         payloadField.select();
                         document.execCommand("copy");
                     }
-                    setFeedback("Codigo Pix copiado.", false);
+                    setFeedback("Código Pix copiado para a área de transferência.", false);
                 } catch (error) {
                     payloadField.focus();
                     payloadField.select();
                     document.execCommand("copy");
-                    setFeedback("Codigo Pix copiado.", false);
+                    setFeedback("Código Pix copiado para a área de transferência.", false);
                 }
             });
         }

@@ -3,22 +3,22 @@
     <div class="container footer-grid">
         <div class="footer-about">
             <img src="<?php echo htmlspecialchars(asset_url('img/amorabi-logo-transparent.png')); ?>" alt="AMORABI" class="footer-logo">
-            <p>Associacao de Moradores e Amigos do Bairro Itinga. Cultura, educacao popular e mobilizacao comunitaria em Joinville-SC.</p>
+            <p>Associação de Moradores e Amigos do Bairro Itinga. Cultura, educação popular e mobilização comunitária em Joinville-SC.</p>
         </div>
 
         <div>
-            <h2>Endereco</h2>
+            <h2>Endereço</h2>
             <p>Rua dos Esportistas, 510<br>Bairro Itinga, Joinville - SC<br>CEP 89233-700</p>
         </div>
 
         <div>
-            <h2>Links rapidos</h2>
+            <h2>Links rápidos</h2>
             <ul class="footer-links">
                 <li><a href="<?php echo htmlspecialchars(url('sobre')); ?>">Quem Somos</a></li>
-                <li><a href="<?php echo htmlspecialchars(url('noticias')); ?>">Noticias</a></li>
+                <li><a href="<?php echo htmlspecialchars(url('noticias')); ?>">Notícias</a></li>
                 <li><a href="<?php echo htmlspecialchars(url('projetos')); ?>">Projetos</a></li>
                 <li><a href="<?php echo htmlspecialchars(url('biblioteca')); ?>">Biblioteca</a></li>
-                <li><a href="<?php echo htmlspecialchars(url('transparencia')); ?>">Transparencia</a></li>
+                <li><a href="<?php echo htmlspecialchars(url('transparencia')); ?>">Transparência</a></li>
                 <li><a href="<?php echo htmlspecialchars(url('contato')); ?>">Contato</a></li>
             </ul>
         </div>
@@ -55,6 +55,16 @@
     </div>
 </footer>
 <script src="<?php echo htmlspecialchars(asset_url('js/main.js')); ?>"></script>
+<?php
+$js_page = ($body_page ?? '') === 'index' ? 'index' : basename($current_route ?? '');
+$js_file = __DIR__ . "/../assets/js/{$js_page}.js";
+
+if ($js_page !== '' && file_exists($js_file)) {
+    echo '<script src="' . htmlspecialchars(asset_url('js/' . $js_page . '.js')) . '"></script>' . PHP_EOL;
+}
+?>
+<?php if (($body_page ?? '') === 'index'): ?>
 <script src="https://elfsightcdn.com/platform.js" async></script>
+<?php endif; ?>
 </body>
 </html>

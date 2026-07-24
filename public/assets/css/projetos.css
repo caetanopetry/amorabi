@@ -1,0 +1,323 @@
+/* Melhorias específicas da página antiga de Projetos. */
+
+.page-projetos main,
+.page-projetos section,
+.page-projetos .container,
+.page-projetos .project-card,
+.page-projetos .course-card,
+.page-projetos .theatre-copy,
+.page-projetos .women-feature .theatre-copy,
+.page-projetos .cursinho-copy,
+.page-projetos .section-heading {
+    min-width: 0;
+}
+
+.page-projetos {
+    overflow-x: hidden;
+}
+
+.page-projetos .reveal {
+    opacity: 1;
+    transform: none;
+}
+
+.page-projetos .page-hero {
+    overflow: hidden;
+}
+
+.page-projetos .page-hero h1,
+.page-projetos .section-heading h2,
+.page-projetos .theatre-copy h2,
+.page-projetos .women-feature .theatre-copy h2,
+.page-projetos .cursinho-copy h2,
+.page-projetos .final-cta h2,
+.page-projetos .project-card h2,
+.page-projetos .course-heading h3 {
+    max-width: 100%;
+    overflow-wrap: break-word;
+}
+
+.page-projetos .project-card,
+.page-projetos .course-card,
+.page-projetos .theatre-copy,
+.page-projetos .women-feature .theatre-copy,
+.page-projetos .cursinho-feature {
+    border-color: var(--line);
+}
+
+.page-projetos .project-card img,
+.page-projetos .theatre-main-photo img,
+.page-projetos .theatre-gallery-large img,
+.page-projetos .women-gallery-large img,
+.page-projetos .cursinho-gallery img,
+.page-projetos .cursinho-gallery .cursinho-main {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+}
+
+.page-projetos .project-card img {
+    min-height: 0;
+}
+
+.page-projetos .project-card:hover,
+.page-projetos .course-card:hover,
+.page-projetos .course-card:focus-visible {
+    transform: translateY(-3px);
+}
+
+.page-projetos .sports-partnerships {
+    display: grid;
+    grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
+    gap: 28px;
+    align-items: start;
+    margin-top: 42px;
+    padding-top: 34px;
+    border-top: 1px solid var(--line);
+}
+
+.page-projetos .sports-partnerships-intro {
+    position: sticky;
+    top: 110px;
+}
+
+.page-projetos .sports-partnerships-intro h3 {
+    margin-top: 14px;
+    color: var(--ink);
+    font-size: clamp(1.45rem, 3vw, 2rem);
+    line-height: 1.14;
+}
+
+.page-projetos .sports-partnerships-intro p {
+    margin-top: 12px;
+    color: var(--muted);
+    line-height: 1.72;
+}
+
+.page-projetos .sports-partnerships-list {
+    display: grid;
+    gap: 16px;
+}
+
+.page-projetos .sports-partnership-card {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(220px, 0.8fr);
+    gap: 22px;
+    padding: 24px;
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    background: var(--white);
+    box-shadow: var(--shadow);
+}
+
+.page-projetos .sports-partnership-card h4 {
+    margin: 8px 0 10px;
+    color: var(--ink);
+    font-size: 1.45rem;
+    line-height: 1.16;
+}
+
+.page-projetos .sports-partnership-card p {
+    color: var(--muted);
+    line-height: 1.65;
+}
+
+.page-projetos .sports-partnership-card dl {
+    display: grid;
+    gap: 10px;
+    margin: 0;
+}
+
+.page-projetos .sports-partnership-card dl div {
+    padding-bottom: 10px;
+    border-bottom: 1px solid rgba(31, 122, 130, 0.14);
+}
+
+.page-projetos .sports-partnership-card dt {
+    color: var(--primary);
+    font-size: 0.78rem;
+    font-weight: 900;
+    text-transform: uppercase;
+}
+
+.page-projetos .sports-partnership-card dd {
+    margin: 3px 0 0;
+    color: var(--ink);
+    font-weight: 800;
+    line-height: 1.35;
+}
+
+.page-projetos .course-card:focus-visible,
+.page-projetos .btn:focus-visible,
+.page-projetos a:focus-visible {
+    outline: 3px solid rgba(246, 178, 75, 0.75);
+    outline-offset: 3px;
+}
+
+:root[data-theme="dark"] .page-projetos .project-card,
+:root[data-theme="dark"] .page-projetos .course-card,
+:root[data-theme="dark"] .page-projetos .theatre-copy,
+:root[data-theme="dark"] .page-projetos .women-feature .theatre-copy,
+:root[data-theme="dark"] .page-projetos .cursinho-feature,
+:root[data-theme="dark"] .page-projetos .sports-partnership-card {
+    background: var(--white);
+    border-color: rgba(255, 255, 255, 0.12);
+}
+
+:root[data-theme="dark"] .page-projetos .sports-partnerships {
+    border-top-color: rgba(255, 255, 255, 0.12);
+}
+
+:root[data-theme="dark"] .page-projetos .project-photo-band,
+:root[data-theme="dark"] .page-projetos .courses-section {
+    background:
+        linear-gradient(180deg, #17131a, var(--white));
+}
+
+:root[data-theme="dark"] .page-projetos .btn-outline {
+    color: var(--ink);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .page-projetos .project-card,
+    .page-projetos .course-card,
+    .page-projetos .theatre-main-photo img,
+    .page-projetos .theatre-gallery-large img,
+    .page-projetos .women-gallery-large img {
+        transition: none;
+    }
+}
+
+@media (max-width: 980px) {
+    .page-projetos .project-grid,
+    .page-projetos .course-grid,
+    .page-projetos .course-grid.compact,
+    .page-projetos .theatre-gallery-large,
+    .page-projetos .women-gallery-large {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .page-projetos .theatre-feature,
+    .page-projetos .women-feature,
+    .page-projetos .cursinho-feature,
+    .page-projetos .course-group,
+    .page-projetos .sports-partnerships,
+    .page-projetos .sports-partnership-card {
+        grid-template-columns: 1fr;
+    }
+
+    .page-projetos .sports-partnerships-intro {
+        position: static;
+    }
+}
+
+@media (max-width: 700px) {
+    .page-projetos .container {
+        width: min(100% - 20px, 1120px);
+    }
+
+    .page-projetos,
+    .page-projetos main {
+        scroll-snap-type: y proximity;
+    }
+
+    .page-projetos .page-hero h1 {
+        max-width: min(100%, 24ch);
+        font-size: 1.74rem;
+        line-height: 1.08;
+    }
+
+    .page-projetos .page-hero p {
+        max-width: min(100%, 42ch);
+        font-size: 1rem;
+        line-height: 1.6;
+    }
+
+    .page-projetos .section-heading h2,
+    .page-projetos .theatre-copy h2,
+    .page-projetos .women-feature .theatre-copy h2,
+    .page-projetos .cursinho-copy h2,
+    .page-projetos .final-cta h2 {
+        font-size: clamp(1.45rem, 7vw, 1.78rem);
+        line-height: 1.12;
+    }
+
+    .page-projetos .project-grid,
+    .page-projetos .course-grid,
+    .page-projetos .course-grid.compact,
+    .page-projetos .theatre-gallery-large,
+    .page-projetos .women-gallery-large,
+    .page-projetos .cursinho-gallery {
+        grid-template-columns: 1fr;
+    }
+
+    .page-projetos .project-card img,
+    .page-projetos .theatre-main-photo img,
+    .page-projetos .theatre-gallery-large img,
+    .page-projetos .women-gallery-large img,
+    .page-projetos .cursinho-gallery img,
+    .page-projetos .cursinho-gallery .cursinho-main {
+        width: 100%;
+        height: auto;
+        max-height: 260px;
+        aspect-ratio: 4 / 3;
+        object-fit: cover;
+    }
+
+    .page-projetos .project-card > div:last-child,
+    .page-projetos .theatre-copy,
+    .page-projetos .women-feature .theatre-copy,
+    .page-projetos .cursinho-copy,
+    .page-projetos .sports-partnership-card {
+        padding: 16px;
+    }
+
+    .page-projetos .project-card h2 {
+        font-size: 1.08rem;
+        line-height: 1.22;
+    }
+
+    .page-projetos .sports-partnerships {
+        gap: 18px;
+        margin-top: 28px;
+        padding-top: 24px;
+    }
+
+    .page-projetos .sports-partnership-card h4 {
+        font-size: 1.22rem;
+    }
+
+    .page-projetos .cursinho-points {
+        display: grid;
+        grid-template-columns: 1fr;
+    }
+
+    .page-projetos .hero-actions,
+    .page-projetos .hero-actions .btn {
+        width: 100%;
+    }
+}
+
+@media (max-width: 420px) {
+    .page-projetos .page-hero {
+        padding: 44px 0;
+    }
+
+    .page-projetos .page-hero h1 {
+        font-size: 1.58rem;
+    }
+
+    .page-projetos .project-card > div:last-child,
+    .page-projetos .course-card,
+    .page-projetos .theatre-copy,
+    .page-projetos .women-feature .theatre-copy,
+    .page-projetos .cursinho-copy,
+    .page-projetos .sports-partnership-card {
+        padding: 16px;
+    }
+
+    .page-projetos .course-card {
+        min-height: auto;
+    }
+}

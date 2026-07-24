@@ -18,8 +18,11 @@ function nav_active($route, $current_route) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="AMORABI - Associacao de Moradores e Amigos do Bairro Itinga, em Joinville-SC. Cultura, educacao popular, biblioteca comunitaria e mobilizacao social.">
-    <title><?php echo htmlspecialchars($nome_site); ?> - Associacao de Moradores e Amigos do Bairro Itinga</title>
+    <meta name="description" content="AMORABI - Associação de Moradores e Amigos do Bairro Itinga, em Joinville-SC. Cultura, educação popular, biblioteca comunitária e mobilização social.">
+    <title><?php echo htmlspecialchars($nome_site); ?> - Associação de Moradores e Amigos do Bairro Itinga</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,500&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="<?php echo htmlspecialchars(asset_url('css/style.css')); ?>">
 
     <?php
@@ -39,8 +42,8 @@ function nav_active($route, $current_route) {
 <body class="page-<?php echo htmlspecialchars($body_page); ?>">
 <header class="main-header" data-header>
     <div class="header-container container">
-        <a href="<?php echo htmlspecialchars(url()); ?>" class="brand" aria-label="Pagina inicial da AMORABI">
-            <img src="<?php echo htmlspecialchars(asset_url('img/amorabi-logo-transparent.png')); ?>" alt="AMORABI - Associacao de Moradores e Amigos do Bairro Itinga">
+        <a href="<?php echo htmlspecialchars(url()); ?>" class="brand" aria-label="Página inicial da AMORABI">
+            <img src="<?php echo htmlspecialchars(asset_url('img/amorabi-logo-transparent.png')); ?>" alt="AMORABI - Associação de Moradores e Amigos do Bairro Itinga">
         </a>
 
         <button class="menu-toggle" type="button" aria-label="Abrir menu" aria-expanded="false" data-menu-toggle>
@@ -51,12 +54,12 @@ function nav_active($route, $current_route) {
 
         <nav class="nav-menu" data-nav>
             <ul>
-                <li><a href="<?php echo htmlspecialchars(url()); ?>"<?php echo nav_active('', $current_route); ?>>Inicio</a></li>
-                <li><a href="<?php echo htmlspecialchars(url('noticias')); ?>"<?php echo nav_active('noticias', $current_route); ?>>Noticias</a></li>
+                <li><a href="<?php echo htmlspecialchars(url()); ?>"<?php echo nav_active('', $current_route); ?>>Início</a></li>
+                <li><a href="<?php echo htmlspecialchars(url('noticias')); ?>"<?php echo nav_active('noticias', $current_route); ?>>Notícias</a></li>
                 <li><a href="<?php echo htmlspecialchars(url('sobre')); ?>"<?php echo nav_active('sobre', $current_route); ?>>Quem Somos</a></li>
                 <li><a href="<?php echo htmlspecialchars(url('projetos')); ?>"<?php echo nav_active('projetos', $current_route); ?>>Projetos</a></li>
                 <li><a href="<?php echo htmlspecialchars(url('biblioteca')); ?>"<?php echo nav_active('biblioteca', $current_route); ?>>Biblioteca</a></li>
-                <li><a href="<?php echo htmlspecialchars(url('transparencia')); ?>"<?php echo nav_active('transparencia', $current_route); ?>>Transparencia</a></li>
+                <li><a href="<?php echo htmlspecialchars(url('transparencia')); ?>"<?php echo nav_active('transparencia', $current_route); ?>>Transparência</a></li>
                 <li><a href="<?php echo htmlspecialchars(url('contato')); ?>"<?php echo nav_active('contato', $current_route); ?>>Contato</a></li>
             </ul>
             <a class="btn btn-small nav-cta" href="<?php echo htmlspecialchars(url('contato')); ?>#como-ajudar">Como ajudar</a>
