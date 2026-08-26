@@ -361,6 +361,14 @@
     overflow: hidden;
     box-shadow: var(--shadow);
     background: var(--white);
+    touch-action: pan-y pinch-zoom;
+    -webkit-user-select: none;
+    user-select: none;
+}
+
+.photo-carousel:focus-visible {
+    outline: 3px solid var(--primary);
+    outline-offset: 4px;
 }
 
 .carousel-viewport {
@@ -376,6 +384,14 @@
     transition: transform 0.5s ease;
 }
 
+.carousel-track.is-dragging {
+    transition: none;
+}
+
+.photo-carousel.is-dragging {
+    cursor: grabbing;
+}
+
 .carousel-slide {
     position: relative;
     flex: 0 0 100%;
@@ -388,6 +404,8 @@
     min-height: 430px;
     object-fit: cover;
     display: block;
+    pointer-events: none;
+    -webkit-user-drag: none;
 }
 
 .carousel-caption {
@@ -661,17 +679,17 @@
 @media (max-width: 980px) {
     .page-index {
         --home-header-height: 76px;
-        scroll-snap-type: y mandatory;
+        scroll-snap-type: none;
     }
 
     .page-index main {
-        scroll-snap-type: y mandatory;
+        scroll-snap-type: none;
     }
 
     .page-index main > section {
         min-height: calc(100svh - var(--home-header-height));
-        scroll-snap-align: start;
-        scroll-snap-stop: always;
+        scroll-snap-align: none;
+        scroll-snap-stop: normal;
         padding-top: 28px;
         padding-bottom: 28px;
     }
@@ -720,6 +738,75 @@
     .hero-grid {
         gap: 0;
     }
+
+    .home-about-section {
+        padding-top: 44px;
+        padding-bottom: 44px;
+    }
+
+    .about-home {
+        gap: 28px;
+    }
+
+    .about-home-text > .eyebrow {
+        width: fit-content;
+        margin-bottom: 14px;
+    }
+
+    .about-home-text > h2 {
+        max-width: 24ch;
+        font-size: clamp(1.8rem, 5.5vw, 2.45rem);
+        line-height: 1.12;
+        letter-spacing: -0.025em;
+    }
+
+    .about-home-text > h2::after {
+        content: "";
+        display: block;
+        width: 58px;
+        height: 4px;
+        margin-top: 16px;
+        border-radius: 999px;
+        background: linear-gradient(90deg, var(--warm), var(--teal));
+    }
+
+    .about-home-text > h2 + p {
+        max-width: 62ch;
+        margin-top: 18px;
+        color: var(--muted);
+        font-size: 1rem;
+        line-height: 1.68;
+    }
+
+    .home-mission {
+        margin: 24px 0 18px;
+        padding: 18px;
+        border-left-width: 5px;
+        box-shadow: 0 12px 28px rgba(55, 24, 44, 0.07);
+    }
+
+    .home-vital-signs {
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
+
+    .home-vital-signs div {
+        display: grid;
+        grid-template-columns: minmax(68px, auto) 1fr;
+        align-items: center;
+        gap: 16px;
+        padding: 14px 16px;
+    }
+
+    .home-vital-signs strong {
+        font-size: 1.2rem;
+    }
+
+    .home-vital-signs span {
+        margin-top: 0;
+        padding-left: 16px;
+        border-left: 1px solid var(--line);
+    }
 }
 
 @media (max-width: 700px) {
@@ -735,7 +822,13 @@
 
     .page-index,
     .page-index main {
-        scroll-snap-type: y proximity;
+        scroll-snap-type: none;
+    }
+
+    .page-index main > section {
+        min-height: auto;
+        scroll-snap-align: none;
+        scroll-snap-stop: normal;
     }
 
     .hero-home {
@@ -744,6 +837,10 @@
 
     .hero-copy-panel {
         padding: 28px 20px;
+    }
+
+    .hero-grid {
+        min-height: auto;
     }
 
     .hero-copy {
@@ -805,7 +902,7 @@
     }
 
     .home-vital-signs div {
-        padding: 12px;
+        padding: 12px 14px;
     }
 
     .home-courses-tags {
@@ -827,8 +924,8 @@
 
     .instagram-widget {
         padding: 14px;
-        max-height: 48svh;
-        overflow-y: auto;
+        max-height: none;
+        overflow: visible;
     }
 
     .page-index .card-grid,
@@ -845,6 +942,32 @@
     .carousel-slide img {
         min-height: 0;
         max-height: none;
+    }
+
+    .carousel-caption {
+        left: 14px;
+        right: 14px;
+        bottom: 42px;
+        font-size: 0.9rem;
+        line-height: 1.3;
+    }
+
+    .carousel-dots {
+        bottom: 14px;
+        gap: 4px;
+    }
+
+    .carousel-dots button {
+        position: relative;
+        width: 8px;
+        height: 8px;
+        margin: 0 6px;
+    }
+
+    .carousel-dots button::before {
+        content: "";
+        position: absolute;
+        inset: -10px;
     }
 }
 
@@ -889,9 +1012,10 @@
     }
 
     .carousel-arrow {
-        width: 36px;
-        height: 36px;
+        width: 44px;
+        height: 44px;
         font-size: 1.25rem;
+        background: rgba(0, 0, 0, 0.58);
     }
 
     .carousel-prev {

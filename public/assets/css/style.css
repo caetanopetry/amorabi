@@ -3740,7 +3740,7 @@ button {
     body[class^="page-noticia-"],
     .page-index,
     .page-sobre {
-        scroll-snap-type: y proximity;
+        scroll-snap-type: none;
     }
 
     .page-biblioteca main,
@@ -3752,7 +3752,7 @@ button {
     body[class^="page-noticia-"] main,
     .page-index main,
     .page-sobre main {
-        scroll-snap-type: y proximity;
+        scroll-snap-type: none;
     }
 
     .page-biblioteca main > section,
@@ -3764,6 +3764,7 @@ button {
     body[class^="page-noticia-"] main > section,
     .page-index main > section,
     .page-sobre main > section {
+        scroll-snap-align: none;
         scroll-snap-stop: normal;
     }
 }
@@ -3810,6 +3811,7 @@ button {
         right: 10px;
         max-height: calc(100dvh - 84px);
         overflow-y: auto;
+        overscroll-behavior: contain;
     }
 
     .nav-menu a,

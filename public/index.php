@@ -91,7 +91,7 @@ $noticias = fetch_all_safe("SELECT * FROM noticias WHERE status = 'publicado' OR
             <p>Fotos reais das oficinas, aulas e apresentações realizadas pela AMORABI com a comunidade.</p>
         </div>
 
-        <div class="photo-carousel reveal" data-carousel role="region" aria-label="Galeria de fotos da AMORABI">
+        <div class="photo-carousel reveal" data-carousel role="region" aria-roledescription="carrossel" aria-label="Galeria de fotos da AMORABI" tabindex="0">
             <div class="carousel-viewport">
                 <ul class="carousel-track" data-carousel-track>
                     <li class="carousel-slide">
