@@ -4,9 +4,6 @@ COLLATE utf8mb4_unicode_ci;
 
 USE amorabi_site;
 
--- =========================
--- USUÁRIOS ADMINISTRATIVOS
--- =========================
 
 CREATE TABLE admin_users (
     id INT AUTO_INCREMENT PRIMARY KEY,
@@ -18,10 +15,6 @@ CREATE TABLE admin_users (
     criado_em DATETIME DEFAULT CURRENT_TIMESTAMP,
     atualizado_em DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 );
-
--- =========================
--- NOTÍCIAS / BLOG
--- =========================
 
 CREATE TABLE categorias (
     id INT AUTO_INCREMENT PRIMARY KEY,
@@ -61,9 +54,6 @@ CREATE TABLE noticia_imagens (
         ON DELETE CASCADE
 );
 
--- =========================
--- PROJETOS
--- =========================
 
 CREATE TABLE projetos (
     id INT AUTO_INCREMENT PRIMARY KEY,
@@ -78,9 +68,6 @@ CREATE TABLE projetos (
     atualizado_em DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 );
 
--- =========================
--- AGENDA / EVENTOS
--- =========================
 
 CREATE TABLE eventos (
     id INT AUTO_INCREMENT PRIMARY KEY,
@@ -96,9 +83,6 @@ CREATE TABLE eventos (
     atualizado_em DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 );
 
--- =========================
--- BIBLIOTECA
--- =========================
 
 CREATE TABLE biblioteca_info (
     id INT AUTO_INCREMENT PRIMARY KEY,
@@ -111,9 +95,6 @@ CREATE TABLE biblioteca_info (
     atualizado_em DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 );
 
--- =========================
--- TRANSPARÊNCIA / DOCUMENTOS
--- =========================
 
 CREATE TABLE tipos_documentos (
     id INT AUTO_INCREMENT PRIMARY KEY,
@@ -135,9 +116,6 @@ CREATE TABLE documentos (
         ON DELETE SET NULL
 );
 
--- =========================
--- CONFIGURAÇÕES DO SITE
--- =========================
 
 CREATE TABLE site_config (
     id INT AUTO_INCREMENT PRIMARY KEY,
@@ -145,9 +123,6 @@ CREATE TABLE site_config (
     valor TEXT
 );
 
--- =========================
--- MENSAGENS DE CONTATO
--- =========================
 
 CREATE TABLE mensagens_contato (
     id INT AUTO_INCREMENT PRIMARY KEY,
@@ -160,9 +135,6 @@ CREATE TABLE mensagens_contato (
     criado_em DATETIME DEFAULT CURRENT_TIMESTAMP
 );
 
--- =========================
--- GALERIA
--- =========================
 
 CREATE TABLE galeria (
     id INT AUTO_INCREMENT PRIMARY KEY,
@@ -173,10 +145,6 @@ CREATE TABLE galeria (
     status ENUM('publicado', 'rascunho') DEFAULT 'publicado',
     criado_em DATETIME DEFAULT CURRENT_TIMESTAMP
 );
-
--- =========================
--- DADOS INICIAIS
--- =========================
 
 INSERT INTO categorias (nome, slug) VALUES
 ('Cultura', 'cultura'),

@@ -7,7 +7,7 @@ $projetos_base = [
         'titulo' => 'Teatro Comunitário e Mostras Culturais',
         'resumo' => 'Curso de teatro, jogos cênicos, expressão corporal, montagens e apresentações que fortalecem a presença cultural da AMORABI no Itinga.',
         'tag' => 'Cultura',
-        'imagem_local' => asset_url('img/imagens/722910613_18377040331202339_5437870242268030223_n.jpg'),
+        'imagem_local' => asset_url('img/imagens-teatro/teatro-bonecos.jpg'),
     ],
     [
         'titulo' => 'Oficinas de Música, Canto e Ritmo',
@@ -109,7 +109,7 @@ function course_icon($type) {
                 <?php elseif (!empty($p['imagem_local'])): ?>
                     <img src="<?php echo htmlspecialchars($p['imagem_local']); ?>" loading="lazy" decoding="async" alt="<?php echo htmlspecialchars($p['titulo']); ?>">
                 <?php else: ?>
-                    <div class="project-visual"><?php echo str_pad($index + 1, 2, '0', STR_PAD_LEFT); ?></div>
+                    <div class="project-visual" aria-hidden="true"></div>
                 <?php endif; ?>
                 <div>
                     <span class="tag"><?php echo htmlspecialchars($p['tag'] ?? 'Projeto ativo'); ?></span>
@@ -124,7 +124,7 @@ function course_icon($type) {
 <section class="section theatre-feature-section">
     <div class="container theatre-feature">
         <figure class="theatre-main-photo reveal">
-            <img src="<?php echo htmlspecialchars(asset_url('img/imagens/722910613_18377040331202339_5437870242268030223_n.jpg')); ?>" loading="lazy" decoding="async" alt="Apresentação teatral no palco da AMORABI">
+            <img src="<?php echo htmlspecialchars(asset_url('img/imagens-teatro/teatro-quadra.jpg')); ?>" loading="lazy" decoding="async" alt="Espetáculo de teatro de bonecos no palco da AMORABI">
         </figure>
         <div class="theatre-copy reveal">
             <span class="eyebrow">Teatro na AMORABI</span>
@@ -134,10 +134,10 @@ function course_icon($type) {
         </div>
     </div>
     <div class="container theatre-gallery-large reveal">
-        <img src="<?php echo htmlspecialchars(asset_url('img/imagens-teatro/unnamed.jpg')); ?>" loading="lazy" decoding="async" alt="Apresentação de dança no palco da AMORABI">
-        <img src="<?php echo htmlspecialchars(asset_url('img/imagens-teatro/unnamed%20(1).jpg')); ?>" loading="lazy" decoding="async" alt="Apresentação musical no palco da AMORABI">
-        <img src="<?php echo htmlspecialchars(asset_url('img/imagens-teatro/unnamed%20(3).jpg')); ?>" loading="lazy" decoding="async" alt="Grupo teatral em apresentação na AMORABI">
-        <img src="<?php echo htmlspecialchars(asset_url('img/imagens-teatro/unnamed%20(4).jpg')); ?>" loading="lazy" decoding="async" alt="Cena teatral apresentada na AMORABI">
+        <img src="<?php echo htmlspecialchars(asset_url('img/imagens-teatro/teatro-mascara-cenica.jpg')); ?>" loading="lazy" decoding="async" alt="Personagem com máscara em apresentação teatral na AMORABI">
+        <img src="<?php echo htmlspecialchars(asset_url('img/imagens-teatro/teatro-contacao-historias.jpg')); ?>" loading="lazy" decoding="async" alt="Contação de histórias no palco da AMORABI">
+        <img src="<?php echo htmlspecialchars(asset_url('img/imagens-teatro/oficina-expressao-corporal.jpg')); ?>" loading="lazy" decoding="async" alt="Crianças em atividade de expressão corporal no palco da AMORABI">
+        <img src="<?php echo htmlspecialchars(asset_url('img/imagens-teatro/apresentacao-cenica-criancas.jpg')); ?>" loading="lazy" decoding="async" alt="Crianças em apresentação cênica no palco da AMORABI">
     </div>
 </section>
 

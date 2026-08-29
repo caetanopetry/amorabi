@@ -452,17 +452,15 @@ button.btn {
     min-width: 0;
     overflow: hidden;
     border-radius: 14px;
-    border: 1px solid rgba(255, 255, 255, 0.2);
     box-shadow: 0 24px 70px rgba(0, 0, 0, 0.24);
-    background: rgba(255, 255, 255, 0.08);
+    background: transparent;
 }
 
 .page-hero-media img {
     display: block;
     width: 100%;
-    height: auto;
-    max-height: clamp(300px, 44svh, 500px);
-    object-fit: contain;
+    height: clamp(300px, 44svh, 500px);
+    object-fit: cover;
     object-position: center;
 }
 
@@ -1697,6 +1695,16 @@ a.info-box:hover::after {
 
 .transparency-hero {
     background: var(--hero-surface);
+}
+
+.transparency-hero .page-hero-split {
+    grid-template-columns: minmax(0, 1.08fr) minmax(320px, 0.92fr);
+}
+
+.transparency-hero h1 {
+    max-width: 12ch;
+    font-size: clamp(3rem, 4.2vw, 4rem);
+    overflow-wrap: normal;
 }
 
 :root[data-theme="dark"] .transparency-hero {
@@ -4119,4 +4127,49 @@ button {
     .theme-toggle {
         min-height: 40px;
     }
+}
+
+/* Fluxo natural: o conteúdo define a altura das seções. */
+.page-biblioteca,
+.page-projetos,
+.page-contato,
+.page-noticias,
+.page-transparencia,
+.page-noticia,
+.page-sobre,
+.page-index,
+body[class^="page-noticia-"],
+.page-biblioteca main,
+.page-projetos main,
+.page-contato main,
+.page-noticias main,
+.page-transparencia main,
+.page-noticia main,
+.page-sobre main,
+.page-index main,
+body[class^="page-noticia-"] main {
+    scroll-snap-type: none;
+}
+
+.page-biblioteca main > section,
+.page-projetos main > section,
+.page-contato main > section,
+.page-noticias main > section,
+.page-transparencia main > section,
+.page-noticia main > section,
+.page-sobre main > section,
+.page-index main > section,
+body[class^="page-noticia-"] main > section {
+    min-height: auto;
+    scroll-snap-align: none;
+    scroll-snap-stop: normal;
+}
+
+/* Fotos ocupam o enquadramento; somente ilustrações preservam a imagem inteira. */
+.page-hero-media:not(.page-hero-illustration) img {
+    width: 100%;
+    height: auto;
+    max-height: none;
+    aspect-ratio: 3 / 2;
+    object-fit: cover;
 }

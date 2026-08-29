@@ -26,7 +26,7 @@ function about_icon($type) {
             <p>Desde 17 de maio de 1981, a AMORABI reúne moradores, voluntários e parceiros em torno de uma ideia simples: cuidar do bairro, abrir espaço para a cultura e defender direitos da comunidade.</p>
         </div>
         <figure class="page-hero-media">
-            <img src="<?php echo htmlspecialchars(asset_url('img/imagens/474951850_638212055532616_874613838701138383_n.jpg')); ?>" loading="eager" decoding="async" alt="Grupo em frente ao Centro Comunitário da AMORABI no Itinga">
+            <img src="<?php echo htmlspecialchars(asset_url('img/imagens-teatro/plateia-apresentacao-cultural.jpg')); ?>" loading="eager" decoding="async" alt="Comunidade reunida em uma apresentação cultural na AMORABI">
         </figure>
     </div>
 </section>
@@ -62,32 +62,26 @@ function about_icon($type) {
 
         <div class="achievements-list reveal">
             <article>
-                <span>01</span>
                 <strong>Reivindicações para o bairro</strong>
                 <p>Pedidos, cobranças e diálogo com órgãos públicos para melhorias necessárias no Itinga.</p>
             </article>
             <article>
-                <span>02</span>
                 <strong>Educação infantil por duas décadas</strong>
                 <p>Manutenção do Centro Comunitário de Educação Infantil Vovó Juliana de Carvalho durante 20 anos.</p>
             </article>
             <article>
-                <span>03</span>
                 <strong>Espaço cedido para o CEI</strong>
                 <p>Parte do prédio hoje atende gratuitamente cerca de 130 crianças pelo CEI Professora Juliana de Carvalho.</p>
             </article>
             <article>
-                <span>04</span>
                 <strong>Centro Comunitário do Itinga</strong>
                 <p>Construção do espaço inaugurado em março de 1999, usado para encontros, cursos, reuniões e eventos.</p>
             </article>
             <article>
-                <span>05</span>
                 <strong>Cultura presente desde 1999</strong>
                 <p>Apresentações, oficinas e cursos culturais ajudaram a manter o Centro Comunitário vivo e aberto.</p>
             </article>
             <article>
-                <span>06</span>
                 <strong>Participação em conselhos</strong>
                 <p>Presença em espaços de decisão da cidade, levando demandas e defendendo direitos da comunidade.</p>
             </article>

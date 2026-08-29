@@ -107,8 +107,8 @@ $noticias = fetch_all_safe("SELECT * FROM noticias WHERE status = 'publicado' OR
                         <span class="carousel-caption">Turma do Karatê Comunitário em treino</span>
                     </li>
                     <li class="carousel-slide">
-                        <img src="<?php echo htmlspecialchars(asset_url('img/imagens/image3.jpg')); ?>" loading="lazy" decoding="async" alt="Encontro cultural na AMORABI">
-                        <span class="carousel-caption">Encontro cultural na AMORABI</span>
+                        <img src="<?php echo htmlspecialchars(asset_url('img/imagens-teatro/oficina-teatro-criancas.jpg')); ?>" loading="lazy" decoding="async" alt="Crianças em oficina de teatro na AMORABI">
+                        <span class="carousel-caption">Oficina de teatro com crianças na AMORABI</span>
                     </li>
                     <li class="carousel-slide">
                         <img src="<?php echo htmlspecialchars(asset_url('img/imagens-cursinho/641226097_18566496004061957_896989782536006659_n.webp')); ?>" loading="lazy" decoding="async" alt="Aula do Cursinho Popular Pré-ENEM">
@@ -117,6 +117,19 @@ $noticias = fetch_all_safe("SELECT * FROM noticias WHERE status = 'publicado' OR
                     <li class="carousel-slide">
                         <img src="<?php echo htmlspecialchars(asset_url('img/imagens-biblioteca/540776640_18337210918202339_8936651412990877340_n.jpg')); ?>" loading="lazy" decoding="async" alt="Momento na Biblioteca Comunitária">
                         <span class="carousel-caption">Tarde de leitura na Biblioteca Comunitária</span>
+                    </li>
+                    <li class="carousel-slide">
+                        <img src="<?php echo htmlspecialchars(asset_url('img/imagens-teatro/teatro-quadra2.jpg')); ?>" loading="lazy" decoding="async" alt="Momento na Biblioteca Comunitária">
+                            <span class="carousel-caption">Tarde de teatro na quadra esportiva</span>
+                    </li>
+                    <li class="carousel-slide">
+                        <img src="<?php echo htmlspecialchars(asset_url('img/imagens-teatro/teatro-mascara-cenica.jpg')); ?>" loading="lazy" decoding="async" alt="Momento na Biblioteca Comunitária">
+                            <span class="carousel-caption"> Apresentação de teatro infantil</span>
+                    </li>
+
+                    <li class="carousel-slide">
+                        <img src="<?php echo htmlspecialchars(asset_url('img/imagens-teatro/teatro-bonecos.jpg')); ?>" loading="lazy" decoding="async" alt="Momento na Biblioteca Comunitária">
+                            <span class="carousel-caption"> Teatro de bonecos e animação</span>
                     </li>
                 </ul>
             </div>
