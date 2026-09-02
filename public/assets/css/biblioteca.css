@@ -49,8 +49,7 @@
 
 .page-biblioteca .library-hero h1,
 .page-biblioteca .library-copy h2,
-.page-biblioteca .preservation-intro h2,
-.page-biblioteca .library-community-card h2 {
+.page-biblioteca .preservation-intro h2 {
     overflow-wrap: break-word;
 }
 
@@ -84,8 +83,7 @@
 }
 
 .page-biblioteca .library-split,
-.page-biblioteca .preservation-layout,
-.page-biblioteca .library-community-card {
+.page-biblioteca .preservation-layout {
     display: grid;
     grid-template-columns: minmax(0, 1fr) minmax(300px, 0.72fr);
     gap: 34px;
@@ -94,8 +92,7 @@
 
 .page-biblioteca .library-copy,
 .page-biblioteca .preservation-intro,
-.page-biblioteca .preservation-person,
-.page-biblioteca .library-community-card {
+.page-biblioteca .preservation-person {
     border: 1px solid var(--line);
     border-radius: var(--radius);
     background: var(--white);
@@ -109,8 +106,7 @@
 }
 
 .page-biblioteca .library-copy h2,
-.page-biblioteca .preservation-intro h2,
-.page-biblioteca .library-community-card h2 {
+.page-biblioteca .preservation-intro h2 {
     margin: 14px 0 16px;
     color: var(--ink);
     font-size: clamp(1.65rem, 3vw, 2.45rem);
@@ -119,8 +115,7 @@
 
 .page-biblioteca .library-copy p,
 .page-biblioteca .preservation-intro p,
-.page-biblioteca .preservation-person p,
-.page-biblioteca .library-community-card p {
+.page-biblioteca .preservation-person p {
     color: var(--muted);
     line-height: 1.75;
 }
@@ -167,8 +162,7 @@
     margin-top: 30px;
 }
 
-.page-biblioteca .library-photo-row img,
-.page-biblioteca .library-community-card img {
+.page-biblioteca .library-photo-row img {
     width: 100%;
     height: 100%;
     min-height: 300px;
@@ -262,18 +256,36 @@
     line-height: 1.58;
 }
 
-.page-biblioteca .library-community-card {
-    grid-template-columns: minmax(0, 0.9fr) minmax(300px, 1.1fr);
-    align-items: center;
-    padding: 18px;
+.page-biblioteca .library-visual-break {
+    padding: 0 0 clamp(48px, 7vw, 84px);
 }
 
-.page-biblioteca .library-community-card > div {
-    padding: 18px;
+.page-biblioteca .library-wide-photo {
+    position: relative;
+    margin-inline: auto;
+    overflow: hidden;
+    border-radius: var(--radius);
 }
 
-.page-biblioteca .library-community-card figure {
-    margin: 0;
+.page-biblioteca .library-wide-photo img {
+    display: block;
+    width: 100%;
+    height: clamp(320px, 47vw, 610px);
+    object-fit: cover;
+}
+
+.page-biblioteca .library-wide-photo figcaption {
+    position: absolute;
+    right: 18px;
+    bottom: 18px;
+    max-width: 440px;
+    padding: 10px 14px;
+    border-radius: 8px;
+    background: rgba(18, 16, 23, 0.78);
+    color: #fff;
+    font-size: 0.88rem;
+    line-height: 1.45;
+    backdrop-filter: blur(8px);
 }
 
 .page-biblioteca .btn:focus-visible,
@@ -308,7 +320,6 @@
 :root[data-theme="dark"] .page-biblioteca .library-copy,
 :root[data-theme="dark"] .page-biblioteca .preservation-intro,
 :root[data-theme="dark"] .page-biblioteca .preservation-person,
-:root[data-theme="dark"] .page-biblioteca .library-community-card,
 :root[data-theme="dark"] .page-biblioteca .library-note-list p,
 :root[data-theme="dark"] .page-biblioteca .archive-step {
     background:
@@ -324,8 +335,7 @@
 
 @media (max-width: 980px) {
     .page-biblioteca .library-split,
-    .page-biblioteca .preservation-layout,
-    .page-biblioteca .library-community-card {
+    .page-biblioteca .preservation-layout {
         grid-template-columns: 1fr;
     }
 
@@ -343,14 +353,12 @@
 
     .page-biblioteca .library-copy,
     .page-biblioteca .preservation-intro,
-    .page-biblioteca .preservation-person,
-    .page-biblioteca .library-community-card {
+    .page-biblioteca .preservation-person {
         padding: 16px;
     }
 
     .page-biblioteca .library-copy h2,
-    .page-biblioteca .preservation-intro h2,
-    .page-biblioteca .library-community-card h2 {
+    .page-biblioteca .preservation-intro h2 {
         font-size: clamp(1.42rem, 7vw, 1.72rem);
         line-height: 1.14;
     }
@@ -358,7 +366,6 @@
     .page-biblioteca .library-copy p,
     .page-biblioteca .preservation-intro p,
     .page-biblioteca .preservation-person p,
-    .page-biblioteca .library-community-card p,
     .page-biblioteca .archive-step p {
         font-size: 0.97rem;
         line-height: 1.55;
@@ -370,14 +377,36 @@
     }
 
     .page-biblioteca .library-photo-row img,
-    .page-biblioteca .library-photo-row img:first-child,
-    .page-biblioteca .library-community-card img {
+    .page-biblioteca .library-photo-row img:first-child {
         width: 100%;
         height: auto;
         min-height: 0;
         max-height: 250px;
         aspect-ratio: 4 / 3;
         object-fit: cover;
+    }
+
+    .page-biblioteca .library-visual-break {
+        padding-bottom: 48px;
+    }
+
+    .page-biblioteca .library-wide-photo {
+        width: calc(100% - 28px);
+        border-radius: 10px;
+    }
+
+    .page-biblioteca .library-wide-photo img {
+        height: auto;
+        min-height: 260px;
+        aspect-ratio: 4 / 3;
+    }
+
+    .page-biblioteca .library-wide-photo figcaption {
+        right: 10px;
+        bottom: 10px;
+        left: 10px;
+        max-width: none;
+        font-size: 0.8rem;
     }
 
     .page-biblioteca .archive-step {

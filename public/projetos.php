@@ -154,10 +154,11 @@ function course_icon($type) {
         </div>
     </div>
     <div class="container theatre-gallery-large women-gallery-large reveal">
+        <img src="<?php echo htmlspecialchars(asset_url('img/imagens-mulheres/image2.jpg')); ?>" loading="lazy" decoding="async" alt="Mulheres participando de oficina de costura na AMORABI">
+        <img src="<?php echo htmlspecialchars(asset_url('img/imagens-mulheres/image3.jpg')); ?>" loading="lazy" decoding="async" alt="Mulheres participando de oficina de artesanato na AMORABI">
         <img src="<?php echo htmlspecialchars(asset_url('img/imagens-mulheres/image4.jpg')); ?>" loading="lazy" decoding="async" alt="Atividade do Projeto Mulheres em Ação na AMORABI">
         <img src="<?php echo htmlspecialchars(asset_url('img/imagens-mulheres/image5.jpg')); ?>" loading="lazy" decoding="async" alt="Oficina do Projeto Mulheres em Ação">
         <img src="<?php echo htmlspecialchars(asset_url('img/imagens-mulheres/image6.jpg')); ?>" loading="lazy" decoding="async" alt="Encontro de mulheres na AMORABI">
-        <img src="<?php echo htmlspecialchars(asset_url('img/imagens-mulheres/image1.jpg')); ?>" loading="lazy" decoding="async" alt="Registro do Projeto Mulheres em Ação">
     </div>
 </section>
 

@@ -75,7 +75,7 @@ function render_document_card($documento) {
             <h1>Transparência e compromisso com cada recurso recebido.</h1>
         </div>
         <figure class="page-hero-media">
-            <img src="<?php echo htmlspecialchars(asset_url('img/imagens/image2.jpg')); ?>" loading="eager" decoding="async" alt="Mulheres participando de oficina de costura na AMORABI">
+            <img src="<?php echo htmlspecialchars(asset_url('img/imagens-mulheres/image2.jpg')); ?>" loading="eager" decoding="async" alt="Mulheres participando de oficina de costura na AMORABI">
         </figure>
     </div>
 </section>

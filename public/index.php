@@ -9,11 +9,11 @@ $noticias = fetch_all_safe("SELECT * FROM noticias WHERE status = 'publicado' OR
         <div class="hero-copy-panel">
         <div class="hero-copy reveal">
             <span class="eyebrow">Desde 1981 no coração do Itinga</span>
-            <h1>A associação que o Itinga construiu <span class="hero-title-mark">com as próprias mãos.</span></h1>
-            <p class="hero-lead">Desde 1981, a AMORABI organiza moradores, projetos e mobilizações no Itinga. Hoje, teatro, música, esporte e cursinho popular movimentam a comunidade.</p>
+            <h1>Há mais de 40 anos, o Itinga se reúne aqui para <span class="hero-title-mark">aprender, criar e transformar.</span></h1>
+            <p class="hero-lead">Cultura, educação e mobilização comunitária feitas por quem vive o bairro.</p>
             <div class="hero-actions">
                 <a class="btn" href="<?php echo htmlspecialchars(url('projetos')); ?>">Conheça nossos projetos</a>
-                <a class="btn btn-outline" href="https://api.whatsapp.com/send/?phone=47991987821&text&type=phone_number&app_absent=0" target="_blank" rel="noopener">Chamar no WhatsApp</a>
+                <a class="btn btn-outline" href="<?php echo htmlspecialchars(url('contato')); ?>">Entre em contato</a>
             </div>
         </div>
         </div>
@@ -28,58 +28,16 @@ $noticias = fetch_all_safe("SELECT * FROM noticias WHERE status = 'publicado' OR
 </section>
 
 <section class="section section-soft home-about-section">
-    <div class="container about-home">
-
-        <div class="about-home-text reveal">
+    <div class="container home-about-teaser reveal">
+        <div class="home-about-year" aria-label="AMORABI fundada em 1981">
+            <strong>1981</strong>
+            <span>no Itinga</span>
+        </div>
+        <div class="home-about-copy">
             <span class="eyebrow">Conheça a AMORABI</span>
-
-            <h2>
-                Mais de quatro décadas construindo cultura,
-                educação e participação comunitária.
-            </h2>
-
-            <p>
-                Fundada em 1981 por moradores do Itinga, a AMORABI participou
-                de mobilizações e conquistas comunitárias antes mesmo da
-                inauguração do Centro Comunitário do Itinga, em 1999. Hoje,
-                esse espaço recebe oficinas de teatro, música, capoeira,
-                karatê e o Cursinho Popular Pré-ENEM, com atividades abertas
-                à comunidade.
-            </p>
-
-            <div class="home-mission">
-                <strong>Missão</strong>
-                <p>Despertar a população para o exercício da cidadania, buscando melhorar sua qualidade de vida.</p>
-            </div>
-
-            <div class="home-vital-signs" aria-label="Marcos da atuação da AMORABI">
-                <div>
-                    <strong>1981</strong>
-                    <span>moradores organizados pelo Itinga</span>
-                </div>
-                <div>
-                    <strong>1999</strong>
-                    <span>Centro Comunitário inaugurado</span>
-                </div>
-                <div>
-                    <strong>Hoje</strong>
-                    <span>cultura, educação e mobilização</span>
-                </div>
-            </div>
-
-            <a class="btn" href="<?php echo htmlspecialchars(url('sobre')); ?>">
-                Conheça nossa história
-            </a>
+            <p>Desde 1981, moradores do Itinga transformam participação comunitária em cultura, educação e oportunidades.</p>
         </div>
-
-        <div class="about-home-image reveal">
-            <img
-                src="<?php echo htmlspecialchars(asset_url('img/imagens/amorabi.jpg')); ?>"
-                loading="lazy"
-                decoding="async"
-                alt="Comunidade reunida na AMORABI">
-        </div>
-
+        <a class="btn home-about-link" href="<?php echo htmlspecialchars(url('sobre')); ?>">Descubra nossa história <span aria-hidden="true">→</span></a>
     </div>
 </section>
 
@@ -186,6 +144,9 @@ $noticias = fetch_all_safe("SELECT * FROM noticias WHERE status = 'publicado' OR
             </a>
         <?php endforeach; ?>
     </div>
+    <div class="container home-news-more reveal">
+        <a class="btn btn-outline" href="<?php echo htmlspecialchars(url('noticias')); ?>">Ver todas as notícias</a>
+    </div>
 </section>
 <?php endif; ?>
 
@@ -210,38 +171,23 @@ $noticias = fetch_all_safe("SELECT * FROM noticias WHERE status = 'publicado' OR
     </div>
 </section>
 
-<section class="section section-soft">
-    <div class="container section-heading centered reveal">
-        <span class="eyebrow">Conecte-se</span>
-        <h2>Participe pelos canais oficiais</h2>
-        <p>Fale direto com a equipe, acompanhe a agenda e veja de perto o que acontece na AMORABI.</p>
-    </div>
-    <div class="container action-grid">
-        <a class="action-card reveal" href="https://api.whatsapp.com/send/?phone=47991987821&text&type=phone_number&app_absent=0" target="_blank" rel="noopener">
-            <svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true">
-                <path d="M20.5 11.8a8.4 8.4 0 0 1-12.4 7.4L3 20.6l1.4-4.9a8.4 8.4 0 1 1 16.1-3.9Z"/>
-                <path d="M8.9 7.9c.2-.4.4-.5.7-.5h.5c.2 0 .4.1.5.4l.7 1.7c.1.3.1.5-.1.7l-.4.5c-.1.2-.2.3-.1.5.4.8 1.5 2.2 2.9 2.8.2.1.4.1.5-.1l.7-.8c.2-.2.4-.3.7-.2l1.6.8c.3.1.4.3.4.6 0 .6-.4 1.5-1.1 1.8-.7.3-2 .3-4.1-.8-2.6-1.3-4.2-3.8-4.5-4.5-.3-.7-.7-1.9 0-2.9Z"/>
-            </svg>
-            <strong>WhatsApp</strong>
-            <span>Manda mensagem pra combinar visita, tirar dúvida ou saber da próxima oficina.</span>
-        </a>
-        <a class="action-card reveal" href="https://www.instagram.com/amorabi_itinga/?utm_source=ig_embed" target="_blank" rel="noopener">
-            <svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true">
-                <rect x="4" y="4" width="16" height="16" rx="5"/>
-                <circle cx="12" cy="12" r="3.5"/>
-                <circle cx="16.8" cy="7.2" r="1"/>
-            </svg>
-            <strong>Instagram</strong>
-            <span>Fotos das oficinas, avisos e a agenda da semana, sempre atualizados.</span>
-        </a>
-        <a class="action-card reveal" href="<?php echo htmlspecialchars(url('projetos')); ?>">
-            <svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true">
-                <path d="M4 17.5V6.8A2.8 2.8 0 0 1 6.8 4h10.4A2.8 2.8 0 0 1 20 6.8v10.4a2.8 2.8 0 0 1-2.8 2.8H6.8A2.8 2.8 0 0 1 4 17.5Z"/>
-                <path d="M8 12h8M8 8.5h5M8 15.5h6"/>
-            </svg>
-            <strong>Projetos</strong>
-            <span>Teatro, capoeira, cursinho e outras oficinas gratuitas, explicadas uma por uma.</span>
-        </a>
+<section class="section section-soft home-contact-section">
+    <div class="container home-contact-cta reveal">
+        <div class="home-contact-copy">
+            <span class="eyebrow">Fale com a AMORABI</span>
+            <h2>Quer participar, visitar ou tirar uma dúvida?</h2>
+            <p>Converse diretamente com a equipe ou consulte todos os canais e o endereço da associação.</p>
+        </div>
+        <div class="home-contact-actions">
+            <a class="btn home-contact-main-btn" href="<?php echo htmlspecialchars(url('contato')); ?>">Ver página de contato <span aria-hidden="true">→</span></a>
+            <a class="btn btn-outline home-whatsapp-btn" href="https://api.whatsapp.com/send/?phone=47991987821&text&type=phone_number&app_absent=0" target="_blank" rel="noopener">
+                <svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M20.5 11.8a8.4 8.4 0 0 1-12.4 7.4L3 20.6l1.4-4.9a8.4 8.4 0 1 1 16.1-3.9Z"/>
+                    <path d="M8.9 7.9c.2-.4.4-.5.7-.5h.5c.2 0 .4.1.5.4l.7 1.7c.1.3.1.5-.1.7l-.4.5c-.1.2-.2.3-.1.5.4.8 1.5 2.2 2.9 2.8.2.1.4.1.5-.1l.7-.8c.2-.2.4-.3.7-.2l1.6.8c.3.1.4.3.4.6 0 .6-.4 1.5-1.1 1.8-.7.3-2 .3-4.1-.8-2.6-1.3-4.2-3.8-4.5-4.5-.3-.7-.7-1.9 0-2.9Z"/>
+                </svg>
+                Chamar no WhatsApp
+            </a>
+        </div>
     </div>
 </section>
 

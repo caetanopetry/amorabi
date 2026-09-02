@@ -307,6 +307,104 @@
     transform: scale(1.04);
 }
 
+.page-index main > section.home-about-section {
+    min-height: auto;
+    padding-top: 28px;
+    padding-bottom: 28px;
+}
+
+.home-about-teaser {
+    position: relative;
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr) auto;
+    align-items: center;
+    gap: clamp(24px, 4vw, 48px);
+    padding: 24px 28px;
+    overflow: hidden;
+    border: 1px solid rgba(161, 0, 20, 0.15);
+    border-radius: var(--radius);
+    background:
+        radial-gradient(circle at 88% -40%, rgba(246, 178, 75, 0.3), transparent 38%),
+        linear-gradient(115deg, rgba(161, 0, 20, 0.08), rgba(31, 122, 130, 0.08)),
+        var(--white);
+    box-shadow: 0 16px 36px rgba(55, 24, 44, 0.1);
+}
+
+.home-about-copy {
+    display: grid;
+    gap: 8px;
+}
+
+.home-about-year {
+    display: grid;
+    place-items: center;
+    min-width: 108px;
+    padding: 16px 18px;
+    border-radius: 14px;
+    background: linear-gradient(145deg, var(--primary), #c12857);
+    color: #fff;
+    box-shadow: 0 12px 25px rgba(161, 0, 20, 0.22);
+    transform: rotate(-2deg);
+}
+
+.home-about-year strong {
+    font-size: 1.65rem;
+    line-height: 1;
+}
+
+.home-about-year span {
+    margin-top: 5px;
+    color: rgba(255, 255, 255, 0.86);
+    font-size: 0.76rem;
+    font-weight: 800;
+    text-transform: uppercase;
+}
+
+.home-about-teaser p {
+    max-width: 68ch;
+    margin: 0;
+    color: var(--ink);
+    font-size: clamp(1rem, 1.5vw, 1.16rem);
+    font-weight: 650;
+    line-height: 1.55;
+}
+
+.home-about-link {
+    white-space: nowrap;
+    background: var(--teal);
+    border-color: var(--teal);
+}
+
+.home-about-link:hover {
+    background: #176a71;
+    border-color: #176a71;
+}
+
+:root[data-theme="dark"] .home-about-teaser {
+    background:
+        radial-gradient(circle at 88% -40%, rgba(246, 178, 75, 0.18), transparent 38%),
+        linear-gradient(115deg, rgba(161, 0, 20, 0.16), rgba(31, 122, 130, 0.12)),
+        var(--white);
+    border-color: rgba(255, 255, 255, 0.12);
+}
+
+.text-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--primary);
+    font-weight: 850;
+    text-decoration: none;
+}
+
+.text-link span {
+    transition: transform 0.2s ease;
+}
+
+.text-link:hover span {
+    transform: translateX(4px);
+}
+
 /* ============================================================
    3. GALERIA (CARROSSEL)
    ============================================================ */
@@ -581,6 +679,110 @@
     text-align: center;
 }
 
+.home-news-more {
+    margin-top: 28px;
+    text-align: center;
+}
+
+.page-index main > section.home-contact-section {
+    min-height: auto;
+    padding-top: clamp(42px, 6vw, 72px);
+    padding-bottom: clamp(42px, 6vw, 72px);
+}
+
+.home-contact-cta {
+    position: relative;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: center;
+    gap: 42px;
+    padding: clamp(28px, 4vw, 48px);
+    overflow: hidden;
+    border: 1px solid rgba(161, 0, 20, 0.14);
+    border-radius: var(--radius);
+    background:
+        radial-gradient(circle at 100% 0, rgba(31, 122, 130, 0.18), transparent 32%),
+        linear-gradient(120deg, rgba(246, 178, 75, 0.12), transparent 52%),
+        var(--white);
+    box-shadow: var(--shadow);
+}
+
+.home-contact-cta::before {
+    content: "";
+    position: absolute;
+    top: -46px;
+    right: 22%;
+    width: 110px;
+    height: 110px;
+    border: 18px solid rgba(161, 0, 20, 0.07);
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+.home-contact-copy,
+.home-contact-actions {
+    position: relative;
+    z-index: 1;
+}
+
+.home-contact-copy h2 {
+    max-width: 24ch;
+    margin: 12px 0 10px;
+}
+
+.home-contact-copy p {
+    max-width: 60ch;
+    margin: 0;
+    color: var(--muted);
+}
+
+.home-contact-actions {
+    display: grid;
+    justify-items: center;
+    gap: 14px;
+    min-width: 230px;
+}
+
+.home-contact-main-btn {
+    width: 100%;
+    justify-content: center;
+    gap: 10px;
+}
+
+.home-whatsapp-btn {
+    width: 100%;
+    justify-content: center;
+    gap: 10px;
+    background: transparent;
+    border-color: rgba(22, 138, 73, 0.55);
+    color: #168a49;
+    box-shadow: none;
+}
+
+.home-whatsapp-btn:hover {
+    background: rgba(22, 138, 73, 0.1);
+    border-color: #168a49;
+    color: #11753d;
+}
+
+.home-whatsapp-btn .svg-icon {
+    width: 22px;
+    height: 22px;
+}
+
+:root[data-theme="dark"] .home-contact-cta {
+    background:
+        radial-gradient(circle at 100% 0, rgba(31, 122, 130, 0.18), transparent 32%),
+        linear-gradient(120deg, rgba(246, 178, 75, 0.08), transparent 52%),
+        var(--white);
+    border-color: rgba(255, 255, 255, 0.12);
+}
+
+:root[data-theme="dark"] .home-whatsapp-btn {
+    color: #68d391;
+    border-color: rgba(104, 211, 145, 0.58);
+}
+
 /* ============================================================
    7. CARDS DE CONTATO
    ============================================================ */
@@ -732,6 +934,16 @@
     .hero-copy-panel {
         padding: 40px clamp(20px, 6vw, 48px);
     }
+
+    .home-contact-cta {
+        grid-template-columns: 1fr;
+        gap: 26px;
+    }
+
+    .home-contact-actions {
+        justify-items: start;
+        min-width: 0;
+    }
 }
 
 @media (max-width: 900px) {
@@ -839,6 +1051,18 @@
         padding: 28px 20px;
     }
 
+    .hero-actions {
+        display: grid;
+        grid-template-columns: 1fr;
+        width: 100%;
+    }
+
+    .hero-actions .btn {
+        width: 100%;
+        min-height: 48px;
+        justify-content: center;
+    }
+
     .hero-grid {
         min-height: auto;
     }
@@ -926,6 +1150,54 @@
         padding: 14px;
         max-height: none;
         overflow: visible;
+    }
+
+    .home-about-teaser {
+        align-items: flex-start;
+        grid-template-columns: 1fr;
+        gap: 18px;
+        padding: 22px;
+    }
+
+    .home-about-year {
+        display: inline-grid;
+        grid-template-columns: auto auto;
+        gap: 8px;
+        min-width: 0;
+        padding: 11px 14px;
+    }
+
+    .home-about-year strong {
+        font-size: 1.35rem;
+    }
+
+    .home-about-year span {
+        margin-top: 0;
+    }
+
+    .home-about-link {
+        width: 100%;
+        justify-content: center;
+        white-space: normal;
+    }
+
+    .home-news-more {
+        margin-top: 16px;
+    }
+
+    .news-section .card-grid .news-card:nth-child(n + 3) {
+        display: none;
+    }
+
+    .home-contact-cta {
+        gap: 22px;
+        padding: 24px 20px;
+    }
+
+    .home-contact-actions,
+    .home-contact-main-btn,
+    .home-whatsapp-btn {
+        width: 100%;
     }
 
     .page-index .card-grid,

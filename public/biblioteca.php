@@ -45,7 +45,7 @@ $acervo_marcos = [
     <div class="container library-split">
         <article class="library-copy reveal">
             <span class="section-kicker">Biblioteca Comunitária</span>
-            <h2 id="biblioteca-lutador-dito">Biblioteca Comunitária Lutador Dito</h2>
+            <h2 id="biblioteca-lutador-dito">Um espaço para ler, estudar e se encontrar</h2>
             <p>A Biblioteca Comunitária nasceu em 2018 e atualmente recebe o nome de Biblioteca Comunitária Lutador Dito, em homenagem a Benedito Clóvis da Silva, morador do bairro falecido em 2019. Mais do que um local para guardar livros, a biblioteca é um espaço de convivência, estudo e incentivo à leitura para todas as idades.</p>
             <p>O espaço atende estudantes das escolas da região, moradores, participantes do Cursinho Popular e outras pessoas da comunidade. Além do empréstimo gratuito de livros, a biblioteca recebe saraus, contações de histórias, exibições de filmes e oficinas. Aos sábados, uma equipe de voluntários realiza diferentes atividades.</p>
         </article>
@@ -62,6 +62,13 @@ $acervo_marcos = [
         <img src="<?php echo htmlspecialchars(asset_url('img/imagens-biblioteca/540776640_18337210918202339_8936651412990877340_n.jpg')); ?>" loading="lazy" decoding="async" alt="Atividade de leitura com crianças na Biblioteca Comunitária Lutador Dito">
         <img src="<?php echo htmlspecialchars(asset_url('img/imagens-biblioteca/550755790_18339038044202339_2560157884506401018_n.jpg')); ?>" loading="lazy" decoding="async" alt="Crianças participando de atividade com fantoches na biblioteca">
     </div>
+</section>
+
+<section class="library-visual-break" aria-label="Atividade cultural na Biblioteca Comunitária Lutador Dito">
+    <figure class="container library-wide-photo reveal">
+        <img src="<?php echo htmlspecialchars(asset_url('img/imagens-biblioteca/559518665_18341264374202339_6885267170326569923_n.jpg')); ?>" loading="lazy" decoding="async" alt="Apresentação de histórias com público na Biblioteca Comunitária Lutador Dito">
+        <figcaption>Histórias, encontros e atividades culturais aproximam a biblioteca da comunidade.</figcaption>
+    </figure>
 </section>
 
 <section class="section section-soft library-preservation-section" aria-labelledby="acervo-benedito-clovis">
@@ -88,19 +95,6 @@ $acervo_marcos = [
                 <p><?php echo htmlspecialchars($marco[1]); ?></p>
             </article>
         <?php endforeach; ?>
-    </div>
-</section>
-
-<section class="section library-community-section">
-    <div class="container library-community-card reveal">
-        <div>
-            <span class="section-kicker">Presença comunitária</span>
-            <h2>Leitura para circular, memória para permanecer.</h2>
-            <p>A biblioteca segue como espaço de convivência, enquanto o acervo comunitário fortalece o cuidado com documentos e materiais que ajudam a contar a história do bairro e das mobilizações da AMORABI.</p>
-        </div>
-        <figure>
-            <img src="<?php echo htmlspecialchars(asset_url('img/imagens-biblioteca/559518665_18341264374202339_6885267170326569923_n.jpg')); ?>" loading="lazy" decoding="async" alt="Apresentação de histórias com público na Biblioteca Comunitária Lutador Dito">
-        </figure>
     </div>
 </section>
 
