@@ -1,31 +1,15 @@
-# Sessões
-storage/sessions/*
-!storage/sessions/.gitkeep
-
-# Logs
-storage/logs/*
-!storage/logs/.gitkeep
-
-# Cache
-storage/cache/*
-!storage/cache/.gitkeep
-
-# Uploads (descomente se preferir não versionar uploads)
-public/uploads/noticias/*
-!public/uploads/noticias/.gitkeep
-
-# Arquivos do sistema
-Thumbs.db
-.DS_Store
-
-# IDEs
-.vscode/
-.idea/
-
-# Configurações locais
+# Credenciais e configurações locais
 .env
-.env.local
 .env.*
 !.env.example
 
-.gitignore
+# Arquivos gerados pela aplicação
+storage/sessions/*
+storage/cache/*
+
+# Manter arquivos necessários da estrutura
+!storage/cache/.gitkeep
+
+# Arquivos do Windows
+Thumbs.db
+desktop.ini

@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+
+Disallow: /admin/
+Disallow: /app/
+Disallow: /database/
+
+Sitemap: https://amorabi.com.br/sitemap.xml
