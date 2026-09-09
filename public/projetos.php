@@ -91,7 +91,7 @@ function course_icon($type) {
     <div class="container page-hero-split reveal">
         <div class="page-hero-copy">
             <span class="eyebrow">Projetos</span>
-            <h1>Transformação na Prática</h1>
+            <h1>Projetos e oficinas da AMORABI</h1>
             <p>Conheça as frentes de ação que movimentam a AMORABI diariamente.</p>
         </div>
         <figure class="page-hero-media">

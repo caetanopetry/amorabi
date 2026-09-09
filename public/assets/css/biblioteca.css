@@ -322,9 +322,7 @@
 :root[data-theme="dark"] .page-biblioteca .preservation-person,
 :root[data-theme="dark"] .page-biblioteca .library-note-list p,
 :root[data-theme="dark"] .page-biblioteca .archive-step {
-    background:
-        linear-gradient(180deg, rgba(255, 255, 255, 0.045), rgba(255, 255, 255, 0.02)),
-        var(--white);
+    background: var(--white);
     border-color: rgba(255, 255, 255, 0.12);
 }
 
@@ -348,7 +346,7 @@
 @media (max-width: 640px) {
     .page-biblioteca,
     .page-biblioteca main {
-        scroll-snap-type: y proximity;
+        scroll-snap-type: none;
     }
 
     .page-biblioteca .library-copy,
@@ -422,4 +420,42 @@
         width: 138px;
         margin: 0 0 16px;
     }
+}
+
+/* Biblioteca com aparência de acervo: blocos simples, fotos e linhas de cor. */
+.page-biblioteca .library-copy,
+.page-biblioteca .preservation-intro,
+.page-biblioteca .preservation-person,
+.page-biblioteca .library-note-list p,
+.page-biblioteca .archive-step,
+.page-biblioteca .library-photo-row img,
+.page-biblioteca .dito-portrait {
+    box-shadow: none;
+}
+
+.page-biblioteca .library-copy,
+.page-biblioteca .preservation-intro,
+.page-biblioteca .preservation-person,
+.page-biblioteca .library-note-list p,
+.page-biblioteca .archive-step {
+    border-color: rgba(36, 33, 42, 0.12);
+}
+
+.page-biblioteca .library-copy,
+.page-biblioteca .preservation-intro {
+    border-left: 4px solid var(--teal);
+}
+
+:root[data-theme="dark"] .page-biblioteca .library-copy,
+:root[data-theme="dark"] .page-biblioteca .preservation-intro,
+:root[data-theme="dark"] .page-biblioteca .preservation-person,
+:root[data-theme="dark"] .page-biblioteca .library-note-list p,
+:root[data-theme="dark"] .page-biblioteca .archive-step {
+    background: var(--white);
+    border-color: rgba(255, 255, 255, 0.13);
+}
+
+.page-biblioteca .library-note-list p::before,
+.page-biblioteca .archive-step::before {
+    box-shadow: none;
 }

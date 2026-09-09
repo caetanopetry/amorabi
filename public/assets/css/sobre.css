@@ -307,16 +307,16 @@
 
 @media (max-width: 980px) {
     .page-sobre {
-        scroll-snap-type: y mandatory;
+        scroll-snap-type: none;
     }
 
     .page-sobre main {
-        scroll-snap-type: y mandatory;
+        scroll-snap-type: none;
     }
 
     .page-sobre main > section {
-        min-height: calc(100svh - var(--page-header-height));
-        scroll-snap-align: start;
+        min-height: auto;
+        scroll-snap-align: none;
         padding-top: 28px;
         padding-bottom: 28px;
     }
@@ -338,11 +338,11 @@
 @media (max-width: 640px) {
     .page-sobre {
         --page-header-height: 64px;
-        scroll-snap-type: y proximity;
+        scroll-snap-type: none;
     }
 
     .page-sobre main {
-        scroll-snap-type: y proximity;
+        scroll-snap-type: none;
     }
 
     .page-sobre main > section {
@@ -443,4 +443,26 @@
         font-size: 1.52rem;
     }
 
+}
+
+/* Quem Somos preserva a força histórica sem excesso de cards flutuantes. */
+.about-opening-photo,
+.achievements-list article,
+.statutory-card,
+.recognition-item {
+    box-shadow: none;
+    border-color: rgba(36, 33, 42, 0.12);
+}
+
+.achievements-list article,
+.recognition-item,
+.statutory-card {
+    border-left: 4px solid var(--warm);
+}
+
+:root[data-theme="dark"] .achievements-list article,
+:root[data-theme="dark"] .recognition-item,
+:root[data-theme="dark"] .statutory-card,
+:root[data-theme="dark"] .about-opening-photo {
+    border-color: rgba(255, 255, 255, 0.13);
 }

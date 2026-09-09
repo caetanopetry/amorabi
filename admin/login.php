@@ -1,17 +1,18 @@
 <?php
 require_once __DIR__ . '/../app/helpers/functions.php';
 start_app_session();
+send_security_headers();
+send_no_store_headers();
 
 $erro = null;
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $email = sanitize($_POST['email']);
-    $senha = $_POST['senha'];
-    $locked_until = $_SESSION['login_locked_until'] ?? 0;
+    $email = sanitize($_POST['email'] ?? '');
+    $senha = $_POST['senha'] ?? '';
 
     if (!verify_csrf_token($_POST['_csrf'] ?? null)) {
         $erro = 'Sessao expirada. Recarregue a pagina e tente novamente.';
-    } elseif ($locked_until > time()) {
+    } elseif (login_is_locked($email)) {
         $erro = 'Muitas tentativas de login. Aguarde alguns minutos e tente novamente.';
     } elseif (!$pdo) {
         $erro = 'Não foi possível conectar ao banco de dados agora.';
@@ -23,18 +24,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         if ($user && password_verify($senha, $user['senha_hash'])) {
             session_regenerate_id(true);
             unset($_SESSION['login_attempts'], $_SESSION['login_locked_until']);
+            clear_login_rate($email);
             $_SESSION['admin_logged'] = true;
             $_SESSION['admin_uid'] = $user['id'];
             $_SESSION['admin_nome'] = $user['nome'];
             $_SESSION['admin_nivel'] = $user['nivel'];
+            $_SESSION['last_activity'] = time();
             header("Location: index.php");
             exit;
         }
 
-        $_SESSION['login_attempts'] = (int) ($_SESSION['login_attempts'] ?? 0) + 1;
-        if ($_SESSION['login_attempts'] >= 5) {
-            $_SESSION['login_locked_until'] = time() + 600;
-        }
+        register_failed_login($email);
 
         $erro = "E-mail ou senha incorretos.";
     }

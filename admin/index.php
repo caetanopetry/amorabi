@@ -1,6 +1,8 @@
 <?php
 require_once __DIR__ . '/../app/helpers/functions.php';
 check_auth();
+send_security_headers();
+send_no_store_headers();
 
 if (!$pdo) {
     die('Sem conexão com o banco de dados.');

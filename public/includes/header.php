@@ -1,5 +1,6 @@
 <?php
 require_once __DIR__ . '/../../app/helpers/functions.php';
+send_security_headers();
 
 $nome_site = get_site_config('nome_site', 'AMORABI');
 $current_route = current_route();

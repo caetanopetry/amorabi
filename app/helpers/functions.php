@@ -29,6 +29,36 @@ function start_app_session() {
 
 require_once __DIR__ . '/../config/database.php';
 
+function send_security_headers(): void
+{
+    if (headers_sent()) {
+        return;
+    }
+
+    header('X-Content-Type-Options: nosniff');
+    header('X-Frame-Options: SAMEORIGIN');
+    header('Referrer-Policy: strict-origin-when-cross-origin');
+    header('Permissions-Policy: camera=(), microphone=(), geolocation=()');
+
+    if (
+        env('APP_ENV', 'local') === 'production'
+        && (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off')
+    ) {
+        header('Strict-Transport-Security: max-age=31536000; includeSubDomains');
+    }
+}
+
+function send_no_store_headers(): void
+{
+    if (headers_sent()) {
+        return;
+    }
+
+    header('Cache-Control: no-store, no-cache, must-revalidate, max-age=0');
+    header('Pragma: no-cache');
+    header('Expires: 0');
+}
+
 function sanitize($data) {
     return htmlspecialchars(trim($data), ENT_QUOTES, 'UTF-8');
 }
@@ -40,6 +70,134 @@ function check_auth() {
         header("Location: login.php");
         exit;
     }
+
+    $inactive_limit = 3600;
+    $last_activity = (int) ($_SESSION['last_activity'] ?? time());
+
+    if (time() - $last_activity > $inactive_limit) {
+        $_SESSION = [];
+        session_destroy();
+        header("Location: login.php");
+        exit;
+    }
+
+    $_SESSION['last_activity'] = time();
+}
+
+function has_role(string|array $roles): bool
+{
+    start_app_session();
+
+    $roles = (array) $roles;
+    return isset($_SESSION['admin_nivel']) && in_array($_SESSION['admin_nivel'], $roles, true);
+}
+
+function require_role(string|array $roles): void
+{
+    if (!has_role($roles)) {
+        http_response_code(403);
+        die('Acesso negado.');
+    }
+}
+
+function client_ip(): string
+{
+    $ip = $_SERVER['REMOTE_ADDR'] ?? 'unknown';
+    return preg_replace('/[^a-fA-F0-9:\.]/', '', $ip) ?: 'unknown';
+}
+
+function storage_path(string $path = ''): string
+{
+    $base = realpath(__DIR__ . '/../../storage') ?: (__DIR__ . '/../../storage');
+    return rtrim($base, DIRECTORY_SEPARATOR) . ($path !== '' ? DIRECTORY_SEPARATOR . ltrim($path, DIRECTORY_SEPARATOR) : '');
+}
+
+function login_rate_key(string $email): string
+{
+    return hash('sha256', strtolower(trim($email)) . '|' . client_ip());
+}
+
+function login_rate_file(string $email): ?string
+{
+    $dir = storage_path('cache/login_attempts');
+    if (!is_dir($dir) && !mkdir($dir, 0775, true)) {
+        return null;
+    }
+
+    if (!is_writable($dir)) {
+        return null;
+    }
+
+    return $dir . DIRECTORY_SEPARATOR . login_rate_key($email) . '.json';
+}
+
+function login_rate_state(string $email): array
+{
+    $file = login_rate_file($email);
+    if (!$file) {
+        return ['attempts' => 0, 'locked_until' => 0];
+    }
+
+    if (!is_file($file)) {
+        return ['attempts' => 0, 'locked_until' => 0];
+    }
+
+    $state = json_decode((string) file_get_contents($file), true);
+    return is_array($state) ? $state + ['attempts' => 0, 'locked_until' => 0] : ['attempts' => 0, 'locked_until' => 0];
+}
+
+function login_is_locked(string $email): bool
+{
+    $state = login_rate_state($email);
+    return (int) $state['locked_until'] > time();
+}
+
+function register_failed_login(string $email): void
+{
+    $file = login_rate_file($email);
+    if (!$file) {
+        return;
+    }
+
+    $state = login_rate_state($email);
+    $attempts = (int) $state['attempts'] + 1;
+    $locked_until = $attempts >= 5 ? time() + 600 : 0;
+
+    file_put_contents($file, json_encode([
+        'attempts' => $attempts,
+        'locked_until' => $locked_until,
+        'updated_at' => time(),
+    ]), LOCK_EX);
+}
+
+function clear_login_rate(string $email): void
+{
+    $file = login_rate_file($email);
+    if ($file && is_file($file)) {
+        unlink($file);
+    }
+}
+
+function safe_child_path(string $base_dir, string $relative_path): ?string
+{
+    $base = realpath($base_dir);
+    if ($base === false) {
+        return null;
+    }
+
+    $relative_path = str_replace('\\', '/', ltrim($relative_path, '/\\'));
+    if ($relative_path === '' || str_contains($relative_path, '../') || str_contains($relative_path, '..\\')) {
+        return null;
+    }
+
+    $path = $base . DIRECTORY_SEPARATOR . str_replace('/', DIRECTORY_SEPARATOR, $relative_path);
+    $parent = realpath(dirname($path));
+
+    if ($parent === false || !str_starts_with($parent . DIRECTORY_SEPARATOR, $base . DIRECTORY_SEPARATOR)) {
+        return null;
+    }
+
+    return $path;
 }
 
 function get_site_config($chave, $default = '') {

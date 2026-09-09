@@ -171,8 +171,7 @@
 
 :root[data-theme="dark"] .page-projetos .project-photo-band,
 :root[data-theme="dark"] .page-projetos .courses-section {
-    background:
-        linear-gradient(180deg, #17131a, var(--white));
+    background: var(--white);
 }
 
 :root[data-theme="dark"] .page-projetos .btn-outline {
@@ -219,7 +218,7 @@
 
     .page-projetos,
     .page-projetos main {
-        scroll-snap-type: y proximity;
+        scroll-snap-type: none;
     }
 
     .page-projetos .page-hero h1 {
@@ -319,5 +318,59 @@
 
     .page-projetos .course-card {
         min-height: auto;
+    }
+}
+
+/* Projetos com leitura mais documental e menos vitrine de template. */
+.page-projetos .project-card,
+.page-projetos .course-card,
+.page-projetos .theatre-copy,
+.page-projetos .women-feature .theatre-copy,
+.page-projetos .cursinho-feature,
+.page-projetos .sports-partnership-card {
+    box-shadow: none;
+    border-color: rgba(36, 33, 42, 0.12);
+}
+
+:root[data-theme="dark"] .page-projetos .project-card,
+:root[data-theme="dark"] .page-projetos .course-card,
+:root[data-theme="dark"] .page-projetos .theatre-copy,
+:root[data-theme="dark"] .page-projetos .women-feature .theatre-copy,
+:root[data-theme="dark"] .page-projetos .cursinho-feature,
+:root[data-theme="dark"] .page-projetos .sports-partnership-card {
+    border-color: rgba(255, 255, 255, 0.13);
+}
+
+.page-projetos .project-card,
+.page-projetos .sports-partnership-card {
+    border-left: 4px solid var(--warm);
+}
+
+.page-projetos .course-card {
+    border-top: 3px solid rgba(31, 122, 130, 0.35);
+}
+
+.page-projetos .project-card:hover,
+.page-projetos .course-card:hover,
+.page-projetos .course-card:focus-visible {
+    transform: none;
+    box-shadow: none;
+    border-color: rgba(161, 0, 20, 0.28);
+}
+
+.page-projetos .course-card:hover .course-icon,
+.page-projetos .course-card:focus-visible .course-icon {
+    transform: none;
+}
+
+:root[data-theme="dark"] .page-projetos .project-photo-band,
+:root[data-theme="dark"] .page-projetos .courses-section {
+    background: var(--white);
+}
+
+@media (max-width: 700px) {
+    .page-projetos,
+    .page-projetos main {
+        scroll-snap-type: none;
     }
 }

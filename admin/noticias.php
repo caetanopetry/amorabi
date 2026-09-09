@@ -1,6 +1,8 @@
 <?php
 require_once __DIR__ . '/../app/helpers/functions.php';
 check_auth();
+send_security_headers();
+send_no_store_headers();
 
 if (!$pdo) {
     die('Sem conexão com o banco de dados.');
@@ -95,6 +97,11 @@ function upload_news_images(PDO $pdo, $news_id, $files, $upload_dir, $upload_url
         }
 
         $tmp = $files['tmp_name'][$index];
+
+        if (!is_uploaded_file($tmp) || !is_readable($tmp)) {
+            throw new RuntimeException('Uma das imagens enviadas nao e valida.');
+        }
+
         $mime = $finfo->file($tmp);
 
         if (!isset($allowed_types[$mime])) {
@@ -105,12 +112,28 @@ function upload_news_images(PDO $pdo, $news_id, $files, $upload_dir, $upload_url
             throw new RuntimeException('Cada imagem deve ter no máximo 5MB.');
         }
 
+        $image_info = getimagesize($tmp);
+        if ($image_info === false) {
+            throw new RuntimeException('Uma das imagens enviadas nao e valida.');
+        }
+
+        if (($image_info['mime'] ?? '') !== $mime) {
+            throw new RuntimeException('Uma das imagens enviadas nao e valida.');
+        }
+
+        [$width, $height] = $image_info;
+        if ($width > 8000 || $height > 8000) {
+            throw new RuntimeException('Envie imagens com ate 8000 pixels de largura ou altura.');
+        }
+
         $filename = date('YmdHis') . '-' . bin2hex(random_bytes(5)) . '.' . $allowed_types[$mime];
         $destination = $upload_dir . DIRECTORY_SEPARATOR . $filename;
 
         if (!move_uploaded_file($tmp, $destination)) {
             throw new RuntimeException('Falha ao salvar uma das imagens.');
         }
+
+        chmod($destination, 0644);
 
         $order++;
         $insert = $pdo->prepare('INSERT INTO noticia_imagens (noticia_id, arquivo, texto_alt, ordem) VALUES (?, ?, ?, ?)');
@@ -122,6 +145,7 @@ function upload_news_images(PDO $pdo, $news_id, $files, $upload_dir, $upload_url
 
 $feedback = null;
 $erro = null;
+$can_publish = has_role('admin');
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $acao = $_POST['acao'] ?? 'salvar';
@@ -132,6 +156,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
 
         if ($acao === 'excluir') {
+            require_role('admin');
+
             $id = (int) ($_POST['id'] ?? 0);
             $imagens = news_images($pdo, $id);
 
@@ -139,8 +165,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $stmt->execute([$id]);
 
             foreach ($imagens as $img) {
-                $path = __DIR__ . '/../public/uploads/' . $img['arquivo'];
-                if (is_file($path)) {
+                $path = safe_child_path(__DIR__ . '/../public/uploads', (string) $img['arquivo']);
+                if ($path && is_file($path)) {
                     unlink($path);
                 }
             }
@@ -151,10 +177,24 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $titulo = sanitize($_POST['titulo'] ?? '');
             $resumo = sanitize($_POST['resumo'] ?? '');
             $conteudo = trim($_POST['conteudo'] ?? '');
-            $status = in_array($_POST['status'] ?? '', ['rascunho', 'publicado'], true) ? $_POST['status'] : 'rascunho';
             $categoria_id = !empty($_POST['categoria_id']) ? (int) $_POST['categoria_id'] : null;
-            $destaque = !empty($_POST['destaque']) ? 1 : 0;
             $texto_alt = sanitize($_POST['texto_alt_imagem'] ?? $titulo);
+            $current = $id > 0 ? fetch_one_safe('SELECT publicado_em, status, destaque FROM noticias WHERE id = ?', [$id]) : null;
+            $status = in_array($_POST['status'] ?? '', ['rascunho', 'publicado'], true) ? $_POST['status'] : 'rascunho';
+            $destaque = !empty($_POST['destaque']) ? 1 : 0;
+
+            if ($id > 0 && !$current) {
+                throw new RuntimeException('Noticia nao encontrada para edicao.');
+            }
+
+            if ($categoria_id && !fetch_one_safe('SELECT id FROM categorias WHERE id = ?', [$categoria_id])) {
+                $categoria_id = null;
+            }
+
+            if (!$can_publish) {
+                $status = $current['status'] ?? 'rascunho';
+                $destaque = (int) ($current['destaque'] ?? 0);
+            }
 
             if ($titulo === '' || $conteudo === '') {
                 throw new RuntimeException('Preencha título e conteúdo.');
@@ -168,7 +208,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
             if ($id > 0) {
                 $slug = unique_news_slug($pdo, $titulo, $id);
-                $current = fetch_one_safe('SELECT publicado_em FROM noticias WHERE id = ?', [$id]);
                 if ($status === 'publicado' && !empty($current['publicado_em'])) {
                     $publicado_em = $current['publicado_em'];
                 }
@@ -186,8 +225,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 foreach ($_POST['remover_imagens'] as $image_id) {
                     $img = fetch_one_safe('SELECT * FROM noticia_imagens WHERE id = ? AND noticia_id = ?', [(int) $image_id, $id]);
                     if ($img) {
-                        $path = __DIR__ . '/../public/uploads/' . $img['arquivo'];
-                        if (is_file($path)) {
+                        $path = safe_child_path(__DIR__ . '/../public/uploads', (string) $img['arquivo']);
+                        if ($path && is_file($path)) {
                             unlink($path);
                         }
                         $del = $pdo->prepare('DELETE FROM noticia_imagens WHERE id = ?');
@@ -326,13 +365,17 @@ $noticias = fetch_all_safe("SELECT n.*, c.nome AS categoria_nome, COUNT(ni.id) A
                         <span>Status</span>
                         <select name="status">
                             <option value="rascunho" <?php echo (($edit['status'] ?? '') === 'rascunho') ? 'selected' : ''; ?>>Rascunho</option>
-                            <option value="publicado" <?php echo (($edit['status'] ?? '') === 'publicado') ? 'selected' : ''; ?>>Publicado</option>
+                            <?php if ($can_publish): ?>
+                                <option value="publicado" <?php echo (($edit['status'] ?? '') === 'publicado') ? 'selected' : ''; ?>>Publicado</option>
+                            <?php endif; ?>
                         </select>
                     </label>
-                    <label class="admin-check">
-                        <input type="checkbox" name="destaque" value="1" <?php echo !empty($edit['destaque']) ? 'checked' : ''; ?>>
-                        <span>Destacar</span>
-                    </label>
+                    <?php if ($can_publish): ?>
+                        <label class="admin-check">
+                            <input type="checkbox" name="destaque" value="1" <?php echo !empty($edit['destaque']) ? 'checked' : ''; ?>>
+                            <span>Destacar</span>
+                        </label>
+                    <?php endif; ?>
                 </div>
 
                 <div class="admin-actions">
@@ -360,12 +403,14 @@ $noticias = fetch_all_safe("SELECT n.*, c.nome AS categoria_nome, COUNT(ni.id) A
                                 <?php if ($noticia['status'] === 'publicado'): ?>
                                     <a class="btn btn-small btn-outline" href="<?php echo htmlspecialchars(url('noticia') . '?slug=' . urlencode($noticia['slug'])); ?>" target="_blank" rel="noopener">Ver</a>
                                 <?php endif; ?>
+                                <?php if ($can_publish): ?>
                                 <form method="POST" onsubmit="return confirm('Excluir esta notícia?');">
                                     <?php echo csrf_field(); ?>
                                     <input type="hidden" name="acao" value="excluir">
                                     <input type="hidden" name="id" value="<?php echo $noticia['id']; ?>">
                                     <button class="btn btn-small" type="submit">Excluir</button>
                                 </form>
+                                <?php endif; ?>
                             </div>
                         </article>
                     <?php endforeach; ?>
