@@ -424,13 +424,17 @@
     }
 
     .about-timeline::before {
-        left: 7px;
+        display: none;
+    }
+
+    .about-timeline-item::before {
+        display: none;
     }
 
     .about-timeline-item {
         grid-template-columns: 1fr;
         gap: 6px;
-        padding-left: 30px;
+        padding-left: 0;
     }
 
     .about-timeline-item p {
