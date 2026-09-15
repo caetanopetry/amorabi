@@ -11,13 +11,13 @@ $projetos_base = [
     ],
     [
         'titulo' => 'Oficinas de Música, Canto e Ritmo',
-        'resumo' => 'Violão e canto, canto coral, conectam corpo, voz, ritmo e convivência comunitária.',
+        'resumo' => 'Violão e canto, conectam corpo, voz, ritmo e convivência comunitária.',
         'tag' => 'Arte e música',
         'imagem_local' => asset_url('img/imagens/721466374_18377040283202339_1097163294585383178_n.jpg'),
     ],
     [
         'titulo' => 'Educação Popular e Inclusão Digital',
-        'resumo' => 'Cursinho Popular gratuito para ENEM e vestibulares, café comunitário, apoio com transporte e oficinas de educação financeira digital.',
+        'resumo' => 'Cursinho Popular gratuito para ENEM e vestibulares, café comunitário, apoio com transporte.',
         'tag' => 'Educação',
         'imagem_local' => asset_url('img/imagens-cursinho/653876447_18000690554906873_2216402177710935293_n.jpg'),
     ],
@@ -33,7 +33,6 @@ $lista_projetos = !empty($projetos) ? $projetos : $projetos_base;
 $cursos_cultura = [
     ['Curso de Teatro', 'Expressão corporal, desinibição, jogos teatrais e montagens cênicas apresentadas em festivais locais.', 'theatre'],
     ['Violão e Canto', 'Introdução musical, acordes no violão e técnicas de canto conjugadas.', 'music'],
-    ['Canto Coral', 'Canto coletivo, percepção musical, afinação e apresentações comunitárias em grupo.', 'choral'],
 ];
 
 $cursos_corpo = [
@@ -65,7 +64,6 @@ $parcerias_esportivas = [
 
 $cursos_educacao = [
     ['Cursinho Popular Pré-ENEM', 'Aulas gratuitas aos sábados, das 14h às 18h, com professores voluntários.', 'book'],
-    ['Educação Financeira Digital', 'Oficinas sobre tecnologias e aplicativos para controle financeiro pessoal e familiar.', 'digital'],
 ];
 
 function course_icon($type) {
@@ -91,7 +89,7 @@ function course_icon($type) {
     <div class="container page-hero-split reveal">
         <div class="page-hero-copy">
             <span class="eyebrow">Projetos</span>
-            <h1>Projetos e oficinas da AMORABI</h1>
+            <h1>Transformação na Prática</h1>
             <p>Conheça as frentes de ação que movimentam a AMORABI diariamente.</p>
         </div>
         <figure class="page-hero-media">
@@ -219,7 +217,7 @@ function course_icon($type) {
 
     <div class="container sports-partnerships reveal">
         <div class="sports-partnerships-intro">
-            <span class="eyebrow">Parcerias esportivas</span>
+            <span class="eyebrow">Parcerias</span>
             <h3>Uso comunitário da estrutura da AMORABI</h3>
             <p>A modalidade de parceria ocorre quando a AMORABI disponibiliza sua estrutura física para atividades esportivas, culturais ou de lazer. As parcerias são avaliadas e aprovadas pela direção eleita da entidade. Quando aplicável, os valores arrecadados ajudam na manutenção do espaço, incluindo limpeza, energia e divulgação.</p>
         </div>

@@ -3,7 +3,7 @@
     <div class="container footer-grid">
         <div class="footer-about">
             <img src="<?php echo htmlspecialchars(asset_url('img/amorabi-logo-transparent.png')); ?>" alt="AMORABI" class="footer-logo">
-            <p>Associação de Moradores e Amigos do Bairro Itinga. Cultura, educação popular e mobilização comunitária em Joinville-SC.</p>
+            <p>Associação dos Moradores e Amigos do Bairro Itinga. Cultura, educação popular e mobilização comunitária em Joinville-SC.</p>
         </div>
 
         <div>

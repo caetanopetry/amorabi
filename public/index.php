@@ -159,12 +159,11 @@ $noticias = fetch_all_safe("SELECT * FROM noticias WHERE status = 'publicado' OR
     <div class="container home-courses-tags reveal">
         <span>Teatro</span>
         <span>Violão e canto</span>
-        <span>Canto coral</span>
         <span>Karatê comunitário</span>
         <span>Capoeira</span>
         <span>Yoga</span>
         <span>Cursinho Pré-ENEM</span>
-        <span>Educação financeira digital</span>
+
     </div>
     <div class="container home-courses-cta reveal">
         <a class="btn" href="<?php echo htmlspecialchars(url('projetos')); ?>">Ver todos os projetos</a>
