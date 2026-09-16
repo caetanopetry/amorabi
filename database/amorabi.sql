@@ -1,11 +1,11 @@
-CREATE DATABASE amorabi_site
+CREATE DATABASE IF NOT EXISTS amorabi_site
 CHARACTER SET utf8mb4
 COLLATE utf8mb4_unicode_ci;
 
 USE amorabi_site;
 
 
-CREATE TABLE admin_users (
+CREATE TABLE IF NOT EXISTS admin_users (
     id INT AUTO_INCREMENT PRIMARY KEY,
     nome VARCHAR(120) NOT NULL,
     email VARCHAR(180) NOT NULL UNIQUE,
@@ -16,14 +16,14 @@ CREATE TABLE admin_users (
     atualizado_em DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 );
 
-CREATE TABLE categorias (
+CREATE TABLE IF NOT EXISTS categorias (
     id INT AUTO_INCREMENT PRIMARY KEY,
     nome VARCHAR(120) NOT NULL,
     slug VARCHAR(160) NOT NULL UNIQUE,
     criado_em DATETIME DEFAULT CURRENT_TIMESTAMP
 );
 
-CREATE TABLE noticias (
+CREATE TABLE IF NOT EXISTS noticias (
     id INT AUTO_INCREMENT PRIMARY KEY,
     categoria_id INT NULL,
     titulo VARCHAR(200) NOT NULL,
@@ -42,7 +42,7 @@ CREATE TABLE noticias (
         ON DELETE SET NULL
 );
 
-CREATE TABLE noticia_imagens (
+CREATE TABLE IF NOT EXISTS noticia_imagens (
     id INT AUTO_INCREMENT PRIMARY KEY,
     noticia_id INT NOT NULL,
     arquivo VARCHAR(255) NOT NULL,
@@ -55,7 +55,7 @@ CREATE TABLE noticia_imagens (
 );
 
 
-CREATE TABLE projetos (
+CREATE TABLE IF NOT EXISTS projetos (
     id INT AUTO_INCREMENT PRIMARY KEY,
     titulo VARCHAR(180) NOT NULL,
     slug VARCHAR(220) NOT NULL UNIQUE,
@@ -69,7 +69,7 @@ CREATE TABLE projetos (
 );
 
 
-CREATE TABLE eventos (
+CREATE TABLE IF NOT EXISTS eventos (
     id INT AUTO_INCREMENT PRIMARY KEY,
     titulo VARCHAR(180) NOT NULL,
     slug VARCHAR(220) NOT NULL UNIQUE,
@@ -84,7 +84,7 @@ CREATE TABLE eventos (
 );
 
 
-CREATE TABLE biblioteca_info (
+CREATE TABLE IF NOT EXISTS biblioteca_info (
     id INT AUTO_INCREMENT PRIMARY KEY,
     titulo VARCHAR(180) NOT NULL,
     descricao LONGTEXT NOT NULL,
@@ -96,13 +96,13 @@ CREATE TABLE biblioteca_info (
 );
 
 
-CREATE TABLE tipos_documentos (
+CREATE TABLE IF NOT EXISTS tipos_documentos (
     id INT AUTO_INCREMENT PRIMARY KEY,
     nome VARCHAR(120) NOT NULL,
     slug VARCHAR(160) NOT NULL UNIQUE
 );
 
-CREATE TABLE documentos (
+CREATE TABLE IF NOT EXISTS documentos (
     id INT AUTO_INCREMENT PRIMARY KEY,
     tipo_id INT NULL,
     titulo VARCHAR(180) NOT NULL,
@@ -117,14 +117,14 @@ CREATE TABLE documentos (
 );
 
 
-CREATE TABLE site_config (
+CREATE TABLE IF NOT EXISTS site_config (
     id INT AUTO_INCREMENT PRIMARY KEY,
     chave VARCHAR(100) NOT NULL UNIQUE,
     valor TEXT
 );
 
 
-CREATE TABLE mensagens_contato (
+CREATE TABLE IF NOT EXISTS mensagens_contato (
     id INT AUTO_INCREMENT PRIMARY KEY,
     nome VARCHAR(120) NOT NULL,
     email VARCHAR(180) NOT NULL,
@@ -136,7 +136,7 @@ CREATE TABLE mensagens_contato (
 );
 
 
-CREATE TABLE galeria (
+CREATE TABLE IF NOT EXISTS galeria (
     id INT AUTO_INCREMENT PRIMARY KEY,
     titulo VARCHAR(160),
     descricao TEXT,
@@ -146,20 +146,23 @@ CREATE TABLE galeria (
     criado_em DATETIME DEFAULT CURRENT_TIMESTAMP
 );
 
-INSERT INTO categorias (nome, slug) VALUES
+
+INSERT IGNORE INTO categorias (nome, slug) VALUES
 ('Cultura', 'cultura'),
 ('Educação', 'educacao'),
 ('Comunidade', 'comunidade'),
 ('Eventos', 'eventos');
 
-INSERT INTO tipos_documentos (nome, slug) VALUES
+
+INSERT IGNORE INTO tipos_documentos (nome, slug) VALUES
 ('Estatuto', 'estatuto'),
 ('Prestação de Contas', 'prestacao-de-contas'),
 ('Relatórios de Atividades', 'relatorios-de-atividades'),
 ('Documentos Legais', 'documentos-legais'),
 ('Parcerias', 'parcerias');
 
-INSERT INTO site_config (chave, valor) VALUES
+
+INSERT IGNORE INTO site_config (chave, valor) VALUES
 ('nome_site', 'AMORABI'),
 ('instagram', 'https://www.instagram.com/amorabi_itinga/'),
 ('email_contato', 'contato@amorabi.org.br'),
