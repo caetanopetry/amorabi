@@ -1,0 +1,16 @@
+FROM php:8.2-apache
+
+RUN docker-php-ext-install pdo_mysql \
+    && a2enmod rewrite
+
+WORKDIR /var/www/html
+
+COPY app/ ./app/
+COPY admin/ ./admin/
+COPY public/ ./public/
+COPY index.php .htaccess robots.txt sitemap.xml ./
+
+RUN mkdir -p /var/www/html/public/uploads/noticias /var/www/html/storage/sessions /var/www/html/storage/cache \
+    && chown -R www-data:www-data /var/www/html/public/uploads /var/www/html/storage
+
+EXPOSE 80
